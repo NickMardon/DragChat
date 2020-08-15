@@ -1,0 +1,52 @@
+body {
+    background-color:skyblue;
+    padding: 10px;
+    }
+    @media (min-width: 900px){
+    #container {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 15%;
+        bottom: 0;
+        right: 0;
+        width: 80%;
+    }
+    
+    /* Then style the iframe to fit in the container div with full height and width */
+    #meet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 5%;
+        border: 5px groove #fab387;
+        z-index: 0;
+    }
+    .tinyColumn {
+        left: 6px;
+        width: 17%;
+        margin: 6px;
+    }
+}
+@media (max-width: 899px){
+        #container {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            padding: 56.25%;
+        }
+        #meet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+}
