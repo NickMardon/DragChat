@@ -3,7 +3,14 @@ import Jitsi from './components/jitsi/jitsi.component'
 
 function App() {
   return (
-   <Jitsi />
+    <div style={{ display: "flex"}}>
+
+    <Jitsi />
+    <main className="flexbox">
+      place both boards here.
+    </main>  
+    
+    </div>
   );
 }
 
