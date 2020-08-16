@@ -6,9 +6,10 @@ import './roomcardstyle.css'
 export default function RoomCard(props) {
     // we must declare our draggable component inside the function of the thing to be dragged itself! this hook comes from rdnd, so be sure to import when using
     const[ { isDragging }, drag ] = useDrag({
-
+        //item here is just an object, we can pass whatever, but a TYPE from the util type file is required. I am passing id currently, but we can pass the jitsi room name. this will allow the drop thing to 
         item: {
             type: ItemTypes.CARD,
+            id: props._id,
         },
         collect: monitor => ({
             //now that the monitor is watching for dragging, if it isDragging, this will add an "isdragging" prop to our dragging props.

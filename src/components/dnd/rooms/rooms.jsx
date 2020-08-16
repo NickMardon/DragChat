@@ -1,6 +1,7 @@
 //this component uses dummy state to contain and render the 'rooms' for now
 import React, {useState, useEffect} from 'react'
 import RoomCard from '../roomcard/roomcard'
+import Dropzone from '../dropzone/dropzone'
 
 export default function Rooms() {
     //using disconn and conn as status for each room will tell react which one to render into jitsiframe. this data structure should be able to handle all permutations of our rooms, once the join is brought back. It will involve some minor manipulation on the backend side to pare down the data to an array of the rooms. HALL needs to exist as an owner table-style but NOT as an actual room itself. bad form, evan. will fix, Halls need just an ID and a password and the FK to user id. password passed to each assoc/child room, so is user ID, so is hall ID. then no 'join' likely even necessary, just search rooms by id filter.
@@ -29,7 +30,7 @@ export default function Rooms() {
         },
         {
             _id: (Math.random()*100).toFixed(0),
-            status: 'conn',
+            status: 'disconn',
             name: 'study hall',
             jitsiName: 'epachols-studyhall-mymu5y34ybnfgb',
             description: 'SHHHHHHHHHH'
@@ -92,21 +93,23 @@ export default function Rooms() {
 
                     {/* HERE we render a box to actually drop into - this will be the dropzone component. */}
 
-                    {/* <div style={styles.dropbox}>
-                        
+                    <Dropzone>
+
+                       
                         {roomList
                         .filter((room, i) => room.status === 'conn')
                         .map((room, i) => (
                             <RoomCard
-                                key={room.id.toString()}
+                                key={room._id.toString()}
                                 id={room._id}
                                 name={room.name}
                                 jitsiName={room.jitsiName}
                                 description={room.description}
                                 />
                         ))}
+                    </Dropzone>
 
-                    </div> */}
+                    
 
                 </div>
             </div>
