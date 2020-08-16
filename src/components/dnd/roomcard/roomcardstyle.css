@@ -1,0 +1,12 @@
+.roomCard {
+    width:95%;
+    height: 150px;
+    margin: 10px 10px;
+    background-color: #48b570;
+    font-size: 15px;
+    overflow: 'auto',
+}
+
+.dragging {
+    display: none;
+}
