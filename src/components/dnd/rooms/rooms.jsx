@@ -59,11 +59,12 @@ export default function Rooms() {
         }
     }
 
-    // TODO: not finished, he didn't show the end of the concat. const markAsConnected = _id => {
-    //     const room = roomList.filter((room, i) => room._id == _id);
-    //     room[0].status ='conn';
-    //     setRoomList(roomList.filter((room, i)=> room._id !== _id).concat())
-    // }
+    //marking a room as connected - filters for the one we are changing, sets its status to connected, concats it back onto the roomlist filtered for the one we changed (switcheroo).
+    const markAsConnected = _id => {
+        const room = roomList.filter((room, i) => room._id == _id);
+        room[0].status ='conn';
+        setRoomList(roomList.filter((room, i)=> room._id !== _id).concat(room[0]))
+    }
 
     return (
         <div style={{display: 'flex'}}>

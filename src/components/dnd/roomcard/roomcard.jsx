@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function RoomCard(props) {
-    
+
     const style={
         width:'100px',
         height: '85px',
@@ -12,6 +12,7 @@ export default function RoomCard(props) {
 
     }
 
+    //the video example does some neat stuff in the below render with a color coded badge based on the category, we could do one for connection status
     return (
         <div style={style}>
            <ul>
