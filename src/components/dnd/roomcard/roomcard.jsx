@@ -9,7 +9,7 @@ export default function RoomCard(props) {
         //item here is just an object, we can pass whatever, but a TYPE from the util type file is required. I am passing id currently, but we can pass the jitsi room name. this will allow the drop thing to 
         item: {
             type: ItemTypes.CARD,
-            id: props._id,
+            id: props.id,
         },
         collect: monitor => ({
             //now that the monitor is watching for dragging, if it isDragging, this will add an "isdragging" prop to our dragging props.
@@ -33,7 +33,7 @@ export default function RoomCard(props) {
                    {props.jitsiName}
                </li>
                <li>
-                -- 🍖 🎪
+                --<span role="img" aria-label='meatfest'>🍖 🎪</span>
                </li>
                <li>
                 {props.description}

@@ -7,3 +7,7 @@
     width: 60vw;
     border-radius: 5px;
 }
+
+.isOver {
+    background:rgb(26, 173, 0);
+}
