@@ -7,19 +7,19 @@ import Jitsi from './components/jitsi/jitsi.component'
 import { DndProvider } from 'react-dnd';
 //have to pass a backend to it, here is where we switch out for the combo one later
 import { HTML5Backend } from "react-dnd-html5-backend";
+import Rooms from './components/dnd/rooms/rooms'
 
 function App() {
   
 
+
   return (
     <DndProvider backend={HTML5Backend}>
 
-      <div style={{ display: "flex"}}>
+      <div style={{ display: "flex", flexDirection: 'column'}}>
 
       <Jitsi />
-        <div>
-        
-        </div>
+      <Rooms />
       </div>
     </DndProvider>
   );

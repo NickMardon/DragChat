@@ -10,7 +10,7 @@ export default function Rooms() {
             _id: (Math.random()*100).toFixed(0),
             status: 'disconn',
             name: 'Main hall',
-            roomName: 'epachols-mainhall-aofwoiejrj2',
+            jitsiName: 'epachols-mainhall-aofwoiejrj2',
             description: 'welcome, welcome, can I take your coat?'
         },
         {
@@ -41,7 +41,7 @@ export default function Rooms() {
     const styles = {
         rooms: {
             width: '20%',
-            margin: '10px 20px',
+            margin: '10px 10px',
             padding: '25px',
             backgroundColor: '#789482'
         },
@@ -49,7 +49,7 @@ export default function Rooms() {
             display: 'flex',
             justifyContent: 'center',
             width: '70%',
-            margin: '10px 20px',
+            margin: '10px 10px',
             padding: '25px',
             backgroundColor: '#00a7bd'
         },
@@ -66,15 +66,16 @@ export default function Rooms() {
         setRoomList(roomList.filter((room, i)=> room._id !== _id).concat(room[0]))
     }
 
+    
     return (
-        <div style={{display: 'flex'}}>
+        <div style={{display: 'flex', minHeight: '100vh'}}>
             <div style={styles.rooms}>
-                <h2>Available rooms in this hall</h2>
+                <h2>Hallway</h2>
                 {roomList
                     .filter((room, i) => room.status === 'disconn')
                     .map((room, i) => (
                         <RoomCard
-                            key={room.id.toString()}
+                            key={room._id.toString()}
                             id={room._id}
                             name={room.name}
                             jitsiName={room.jitsiName}

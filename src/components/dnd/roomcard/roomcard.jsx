@@ -1,14 +1,26 @@
 import React from 'react'
+import { useDrag } from 'react-dnd'
+import { ItemTypes } from '../../../utils/items'
+
 
 export default function RoomCard(props) {
+    // we must declare our draggable component inside the function of the thing to be dragged itself! this hook comes from rdnd, so be sure to import when using
+    const[] = useDrag({
+
+        item: {
+            type: ItemTypes.CARD
+        },
+    
+    })
 
     const style={
-        width:'100px',
-        height: '85px',
-        margin: '10 10',
+        width:'95%',
+        height: '150px',
+        margin: '10px 10px',
         backgroundColor: '#48b570',
-        fontSize: '20px',
+        fontSize: '15px',
         fontWeight: 'bold',
+        overflow: 'auto'
 
     }
 
