@@ -1,0 +1,114 @@
+//this component uses dummy state to contain and render the 'rooms' for now
+import React, {useState, useEffect} from 'react'
+import RoomCard from '../roomcard/roomcard'
+
+export default function Rooms() {
+    //using disconn and conn as status for each room will tell react which one to render into jitsiframe. this data structure should be able to handle all permutations of our rooms, once the join is brought back. It will involve some minor manipulation on the backend side to pare down the data to an array of the rooms. HALL needs to exist as an owner table-style but NOT as an actual room itself. bad form, evan. will fix, Halls need just an ID and a password and the FK to user id. password passed to each assoc/child room, so is user ID, so is hall ID. then no 'join' likely even necessary, just search rooms by id filter.
+
+    const [roomList, setRoomList] = useState([
+        {
+            _id: (Math.random()*100).toFixed(0),
+            status: 'disconn',
+            name: 'Main hall',
+            roomName: 'epachols-mainhall-aofwoiejrj2',
+            description: 'welcome, welcome, can I take your coat?'
+        },
+        {
+            _id: (Math.random()*100).toFixed(0),
+            status: 'disconn',
+            name: 'Play Room',
+            jitsiName: 'epachols-playroom-aof5566ggsdfxvc2',
+            description: 'we like to have fun here'
+        },
+        {
+            _id: (Math.random()*100).toFixed(0),
+            status: 'disconn',
+            name: 'workouts',
+            jitsiName: 'epachols-workouts-asdfsdfr32rtbvxbvde',
+            description: 'sweat baby sweat'
+        },
+        {
+            _id: (Math.random()*100).toFixed(0),
+            status: 'conn',
+            name: 'study hall',
+            jitsiName: 'epachols-studyhall-mymu5y34ybnfgb',
+            description: 'SHHHHHHHHHH'
+        },
+
+    ]);
+
+    //applied styling only for demo purposes.
+    const styles = {
+        rooms: {
+            width: '20%',
+            margin: '10px 20px',
+            padding: '25px',
+            backgroundColor: '#789482'
+        },
+        connected: {
+            display: 'flex',
+            justifyContent: 'center',
+            width: '70%',
+            margin: '10px 20px',
+            padding: '25px',
+            backgroundColor: '#00a7bd'
+        },
+        dropbox: {
+            backgroundColor: '#d5dfe0',
+
+        }
+    }
+
+    // TODO: not finished, he didn't show the end of the concat. const markAsConnected = _id => {
+    //     const room = roomList.filter((room, i) => room._id == _id);
+    //     room[0].status ='conn';
+    //     setRoomList(roomList.filter((room, i)=> room._id !== _id).concat())
+    // }
+
+    return (
+        <div style={{display: 'flex'}}>
+            <div style={styles.rooms}>
+                <h2>Available rooms in this hall</h2>
+                {roomList
+                    .filter((room, i) => room.status === 'disconn')
+                    .map((room, i) => (
+                        <RoomCard
+                            key={room.id.toString()}
+                            id={room._id}
+                            name={room.name}
+                            jitsiName={room.jitsiName}
+                            description={room.description}
+                            />
+                    ))}
+            </div>
+        
+            
+            <div style={styles.connected}>
+                {/* the below div takes the place of the 'stack' in the video */}
+                <div>
+                    <h2>Currently Connected Room</h2>
+
+                    {/* HERE we render a box to actually drop into - this will be the dropzone component. */}
+
+                    {/* <div style={styles.dropbox}>
+                        
+                        {roomList
+                        .filter((room, i) => room.status === 'conn')
+                        .map((room, i) => (
+                            <RoomCard
+                                key={room.id.toString()}
+                                id={room._id}
+                                name={room.name}
+                                jitsiName={room.jitsiName}
+                                description={room.description}
+                                />
+                        ))}
+
+                    </div> */}
+
+                </div>
+            </div>
+        
+        </div>
+    )
+}
