@@ -1,0 +1,82 @@
+body {
+    background-color:skyblue;
+    padding: 10px;
+}
+    @media (min-width: 1000px){
+    #container {
+        position: absolute;
+        overflow: hidden;
+        top: 7.5%;
+        left: 39.5%;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 90%;
+    }
+    #tinyColumn {
+        width:40%;
+        margin: 5px;
+        margin-top: 10px;
+    }
+    .row {
+        margin:10px;
+    }
+    
+    #meet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 5%;
+        border: 5px groove #fab387;
+        z-index: 0;
+    }
+}
+@media only screen and (max-width: 999px) and (min-width: 500px){
+        #container {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            padding: 30%;
+        }
+        #tinyColumn {
+            visibility: hidden;
+        }
+        #meet {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+        }
+}
+@media only screen and (max-width: 499px) and (min-width: 50px){
+    #container {
+        position: absolute;
+        overflow: hidden;
+        top: 12%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 50%;
+        
+    }
+    #meet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+    }
+    #tinyColumn {
+        margin-top: 400px;
+    }
+}

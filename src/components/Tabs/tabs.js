@@ -6,21 +6,22 @@ const { TabPane } = Tabs;
 function callback(key) {
   console.log(key);
 }
-
- const Demo = () => (
-  <Tabs defaultActiveKey="1" onChange={callback}>
-    <TabPane tab="Hall 1" key="1">
+const Demo = () => (
+ 
+    <Tabs id="tinyColumn" defaultActiveKey="1" onChange={callback}>
+      <TabPane tab="Hall 1" key="1">
         <Grid />
-    </TabPane>
-    <TabPane tab="Hall 2" key="2">
+      </TabPane>
+      <TabPane tab="Hall 2" key="2">
         <Grid />
-    </TabPane>
-    <TabPane tab="Hall 3" key="3">
+      </TabPane>
+      <TabPane tab="Hall 3" key="3">
         <Grid />
-    </TabPane>
-    <TabPane tab="Hall 4" key="4">
+      </TabPane>
+      <TabPane tab="Hall 4" key="4">
         <Grid />
-    </TabPane>
-  </Tabs>
+      </TabPane>
+    </Tabs>
 );
+
 export default Demo
