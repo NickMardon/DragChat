@@ -1,0 +1,15 @@
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background: purple;
+    padding: 10px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.navLink:hover {
+    color: gold;
+}

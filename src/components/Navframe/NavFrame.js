@@ -1,6 +1,6 @@
 import React from "../../../node_modules/react";
-import { Layout } from '../../../node_modules/antd';
-import { Menu, Button } from '../../../node_modules/antd';
+import { Layout } from '../../../node_modules/antd/lib';
+import { Menu, Button } from '../../../node_modules/antd/lib';
 
 const { Header, Footer, Content } = Layout;
     
@@ -16,7 +16,7 @@ export default function NavBar(){
         <Menu.Item key="3">User Page</Menu.Item>
       </Menu>
     </Header>
-    </Layout>,
-</>,
+    </Layout>
+</>
 </div>)
 }
