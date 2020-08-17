@@ -1,14 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Jitsi from "./components/Hall/NavFrame";
-//import About from "./pages/About";
-//import Search from "./pages/Search";
-//import Menu from "./components/Menu";
-//import Footer from "./components/Footer";
-//import Wrapper from "./components/Wrapper";
+import Hall from "./pages/Hall";
+import Home from "./pages/Home";
+import User from "./pages/User";
 import 'antd/dist/antd.css';
 
 function App() {
-  return  <div><Jitsi /></div>;
+  return  (
+
+  <Router>
+    <switch>
+    <Route exact path={"/"}>
+      <Home />
+    </Route>
+    <Route exact path={"/user"}>
+      <User />
+    </Route>
+    <Route exact path={"/hall"}>
+      <Hall />
+    </Route>
+
+    </switch>
+  </Router>
+  )
 }
 export default App;

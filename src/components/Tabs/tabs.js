@@ -1,6 +1,6 @@
 import { Tabs } from 'antd';
 import React from 'react';
-import Grid from "./Grid"
+import Grid from "../Grid/Grid"
 const { TabPane } = Tabs;
 
 function callback(key) {
