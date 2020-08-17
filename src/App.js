@@ -5,7 +5,31 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import 'antd/dist/antd.css';
 
+
+
+//need to import dnd provider to wrap anything that will possibly use drag and drop interface
+import { DndProvider } from 'react-dnd';
+//have to pass a backend to it, here is where we switch out for the combo one later
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Rooms from './components/dnd/rooms/rooms'
+
 function App() {
+<<<<<<< HEAD
+  
+
+
+  return (
+    <DndProvider backend={HTML5Backend}>
+
+      <div style={{ display: "flex", flexDirection: 'column'}}>
+
+      <Jitsi />
+      <Rooms />
+      </div>
+    </DndProvider>
+  );
+}
+=======
   return  (
 
   <Router>
@@ -19,9 +43,12 @@ function App() {
     <Route exact path={"/hall"}>
       <Hall />
     </Route>
+>>>>>>> dev
 
     </switch>
   </Router>
   )
 }
 export default App;
+
+
