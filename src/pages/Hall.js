@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import NavFrame from "../components/NavFrame/NavFrame"
+import Jitsi from "../components/Jitsi/jitsi"
+import Tabs from "../components/Tabs/tabs"
+
 
 export default function Room() {
     return (
         <div>
-            <h1>does room route?</h1>
+            <NavFrame />
+            <Jitsi />
+            <Tabs />
         </div>
     )
 }

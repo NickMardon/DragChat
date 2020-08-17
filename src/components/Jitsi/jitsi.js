@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import './jitsi.css';
+import './index.css';
 
 
 
@@ -38,7 +38,7 @@ export default function Jitsi() {
   return (
     <div>
       <div id="container">
-        <div id="meet" /*style={styles.jitsi}*/></div>
+        <div id="meet" ></div>
       </div>
     </div>
   );
