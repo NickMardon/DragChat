@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
-import "./index.css";
+import "./style.css";
 import {
   Drawer,
   Form,
@@ -31,7 +31,7 @@ const DrawerForm = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showDrawer}>
+      <Button id="tinyColumn" type="primary" onClick={showDrawer}>
         <PlusOutlined /> Create Account
       </Button>
 
@@ -107,4 +107,4 @@ const DrawerForm = () => {
   );
 };
 
-ReactDOM.render(<DrawerForm />, document.getElementById("container"));
+export default DrawerForm;

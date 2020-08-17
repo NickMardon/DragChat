@@ -4,8 +4,7 @@ import Hall from "./pages/Hall";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import 'antd/dist/antd.css';
-
-
+import NavFrame from "./components/NavFrame/NavFrame"
 
 // //need to import dnd provider to wrap anything that will possibly use drag and drop interface
 // import { DndProvider } from 'react-dnd';
@@ -14,7 +13,10 @@ import 'antd/dist/antd.css';
 // import Rooms from './components/dnd/rooms/rooms'
 
 function App() {
+
   return  (
+    <div>
+      <NavFrame />
   <Router>
     <switch>
     <Route exact path={"/"}>
@@ -26,9 +28,9 @@ function App() {
     <Route exact path={"/hall"}>
       <Hall />
     </Route>
-
     </switch>
   </Router>
+  </div>
   )
 }
 export default App;
