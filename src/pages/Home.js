@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import NavFrame from "../components/NavFrame/NavFrame";
 
 export default function Home() {
     return (
         <div>
-            <h1>does hall route?</h1>
+            <NavFrame />
         </div>
     )
 }

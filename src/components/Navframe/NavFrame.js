@@ -1,7 +1,8 @@
 import React from "../../../node_modules/react";
 import { Layout } from '../../../node_modules/antd/lib';
 import { Menu, Button } from '../../../node_modules/antd/lib';
-
+import { Link } from "react-router-dom";
+ 
 const { Header, Footer, Content } = Layout;
     
 export default function NavBar(){
@@ -11,9 +12,21 @@ export default function NavBar(){
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">Home</Menu.Item>
-        <Menu.Item key="2">Halls</Menu.Item>
-        <Menu.Item key="3">User Page</Menu.Item>
+        <Menu.Item key="1">
+        <Link to="/">
+          Home
+        </Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+        <Link to="hall">
+          Halls
+        </Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+        <Link to="user">
+          User
+        </Link>
+        </Menu.Item>
       </Menu>
     </Header>
     </Layout>
