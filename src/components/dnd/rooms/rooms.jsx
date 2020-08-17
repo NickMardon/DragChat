@@ -78,7 +78,6 @@ export default function Rooms() {
 
         <RoomContext.Provider value={{markAsConnected}}>
 
-        
         <div style={{display: 'flex', minHeight: '100vh'}}>
             <div style={styles.rooms}>
                 <h2>Hallway</h2>
@@ -95,7 +94,7 @@ export default function Rooms() {
                     ))}
             </div>
         
-            
+            {/* the below div structure is all to organize and hold the "Dropzone" component. */}
             <div style={styles.connected}>
                 {/* the below div takes the place of the 'stack' in the video */}
                 <div>
@@ -105,7 +104,6 @@ export default function Rooms() {
 
                     <Dropzone>
 
-                       
                         {roomList
                         .filter((room, i) => room.status === 'conn')
                         .map((room, i) => (
@@ -118,8 +116,6 @@ export default function Rooms() {
                                 />
                         ))}
                     </Dropzone>
-
-                    
 
                 </div>
             </div>
