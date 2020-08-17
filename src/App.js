@@ -4,34 +4,19 @@ import Hall from "./pages/Hall";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import 'antd/dist/antd.css';
-
-
+import NavFrame from "./components/NavFrame/NavFrame"
 
 //need to import dnd provider to wrap anything that will possibly use drag and drop interface
-import { DndProvider } from 'react-dnd';
-//have to pass a backend to it, here is where we switch out for the combo one later
-import { HTML5Backend } from "react-dnd-html5-backend";
-import Rooms from './components/dnd/rooms/rooms'
+// import { DndProvider } from 'react-dnd';
+// //have to pass a backend to it, here is where we switch out for the combo one later
+// import { HTML5Backend } from "react-dnd-html5-backend";
+// import Rooms from './components/dnd/rooms/rooms'
 
 function App() {
-<<<<<<< HEAD
-  
 
-
-  return (
-    <DndProvider backend={HTML5Backend}>
-
-      <div style={{ display: "flex", flexDirection: 'column'}}>
-
-      <Jitsi />
-      <Rooms />
-      </div>
-    </DndProvider>
-  );
-}
-=======
   return  (
-
+    <div>
+      <NavFrame />
   <Router>
     <switch>
     <Route exact path={"/"}>
@@ -43,10 +28,9 @@ function App() {
     <Route exact path={"/hall"}>
       <Hall />
     </Route>
->>>>>>> dev
-
     </switch>
   </Router>
+  </div>
   )
 }
 export default App;
