@@ -1,5 +1,9 @@
-import React from 'react';
-import Jitsi from './components/jitsi/jitsi.component'
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Hall from "./pages/Hall";
+import Home from "./pages/Home";
+import User from "./pages/User";
+import 'antd/dist/antd.css';
 
 
 
@@ -10,6 +14,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Rooms from './components/dnd/rooms/rooms'
 
 function App() {
+<<<<<<< HEAD
   
 
 
@@ -24,5 +29,26 @@ function App() {
     </DndProvider>
   );
 }
+=======
+  return  (
 
+  <Router>
+    <switch>
+    <Route exact path={"/"}>
+      <Home />
+    </Route>
+    <Route exact path={"/user"}>
+      <User />
+    </Route>
+    <Route exact path={"/hall"}>
+      <Hall />
+    </Route>
+>>>>>>> dev
+
+    </switch>
+  </Router>
+  )
+}
 export default App;
+
+
