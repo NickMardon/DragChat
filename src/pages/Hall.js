@@ -1,6 +1,6 @@
 import React from 'react';
 import NavFrame from "../components/NavFrame/NavFrame"
-import Jitsi from "../components/Jitsi/jitsi"
+import Jitsi from "../components/jitsi/jitsi.component"
 import Tabs from "../components/Tabs/tabs"
 
 
