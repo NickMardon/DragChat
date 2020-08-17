@@ -1,16 +1,16 @@
-import React from "react";
+/*import React from "react";
 import { Layout } from 'antd';
 import { Menu, Button } from 'antd';
-import Hall from "./jitsi";
+import Hall from "../Tabs/jitsi";
 import '../../index.css'
-import './hall.css'
+import './hall.css'*/
 
 const { Header, Footer, Content } = Layout;
     
 export default function NavBar(){
     return (<div>
   <>
-    <Layout className="layout">
+    {/* <Layout className="layout">
     <Header>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
@@ -20,8 +20,8 @@ export default function NavBar(){
       </Menu>
     </Header>
 <Content><Hall /></Content>
-    <Footer>Footer</Footer>
-    </Layout>,
+    <Footer id = "footer">Footer</Footer>
+    </Layout>, */}
 </>,
 </div>)
 }
