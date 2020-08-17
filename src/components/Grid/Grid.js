@@ -1,5 +1,4 @@
 import { Row, Col } from 'antd';
-import './hall.css';
 import React from 'react';
 
 export default function Grid(){

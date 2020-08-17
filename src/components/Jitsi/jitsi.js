@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from 'react';
-import Hall from "./hall";
 import 'antd/dist/antd.css';
-import './hall.css';
+import './index.css';
 
 
 
@@ -21,7 +20,7 @@ export default function Jitsi() {
           roomName: roomName,
           width: "100%",
           height: "100%",
-          style: "border: 5px groove red",
+          zIndex: 0,
           parentNode: document.querySelector("#meet"),
           userInfo: {
           // can do DB retrieval of person's login info based on session id, look into Oauth
@@ -39,9 +38,8 @@ export default function Jitsi() {
   return (
     <div>
       <div id="container">
-        <div id="meet" /*style={styles.jitsi}*/></div>
+        <div id="meet" ></div>
       </div>
-      <div id="tinyColumn"><Hall /></div>
     </div>
   );
 }
