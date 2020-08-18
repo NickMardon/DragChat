@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
-import "./style.css";
+import "./index.css";
 import {
   Drawer,
   Form,
@@ -31,12 +31,12 @@ const DrawerForm = () => {
 
   return (
     <>
-      <Button id="create" type="primary" onClick={showDrawer}>
-        <PlusOutlined /> Create Account
+      <Button id="tinyColumn" type="primary" onClick={showDrawer}>
+        <PlusOutlined /> Sign In
       </Button>
 
       <Drawer
-        title="Create a new account"
+        title="Sign In"
         width={"100%"}
         onClose={onClose}
         visible={visible}
@@ -44,7 +44,7 @@ const DrawerForm = () => {
         footer={
           <div
             style={{
-              textAlign: "right"
+              textAlign: "left"
             }}
           >
             <Button onClick={onClose} style={{ marginRight: 8 }}>
@@ -58,17 +58,7 @@ const DrawerForm = () => {
       >
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                name="name"
-                label="User Name"
-                rules={[{ required: true, message: "Please enter user name" }]}
-              >
-                <Input placeholder="Please enter user name" />
-              </Form.Item>
-            </Col>
-
-            <Col span={12}>
+          <Col span={12}>
               <Form.Item
                 name="email"
                 label="Email"
@@ -77,7 +67,7 @@ const DrawerForm = () => {
                 <Input placeholder="Please enter an email" />
               </Form.Item>
             </Col>
-          </Row>
+         </Row>
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
@@ -86,18 +76,6 @@ const DrawerForm = () => {
                 rules={[{ required: true, message: "Please input a password" }]}
               >
                 <Input placeholder="Please enter a password" />
-              </Form.Item>
-            </Col>
-
-          </Row>
-
-          <Row gutter={16}>
-            <Col span={24}>
-              <Form.Item name="description" label="Description">
-                <Input.TextArea
-                  rows={4}
-                  placeholder="Enter a brief bio or description if you want to!"
-                />
               </Form.Item>
             </Col>
           </Row>
