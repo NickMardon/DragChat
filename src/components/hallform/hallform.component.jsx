@@ -16,6 +16,7 @@ import {
 } from "antd";
 
 import { PlusOutlined } from "@ant-design/icons";
+import API from "../../utils/api";
 
 // const { Option } = Select;
 
@@ -31,9 +32,6 @@ const DrawerForm = () => {
     description: ""
 
   })
-  
-  // TODO: this wasn't in the original example, but we converted it to an RFC, and an error said do this instead of a ref.
-  // const [form] = Form.useForm(); 
 
   const showDrawer = () => {
     setVisible(true);
@@ -41,18 +39,24 @@ const DrawerForm = () => {
 
   const onClose = () => {
     setVisible(false);
-
+    handleSignupSubmit();
   };
 
-  // //These constants are for the form submit, imported from a different example. doesn't seem like this other form either does any control or actually handles space for the submit.
-  // const onFinish = values => {
-  //   console.log('Success:', values);
-  // };
-  // const onFinishFailed = errorInfo => {
-  //   console.log('Failed:', errorInfo);
-  // };
+  const handleSignupSubmit = () =>{
+    // if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
+      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
+      API.saveUser(signupFormData).then(res=>{
+        console.log("user successfully created")
+      });
+      setSignupFormData({
+        name:"",
+      email:"",
+      password: "",
+      description: ""});
+    // }
+  }
+ 
   const handleSignupFormChange = event => {
-    console.log(event.target)
     const {name, value} = event.target;
     setSignupFormData({
       ...signupFormData,
@@ -89,6 +93,7 @@ const DrawerForm = () => {
             </Button>
           </div>
         }
+
       >
         <Form 
           layout="vertical" 
