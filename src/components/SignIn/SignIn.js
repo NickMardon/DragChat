@@ -19,7 +19,7 @@ import { PlusOutlined } from "@ant-design/icons";
 
 // const { Option } = Select;
 
-const DrawerForm = () => {
+const SignInDrawerForm = () => {
   const [signInVisible, setSignInVisible] = useState(false);
 
   const [signInFormData, setSignInFormData] = useState({
@@ -109,7 +109,7 @@ const DrawerForm = () => {
                 label="Password"
                 rules={[{ required: true, message: "Please input a password" }]}
               >
-                <Input 
+                <Input.Password 
                 name="password" 
                 value={signInFormData.password} 
                 onChange={handleSignInFormChange}
@@ -123,4 +123,4 @@ const DrawerForm = () => {
   );
 };
 
-export default DrawerForm;
+export default SignInDrawerForm;

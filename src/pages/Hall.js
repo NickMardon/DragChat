@@ -11,8 +11,8 @@ export default function Room() {
         <div>          
             <Jitsi />
             <Tabs />
-            {/* <DndProvider backend={HTML5Backend}>
 
+            {/* <DndProvider backend={HTML5Backend}>
             <Rooms />
             </DndProvider> */}
         </div>

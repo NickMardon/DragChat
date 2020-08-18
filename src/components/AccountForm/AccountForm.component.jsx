@@ -43,17 +43,17 @@ const DrawerForm = () => {
   };
 
   const handleSignupSubmit = () =>{
-    // if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
+    if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
       //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
       API.saveUser(signupFormData).then(res=>{
         console.log("user successfully created")
       });
       setSignupFormData({
-        name:"",
+      name:"",
       email:"",
       password: "",
       description: ""});
-    // }
+    }
   }
  
   const handleSignupFormChange = event => {

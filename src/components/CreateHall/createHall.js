@@ -13,53 +13,59 @@ import {
   Input,
   Select,
 } from "antd";
-
 import { PlusOutlined } from "@ant-design/icons";
+
 import API from "../../utils/api";
 
 const { Option } = Select;
 
 const CreateHall = () => {
   //These constants are for the drawer feature
-  const [visible, setVisible] = useState(false);
+  const [hallFormVisible, setHallFormVisible] = useState(false);
 
-  //My final attempt to just bind state the normal way that joe showed us, incomplete at present
-  const [signupFormData, setSignupFormData] = useState({
+  // the piece of state that manages our hall form input and its value.
+  const [hallFormData, setHallFormData] = useState({
     name:"",
-    email:"",
     password: "",
-    description: ""
-
+    description: "",
+    hallSize: 1
   })
 
   const showDrawer = () => {
-    setVisible(true);
+    setHallFormVisible(true);
   };
 
-  const onClose = () => {
-    setVisible(false);
-    handleSignupSubmit();
+  const onHallFormClose = () => {
+    setHallFormVisible(false);
+    handleHallFormSubmit();
   };
 
-  const handleSignupSubmit = () =>{
-    // if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
-      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
-      API.saveUser(signupFormData).then(res=>{
-        console.log("user successfully created")
+  const handleHallFormSubmit = () =>{
+    // if (!hallFormData.name=="" && !hallFormData.password==="") {
+      
+      API.createHall(hallFormData).then(res=>{
+        console.log("Created your hall.")
       });
-      setSignupFormData({
-        name:"",
-      email:"",
+      setHallFormData({
+      name:"",
       password: "",
-      description: ""});
+      description: "",
+      hallSize: 1});
     // }
   }
  
-  const handleSignupFormChange = event => {
+  const handleHallFormChange = event => {
     const {name, value} = event.target;
-    setSignupFormData({
-      ...signupFormData,
+    setHallFormData({
+      ...hallFormData,
       [name]:value
+    })
+  }
+
+  const handleSelectChange = (value) => {
+    setHallFormData({
+      ...hallFormData,
+      hallSize:parseInt(value)
     })
   }
 
@@ -73,9 +79,8 @@ const CreateHall = () => {
         title="Create a new hall"
         width={"400px"}
 
-        onClose={onClose}
-        visible={visible}
-
+        onClose={onHallFormClose}
+        visible={hallFormVisible}
 
         bodyStyle={{ paddingBottom: 80 }}
         placement="left"
@@ -85,10 +90,10 @@ const CreateHall = () => {
               textAlign: "right"
             }}
           >
-            <Button onClick={onClose} style={{ marginRight: 8 }}>
+            <Button onClick={onHallFormClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={onClose} type="primary">
+            <Button onClick={onHallFormClose} type="primary">
               Submit
             </Button>
           </div>
@@ -103,11 +108,11 @@ const CreateHall = () => {
             <Col span={24}>
 
               <Form.Item
-                name="hall name"
+                name="name"
                 label="Hall Name"
                 rules={[{ required: true, message: "Please enter hall name" }]}
               >
-                <Input value={signupFormData.name} name="hall name" onChange={handleSignupFormChange}  />
+                <Input value={hallFormData.name} name="name" onChange={handleHallFormChange}  />
               </Form.Item>
 
             </Col>
@@ -116,15 +121,15 @@ const CreateHall = () => {
           <Row gutter={16}>
             <Col span={24}>
               <Form.Item
-                name="hall password"
+                name="password"
                 label="Hall Password"
 
                 rules={[{ required: true, message: "Please input a hallpass" }]}
               >
                 <Input.Password 
-                value={signupFormData.password}
-                name="hall password"
-                onChange={handleSignupFormChange}
+                value={hallFormData.password}
+                name="password"
+                onChange={handleHallFormChange}
                 placeholder="Please enter a hallpass" />
               </Form.Item>
             </Col>
@@ -134,21 +139,48 @@ const CreateHall = () => {
           <Row gutter={16}>
             <Col span={24}>
               <Form.Item
-                name="rooms"
-                label="Rooms"
+                name="hallSize"
+                label="Number of Rooms"
+                value={hallFormData.hallSize}
+                
                 rules={[{ required: true, message: 'Please choose the number of rooms' }]}
               >
-                <Select placeholder="Please choose the number of rooms">
-                  <Option value="one">1</Option>
-                  <Option value="two">2</Option>
-                  <Option value="three">3</Option>
-                  <Option value="four">4</Option>
-                  <Option value="five">5</Option>
-                  <Option value="six">6</Option>
+                <Select
+                name="hallSize"
+                onChange={handleSelectChange}
+                placeholder="Please choose the number of rooms">
+                  <Option value="1">1</Option>
+                  <Option value="2">2</Option>
+                  <Option value="3">3</Option>
+                  <Option value="4">4</Option>
+                  <Option value="5">5</Option>
+                  <Option value="6">6</Option>
                 </Select>
               </Form.Item>
             </Col>
           </Row>
+          <Row gutter={16}>
+            <Col span={24}>
+
+              <Form.Item
+                name="description"
+                label="Hall description"
+                rules={[{ required: true, message: "Please enter hall name" }]}
+              >
+                {/* <Input value={hallFormData.name} name="hall name" onChange={handleHallFormChange}  /> */}
+                <Input.TextArea
+                  rows={4}
+                  name="description"
+                  onChange={handleHallFormChange}
+                  value={hallFormData.description}
+                  placeholder="Enter a brief description of your dropIn hall if you want!"
+                />
+              </Form.Item>
+
+            </Col>
+
+          </Row>
+
         </Form>
       </Drawer>
     </>
