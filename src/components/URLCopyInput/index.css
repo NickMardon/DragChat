@@ -1,0 +1,11 @@
+input {
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 0px solid grey;
+}
+
+button {
+    border-radius: 4px;
+    border: 0px solid grey;
+    margin: 4px;
+}
