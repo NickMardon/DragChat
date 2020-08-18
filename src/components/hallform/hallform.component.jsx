@@ -19,6 +19,7 @@ import { PlusOutlined } from "@ant-design/icons";
 // const { Option } = Select;
 
 const DrawerForm = () => {
+  //These constants are for the drawer feature
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -28,6 +29,16 @@ const DrawerForm = () => {
   const onClose = () => {
     setVisible(false);
   };
+
+  //These constants are for the form
+  const onFinish = values => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
+
 
   return (
     <>
@@ -56,7 +67,12 @@ const DrawerForm = () => {
           </div>
         }
       >
-        <Form layout="vertical" hideRequiredMark>
+        <Form 
+          layout="vertical" 
+          hideRequiredMark
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          >
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
@@ -83,9 +99,10 @@ const DrawerForm = () => {
               <Form.Item
                 name="password"
                 label="Password"
+  
                 rules={[{ required: true, message: "Please input a password" }]}
               >
-                <Input placeholder="Please enter a password" />
+                <Input.Password placeholder="Please enter a password" />
               </Form.Item>
             </Col>
 
