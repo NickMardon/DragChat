@@ -1,13 +1,11 @@
 import React from 'react';
-import NavFrame from "../components/NavFrame/NavFrame"
-import Jitsi from "../components/jitsi/jitsi.component"
+import Jitsi from "../components/Jitsi/jitsi"
 import Tabs from "../components/Tabs/tabs"
 
 
 export default function Room() {
     return (
-        <div>
-            <NavFrame />
+        <div>          
             <Jitsi />
             <Tabs />
         </div>

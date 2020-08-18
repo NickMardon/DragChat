@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Room() {
+export default function User() {
     return (
         <div>
-            <h1>does user route?</h1>
+            <h1>does User route?</h1>
         </div>
     )
 }
