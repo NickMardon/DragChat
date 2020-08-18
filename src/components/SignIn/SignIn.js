@@ -66,7 +66,7 @@ const DrawerForm = () => {
 
       <Drawer
         title="Sign In"
-        width={"100%"}
+        width={"400px"}
         onClose={onClose}
         visible={signInVisible}
         bodyStyle={{ paddingBottom: 80 }}
@@ -88,7 +88,7 @@ const DrawerForm = () => {
       >
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
-          <Col span={12}>
+          <Col span={24}>
               <Form.Item
                 name="email"
                 label="Email"
@@ -103,7 +103,7 @@ const DrawerForm = () => {
             </Col>
          </Row>
           <Row gutter={16}>
-            <Col span={12}>
+            <Col span={24}>
               <Form.Item
                 name="password"
                 label="Password"
