@@ -14,12 +14,9 @@ body {
         height: 90%;
     }
     #tinyColumn {
-        width:40%;
+        width: 100%;
         margin: 5px;
         margin-top: 10px;
-    }
-    .row {
-        margin:10px;
     }
     
     #meet {
