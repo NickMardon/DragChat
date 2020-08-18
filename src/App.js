@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Hall from "./pages/Hall";
 import Home from "./pages/Home";
 import User from "./pages/User";
@@ -16,9 +17,9 @@ function App() {
 
   return  (
     <div>
-      <NavFrame />
   <Router>
-    <switch>
+      <NavFrame />
+    <Switch>
     <Route exact path={"/"}>
       <Home />
     </Route>
@@ -28,7 +29,7 @@ function App() {
     <Route exact path={"/hall"}>
       <Hall />
     </Route>
-    </switch>
+    </Switch>
   </Router>
   </div>
   )
