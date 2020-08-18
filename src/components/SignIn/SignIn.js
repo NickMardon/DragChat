@@ -14,24 +14,53 @@ import {
   // Select,
 } from "antd";
 
+import API from "../../utils/api";
 import { PlusOutlined } from "@ant-design/icons";
 
 // const { Option } = Select;
 
 const DrawerForm = () => {
-  const [visible, setVisible] = useState(false);
+  const [signInVisible, setSignInVisible] = useState(false);
 
-  const showDrawer = () => {
-    setVisible(true);
+  const [signInFormData, setSignInFormData] = useState({
+    email:"",
+    password: "",
+  })
+
+  const showSignDrawer = () => {
+    setSignInVisible(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setSignInVisible(false);
+    handleSignInSubmit()
   };
+
+
+  const handleSignInSubmit = () =>{
+    if (signInFormData.email!=="" && signInFormData.password!=="") {
+      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
+      API.userLogin(signInFormData).then(res=>{
+        console.log("user successfully created")
+      });
+      setSignInFormData({
+      email:"",
+      password: ""});
+    }
+  }
+ 
+  const handleSignInFormChange = event => {
+    const {name, value} = event.target;
+    setSignInFormData({
+      ...signInFormData,
+      [name]:value
+    })
+  }
+
 
   return (
     <>
-      <Button id="tinyColumn" type="primary" onClick={showDrawer}>
+      <Button id="tinyColumn" type="primary" onClick={showSignDrawer}>
         <PlusOutlined /> Sign In
       </Button>
 
@@ -39,8 +68,9 @@ const DrawerForm = () => {
         title="Sign In"
         width={"100%"}
         onClose={onClose}
-        visible={visible}
+        visible={signInVisible}
         bodyStyle={{ paddingBottom: 80 }}
+        placement='left'
         footer={
           <div
             style={{
@@ -64,7 +94,11 @@ const DrawerForm = () => {
                 label="Email"
                 rules={[{ required: true, message: "Please input an email" }]}
               >
-                <Input placeholder="Please enter an email" />
+                <Input 
+                name="email" 
+                value={signInFormData.email}
+                onChange={handleSignInFormChange} 
+                placeholder="Please enter an email" />
               </Form.Item>
             </Col>
          </Row>
@@ -75,7 +109,11 @@ const DrawerForm = () => {
                 label="Password"
                 rules={[{ required: true, message: "Please input a password" }]}
               >
-                <Input placeholder="Please enter a password" />
+                <Input 
+                name="password" 
+                value={signInFormData.password} 
+                onChange={handleSignInFormChange}
+                placeholder="Please enter a password" />
               </Form.Item>
             </Col>
           </Row>

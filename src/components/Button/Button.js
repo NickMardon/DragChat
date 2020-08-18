@@ -4,7 +4,7 @@ import React from 'react'
 export default function Buttons() {
     return (
         <div>
-            <Button onclick="createRoom()" type="text" danger>
+            <Button onClick="createRoom()" type="text" danger>
                 Create Room
             </Button>
         </div>

@@ -20,6 +20,7 @@ export default function Grid(){
       <Col span={12}><Button /></Col>
       <Col span={12}><Button /></Col>
     </Row>
+    
   </>
     );
 }
