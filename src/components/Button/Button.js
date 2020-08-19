@@ -5,7 +5,7 @@ export default function Buttons() {
     return (
         <div>
             <Button onClick="createRoom()" type="text" danger>
-                Create Room
+                Temp Button
             </Button>
         </div>
     )
