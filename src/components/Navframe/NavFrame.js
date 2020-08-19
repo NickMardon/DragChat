@@ -1,8 +1,8 @@
-import React from "../../../node_modules/react";
-import { Layout } from '../../../node_modules/antd/lib';
-import { Menu, Button } from '../../../node_modules/antd/lib';
-import { Link } from "./node_modules/react-router-dom";
-import { BrowserRouter as Router} from "./node_modules/react-router-dom";
+import React from "react";
+import { Layout } from 'antd/lib';
+import { Menu, Button } from 'antd/lib';
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 const { Header, Footer, Content } = Layout;
     
 export default function NavBar(){
