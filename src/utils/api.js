@@ -11,13 +11,21 @@ const API = {
     //     return axios.get(`${urlPrefix}/api/users/${id}`)
     // },
     userLogin: function(userData) {
-        return axios.post(`${urlPrefix}/api/users/login`, userData)
+        return axios.post(`${urlPrefix}/api/users/login`, userData, { withCredentials: true })
     },
+    logout:function () {
+        return axios.get(`${urlPrefix}/api/users/logout`, { withCredentials: true })
+    },
+    getCurrentUser: function () {
+        return axios.get(`${urlPrefix}/api/users/readsessions`, { withCredentials: true })
+    },
+    
 // ------------------------------------------
     //Hall Related API calls
     createHall: function(hallData) {
         return axios.post(`${urlPrefix}/api/halls/create`, hallData, { withCredentials: true })
     },
+
 
     //all the halls that belong to the currently logged in user
     getAllUserHalls: function(id) {
