@@ -41,8 +41,6 @@ const CreateHall = () => {
   };
 
   const handleHallFormSubmit = () =>{
-    // if (!hallFormData.name=="" && !hallFormData.password==="") {
-      
       API.createHall(hallFormData).then(res=>{
         console.log("Created your hall.")
       });
@@ -51,7 +49,6 @@ const CreateHall = () => {
       password: "",
       description: "",
       hallSize: 1});
-    // }
   }
  
   const handleHallFormChange = event => {

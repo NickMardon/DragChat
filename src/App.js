@@ -13,8 +13,8 @@ import NavFrame from "./components/NavFrame/NavFrame"
 // import { HTML5Backend } from "react-dnd-html5-backend";
 // import Rooms from './components/dnd/rooms/rooms'
 
-function App() {
 
+function App() {
   return  (
     <div>
   <Router>
@@ -29,6 +29,10 @@ function App() {
     <Route exact path={"/hall"}>
       <Hall />
     </Route>
+    {/* TODO: do we have to pass params into the Hall page being rendered for that to work? */}
+    {/* <Route path={`/hall/:id`}>
+      <Hall />
+    </Route> */}
     </Switch>
   </Router>
   
