@@ -39,13 +39,19 @@ const SignInDrawerForm = () => {
 
   const handleSignInSubmit = () =>{
     if (signInFormData.email!=="" && signInFormData.password!=="") {
-      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
       API.userLogin(signInFormData).then(res=>{
-        console.log("user successfully created")
+        console.log("signed in!")
       });
       setSignInFormData({
       email:"",
-      password: ""});
+      password: ""}).catch(err=>{
+        alert('sign-in failed')
+      });
+
+      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
+      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
+      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
+
     }
   }
  

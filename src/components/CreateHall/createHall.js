@@ -43,12 +43,14 @@ const CreateHall = () => {
   const handleHallFormSubmit = () =>{
       API.createHall(hallFormData).then(res=>{
         console.log("Created your hall.")
+        setHallFormData({
+        name:"",
+        password: "",
+        description: "",
+        hallSize: 1}).catch(err=>{
+          alert('hall creation failed.')
+        });
       });
-      setHallFormData({
-      name:"",
-      password: "",
-      description: "",
-      hallSize: 1});
   }
  
   const handleHallFormChange = event => {

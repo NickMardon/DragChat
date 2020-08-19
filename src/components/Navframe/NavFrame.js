@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BrowserRouter as Router} from "react-router-dom";
 const { Header, Footer, Content } = Layout;
     
-export default function NavBar(){
+export default function NavBar(props){
     return (<div>
   <>
  <Layout className="layout">

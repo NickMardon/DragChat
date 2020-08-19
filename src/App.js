@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import Hall from "./pages/Hall";
@@ -15,23 +15,38 @@ import NavFrame from "./components/Navframe/NavFrame"
 
 
 function App() {
+
+  // const [currentUser, setCurrentUser] = useState()
+ 
+  // useEffect(() => {
+  //   API.getCurrentUser().then(res => {
+  //     setCurrentUser(res.data.user);
+  //   })
+  // }, [])
+
+  // const logout = ()=>{
+  //   API.logout().then(res=>{
+  //     setCurrentUser();
+  //   })
+  // }
+
   return  (
     <div>
   <Router>
-      <NavFrame />
+      <NavFrame logout={logout} currentUser={currentUser}/>
     <Switch>
     <Route exact path={"/"}>
-      <Home />
+      <Home currentUser={currentUser}/>
     </Route>
     <Route exact path={"/user"}>
-      <User />
+      <User currentUser={currentUser}/>
     </Route>
     <Route exact path={"/hall"}>
-      <Hall />
+      <Hall currentUser={currentUser}/>
     </Route>
     {/* TODO: do we have to pass params into the Hall page being rendered for that to work? */}
     {/* <Route path={`/hall/:id`}>
-      <Hall />
+      <Hall currentUser={currentUser}/>
     </Route> */}
     </Switch>
   </Router>
