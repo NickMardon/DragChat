@@ -4,6 +4,7 @@ import Tabs from "../components/Tabs/tabs"
 import Rooms from '../components/dnd/rooms/rooms'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import Avatar from "../components/Avatar/avatar"
 
 
 export default function Room() {
@@ -15,6 +16,7 @@ export default function Room() {
             {/* <DndProvider backend={HTML5Backend}>
             <Rooms />
             </DndProvider> */}
+            <Avatar />
         </div>
     )
 }

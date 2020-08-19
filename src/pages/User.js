@@ -1,9 +1,12 @@
 import React from 'react'
+import UserInfo from "../components/UserInfo/userInfo"
+import UserHalls from "../components/UserHalls/userHalls"
 
 export default function User() {
     return (
         <div>
-            <h1>does User route?</h1>
+            <UserInfo />
+            {/* <UserHalls /> */}
         </div>
     )
 }
