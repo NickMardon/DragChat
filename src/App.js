@@ -5,7 +5,7 @@ import Hall from "./pages/Hall";
 import Home from "./pages/Home";
 import User from "./pages/User";
 import 'antd/dist/antd.css';
-import NavFrame from "./components/NavFrame/NavFrame"
+import NavFrame from "./components/Navframe/NavFrame"
 
 // //need to import dnd provider to wrap anything that will possibly use drag and drop interface
 // import { DndProvider } from 'react-dnd';
