@@ -1,6 +1,6 @@
 const axios = require("axios")
 // const urlPrefix = "http://localhost:8080"
-const urlPrefix = "https://dropinsamine.herokuapp.com"
+const urlPrefix = "https://dropinapisamine.herokuapp.com"
 const API = {
     //User Related API calls
     saveUser: function(userData) {
