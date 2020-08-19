@@ -1,5 +1,5 @@
 import React from 'react';
-import HallForm from '../components/hallform/hallform.component';
+import AccountForm from '../components/AccountForm/AccountForm.component';
 import SignIn from '../components/SignIn/SignIn';
 import CreateHall from '../components/CreateHall/createHall';
 import Jitsi from '../components/Jitsi/jitsi';
@@ -13,7 +13,7 @@ export default function Home() {
             {/* <Jitsi /> */}
             <Webcam />
             <SignIn />
-            <HallForm />
+            <AccountForm />
             <CreateHall />
         </div>
     )
