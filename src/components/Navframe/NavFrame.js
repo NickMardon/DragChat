@@ -10,7 +10,7 @@ import { BrowserRouter as Router} from "react-router-dom";
 // const { Header } = Menu;
 import "./index.css";
     
-export default function NavBar(){
+export default function NavBar(props){
     return (<div>
   <>
  {/* <Layout className="layout"> */}

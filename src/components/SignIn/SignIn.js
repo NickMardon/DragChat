@@ -14,12 +14,15 @@ import {
   // Select,
 } from "antd";
 
+import { useHistory } from "react-router-dom";
+
 import API from "../../utils/api";
 import { PlusOutlined } from "@ant-design/icons";
 
-// const { Option } = Select;
+const SignInDrawerForm = (props) => {
 
-const SignInDrawerForm = () => {
+  let history = useHistory();
+
   const [signInVisible, setSignInVisible] = useState(false);
 
   const [signInFormData, setSignInFormData] = useState({
@@ -39,13 +42,17 @@ const SignInDrawerForm = () => {
 
   const handleSignInSubmit = () =>{
     if (signInFormData.email!=="" && signInFormData.password!=="") {
-      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
       API.userLogin(signInFormData).then(res=>{
-        console.log("user successfully created")
+        console.log("signed in!")
+        setSignInFormData({
+        email:"",
+        password: ""})
+        props.setCurrentUser(res.data.user)
+        //The below line redirects us to the user page upon successful login.
+        history.push("/user");
+      }).catch(err=>{
+        alert('sign-in failed')
       });
-      setSignInFormData({
-      email:"",
-      password: ""});
     }
   }
  

@@ -44,15 +44,19 @@ const DrawerForm = () => {
 
   const handleSignupSubmit = () =>{
     if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
-      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
       API.saveUser(signupFormData).then(res=>{
         console.log("user successfully created")
+        setSignupFormData({
+        name:"",
+        email:"",
+        password: "",
+        description: ""}).catch(err=>{
+          alert('account creation failed')
+        });
+
+        //TODO: is it here in the .then I would redirect to the 'user' page if I wanted to log them in on signup? or how to structure that without a huge rework.
+
       });
-      setSignupFormData({
-      name:"",
-      email:"",
-      password: "",
-      description: ""});
     }
   }
  
