@@ -18,19 +18,21 @@ import {
 import { PlusOutlined } from "@ant-design/icons";
 import API from "../../utils/api";
 
-// const { Option } = Select;
+import { useHistory } from "react-router-dom";
 
-const DrawerForm = () => {
+
+const DrawerForm = (props) => {
+
+  let history = useHistory();
+
   //These constants are for the drawer feature
   const [visible, setVisible] = useState(false);
 
-  //My final attempt to just bind state the normal way that joe showed us, incomplete at present
   const [signupFormData, setSignupFormData] = useState({
     name:"",
     email:"",
     password: "",
     description: ""
-
   })
 
   const showDrawer = () => {
@@ -43,22 +45,56 @@ const DrawerForm = () => {
   };
 
   const handleSignupSubmit = () =>{
+    const signInObj = {email: signupFormData.email, password:signupFormData.password};
+    
     if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
-      API.saveUser(signupFormData).then(res=>{
-        console.log("user successfully created")
-        setSignupFormData({
-        name:"",
-        email:"",
-        password: "",
-        description: ""}).catch(err=>{
-          alert('account creation failed')
-        });
+      //separating the signin and signup objects
 
-        //TODO: is it here in the .then I would redirect to the 'user' page if I wanted to log them in on signup? or how to structure that without a huge rework.
+      //TODO: TEST SUBJECT
+      console.log({signInObj})
+      //TODO: TEST SUBJECT
+
+
+      API.saveUser(signupFormData).then(res=>{
+        console.log("user successfully created");
+
+        API.userLogin(signInObj).then(res=>{
+          console.log("signed in")
+          setSignupFormData({
+          name:"",
+          email:"",
+          password: "",
+          description: ""});
+          props.setCurrentUser(res.data.user);
+          history.push("/user")
+        })
+        .catch(err=>{
+          alert('login failed');
+        })
+
+        })
+        .catch(err=>{
+          alert('account creation failed');
 
       });
     }
   }
+  //working version of signup, before signin integration
+  // const handleSignupSubmit = () =>{
+  //   if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
+  //     API.saveUser(signupFormData).then(res=>{
+  //       console.log("user successfully created")
+  //       setSignupFormData({
+  //       name:"",
+  //       email:"",
+  //       password: "",
+  //       description: ""})
+  //       }).catch(err=>{
+  //         alert('account creation failed');
+
+  //     });
+  //   }
+  // }
  
   const handleSignupFormChange = event => {
     const {name, value} = event.target;

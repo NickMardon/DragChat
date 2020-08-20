@@ -13,14 +13,12 @@ import API from './utils/api';
 // //have to pass a backend to it, here is where we switch out for the combo one later
 // import { HTML5Backend } from "react-dnd-html5-backend";
 // import Rooms from './components/dnd/rooms/rooms'
-
+import { useHistory } from "react-router-dom";
 
 function App() {
 
-  //TODO: 
-  //TODO: THE STATES for signup and signin and their state changers need to live up here. do one at a time.
-  //TODO: 
-  //TODO: 
+  let history = useHistory();
+
   const [currentUser, setCurrentUser] = useState()
  
   useEffect(() => {
@@ -32,6 +30,8 @@ function App() {
   const logout = ()=>{
     API.logout().then(res=>{
       setCurrentUser();
+      //redirecting home after logout.
+      history.push("/home");
     })
   }
 
@@ -45,16 +45,9 @@ function App() {
     <Route exact path={"/user"}>
       <User currentUser={currentUser}/>
     </Route>
-    {/* <Route path={`/user/:id`}>
-      <Hall currentUser={currentUser}/>
-    </Route> */}
     <Route exact path={"/hall"}>
       <Hall currentUser={currentUser}/>
     </Route>
-    {/* serious questions about how params with router works */}
-    {/* <Route path={`/hall/:id`}>
-      <Hall currentUser={currentUser}/>
-    </Route> */}
     </Switch>
   </Router>
   )
