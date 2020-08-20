@@ -21,6 +21,9 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState()
  
+  const [userHalls, setUserHalls] = useState({})
+
+
   useEffect(() => {
     API.getCurrentUser().then(res => {
       setCurrentUser(res.data.user);
@@ -34,6 +37,7 @@ function App() {
       history.push("/home");
     })
   }
+
 
   return  (
   <Router>

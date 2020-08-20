@@ -13,7 +13,6 @@ export default function User(props) {
     props.currentUser?.id? (
           API.getCurrentUserInfo(props.currentUser.id).then((res) => {
                 setUserInfo(res.data);
-                console.log(userInfo);
               })
     ) : setUserInfo({})
     }, [props.currentUser]);
