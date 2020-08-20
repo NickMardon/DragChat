@@ -1,0 +1,16 @@
+.jumbotron {
+   background-color: lightgray;
+    height: 350px;
+    width: 100%;
+}
+
+h1 {
+    padding: 20px 20%;
+    font-size: 36px;
+    text-align: center;
+    border-bottom: 1px solid slategrey;
+}
+
+h3 {
+    padding: 10px 20%;
+}
