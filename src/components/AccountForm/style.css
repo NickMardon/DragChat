@@ -12,10 +12,10 @@ body {
 
 }
 @media only screen and (max-width: 999px) and (min-width: 500px){
-
+/* 
         #create {
             visibility: hidden;
-        }
+        } */
 
 }
 @media only screen and (max-width: 499px) and (min-width: 50px){
