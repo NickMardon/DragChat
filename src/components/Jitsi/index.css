@@ -44,9 +44,7 @@ body {
             width: 100%;
             padding: 30%;
         }
-        #tinyColumn {
-            visibility: hidden;
-        }
+
         #meet {
             position: absolute;
             top: 0;
