@@ -9,12 +9,15 @@ export default function User(props) {
 
   const [userInfo, setUserInfo] = useState({});
     
-    // useEffect(() => {
-    //   API.getCurrentUserInfo(props.currentUser.id).then((res) => {
-    //     setUserInfo(res.data);
-    //     console.log(userInfo);
-    //   });
-    // }, []);
+    useEffect(() => {
+    props.currentUser?.id? (
+          API.getCurrentUserInfo(props.currentUser.id).then((res) => {
+                setUserInfo(res.data);
+                console.log(userInfo);
+              })
+    ) : setUserInfo({})
+    }, [props.currentUser]);
+
 
     return (
       <div>

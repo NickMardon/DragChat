@@ -20,26 +20,12 @@ function App() {
   let history = useHistory();
 
   const [currentUser, setCurrentUser] = useState()
-  const [currentInfo, setCurrentInfo] = useState()
-
+ 
   useEffect(() => {
-    // API.getCurrentUser().then(res => {
-    //   setCurrentUser(res.data.user);
-    // })
-    getUserInfo()
+    API.getCurrentUser().then(res => {
+      setCurrentUser(res.data.user);
+    })
   }, [])
-
-  const getUserInfo = async () => {
-    const {data:{user}} = await API.getCurrentUser();
-    const loggedUserInfo = await API.getCurrentUserInfo(user.id)
-    setCurrentUser(user);
-
-      // setUserInfo(res.data);
-      // console.log(currentInfo);
-      console.log(loggedUserInfo);
-    
-  }
-
 
   const logout = ()=>{
     API.logout().then(res=>{
@@ -60,7 +46,9 @@ function App() {
       <User currentUser={currentUser}/>
     </Route>
     <Route exact path={"/hall"}>
-    <Hall currentUser={currentUser}/>
+
+    {currentUser?.id ? <Hall currentUser={currentUser}/> : <h1>Loading (spinner)</h1>}
+      
     </Route>
     </Switch>
   </Router>
