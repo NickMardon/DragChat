@@ -14,12 +14,15 @@ import {
   // Select,
 } from "antd";
 
+import { useHistory } from "react-router-dom";
+
 import API from "../../utils/api";
 import { PlusOutlined } from "@ant-design/icons";
 
-// const { Option } = Select;
+const SignInDrawerForm = (props) => {
 
-const SignInDrawerForm = () => {
+  let history = useHistory();
+
   const [signInVisible, setSignInVisible] = useState(false);
 
   const [signInFormData, setSignInFormData] = useState({
@@ -41,16 +44,18 @@ const SignInDrawerForm = () => {
     if (signInFormData.email!=="" && signInFormData.password!=="") {
       API.userLogin(signInFormData).then(res=>{
         console.log("signed in!")
-      });
-      setSignInFormData({
-      email:"",
-      password: ""}).catch(err=>{
+        setSignInFormData({
+        email:"",
+        password: ""})
+        props.setCurrentUser(res.data.user)
+        history.push("/user");
+      }).catch(err=>{
         alert('sign-in failed')
       });
 
-      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
-      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
-      //TODO:I think this is where I want to call a redirect to /user/:id with the id of the current user? or do I want to update currentUser? a bit confused here
+      //TODO:I think this is where I want to call a redirect to /user with the id of the current user? or do I want to update currentUser? a bit confused here
+      //TODO:I think this is where I want to call a redirect to /use with the id of the current user? or do I want to update currentUser? a bit confused here
+      //TODO:I think this is where I want to call a redirect to /user with the id of the current user? or do I want to update currentUser? a bit confused here
 
     }
   }

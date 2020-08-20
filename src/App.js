@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import 'antd/dist/antd.css';
 import NavFrame from "./components/Navframe/NavFrame"
+import API from './utils/api';
 
 // //need to import dnd provider to wrap anything that will possibly use drag and drop interface
 // import { DndProvider } from 'react-dnd';
@@ -16,19 +17,23 @@ import NavFrame from "./components/Navframe/NavFrame"
 
 function App() {
 
-  // const [currentUser, setCurrentUser] = useState()
+  //TODO: 
+  //TODO: THE STATES for signup and signin and their state changers need to live up here. do one at a time.
+  //TODO: 
+  //TODO: 
+  const [currentUser, setCurrentUser] = useState()
  
-  // useEffect(() => {
-  //   API.getCurrentUser().then(res => {
-  //     setCurrentUser(res.data.user);
-  //   })
-  // }, [])
+  useEffect(() => {
+    API.getCurrentUser().then(res => {
+      setCurrentUser(res.data.user);
+    })
+  }, [])
 
-  // const logout = ()=>{
-  //   API.logout().then(res=>{
-  //     setCurrentUser();
-  //   })
-  // }
+  const logout = ()=>{
+    API.logout().then(res=>{
+      setCurrentUser();
+    })
+  }
 
   return  (
     <div>
@@ -36,15 +41,18 @@ function App() {
       <NavFrame logout={logout} currentUser={currentUser}/>
     <Switch>
     <Route exact path={"/"}>
-      <Home currentUser={currentUser}/>
+      <Home setCurrentUser={setCurrentUser} currentUser={currentUser}/>
     </Route>
     <Route exact path={"/user"}>
       <User currentUser={currentUser}/>
     </Route>
+    {/* <Route path={`/user/:id`}>
+      <Hall currentUser={currentUser}/>
+    </Route> */}
     <Route exact path={"/hall"}>
       <Hall currentUser={currentUser}/>
     </Route>
-    {/* TODO: do we have to pass params into the Hall page being rendered for that to work? */}
+    {/* serious questions about how params with router works */}
     {/* <Route path={`/hall/:id`}>
       <Hall currentUser={currentUser}/>
     </Route> */}

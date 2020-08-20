@@ -47,9 +47,9 @@ const CreateHall = () => {
         name:"",
         password: "",
         description: "",
-        hallSize: 1}).catch(err=>{
-          alert('hall creation failed.')
-        });
+        hallSize: 1})
+      }).catch(err=>{
+        alert('hall creation failed.')
       });
   }
  
@@ -164,7 +164,7 @@ const CreateHall = () => {
               <Form.Item
                 name="description"
                 label="Hall description"
-                rules={[{ required: true, message: "Please enter hall name" }]}
+                rules={[{ required: false }]}
               >
                 {/* <Input value={hallFormData.name} name="hall name" onChange={handleHallFormChange}  /> */}
                 <Input.TextArea
