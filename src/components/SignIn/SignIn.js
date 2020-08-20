@@ -48,15 +48,11 @@ const SignInDrawerForm = (props) => {
         email:"",
         password: ""})
         props.setCurrentUser(res.data.user)
+        //The below line redirects us to the user page upon successful login.
         history.push("/user");
       }).catch(err=>{
         alert('sign-in failed')
       });
-
-      //TODO:I think this is where I want to call a redirect to /user with the id of the current user? or do I want to update currentUser? a bit confused here
-      //TODO:I think this is where I want to call a redirect to /use with the id of the current user? or do I want to update currentUser? a bit confused here
-      //TODO:I think this is where I want to call a redirect to /user with the id of the current user? or do I want to update currentUser? a bit confused here
-
     }
   }
  
