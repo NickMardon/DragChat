@@ -1,29 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Lato&family=Major+Mono+Display&family=Oswald:wght@600&family=Titillium+Web&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Plaster&display=swap");
 
 /* @media only screen and (max-width: 999px) and (min-width: 500px){
 
-    .navbar {
+    /* .navbar {
         visibility: hidden;
-    }
-} */
+    } */
+
 .navbar {
     font-size: 1.5em;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: navy;
+    background-color: #0b64a4;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-top: 14px;
 }
 .navbar-nav {
     width: 100%;
 }
 #home {
     margin-left: 15px;  
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: 'Plaster', cursive;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 26px;
+
 }
-#user {
+#user, #hall {
     float: right;
-    margin-right: 15px;
-}
-#hall {
-    float: right;
-    margin-right: 15px;
+    margin: 0 18px;
+    text-decoration: none;
+    color: whitesmoke;
+    padding-top: 6px;
 }

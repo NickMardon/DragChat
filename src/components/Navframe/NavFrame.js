@@ -20,7 +20,7 @@ function Navbar() {
             <Link
               to="/"
               id = "home"            >
-              Home
+              Videezy
             </Link>            
             <Link
               to="/user"
