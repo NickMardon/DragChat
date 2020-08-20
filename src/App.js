@@ -36,7 +36,6 @@ function App() {
   }
 
   return  (
-    <div>
   <Router>
       <NavFrame logout={logout} currentUser={currentUser}/>
     <Switch>
@@ -58,8 +57,6 @@ function App() {
     </Route> */}
     </Switch>
   </Router>
-  
-  </div>
   )
 }
 export default App;

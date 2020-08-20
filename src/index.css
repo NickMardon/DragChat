@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: slateblue;
+  background: whitesmoke;
 }
 
 code {
@@ -23,4 +23,10 @@ code {
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
+}
+
+html,body{
+  margin:0;
+  padding:0 !important;
+  background-color: whitesmoke !important;
 }
