@@ -2,6 +2,8 @@ const axios = require("axios")
 const urlPrefix = "http://localhost:8080"
 // const urlPrefix = "https://dropinapisamine.herokuapp.com"
 const API = {
+
+
     //User Related API calls
     saveUser: function(userData) {
         return axios.post(`${urlPrefix}/api/users/signup`, userData)
@@ -18,7 +20,12 @@ const API = {
     getCurrentUser: function () {
         return axios.get(`${urlPrefix}/api/users/readsessions`, { withCredentials: true })
     },
-    
+    //TODO: testing
+    getCurrentUserInfo: function (id) {
+        return axios.get(`${urlPrefix}/api/users/${id}/info`, { withCredentials: true })
+    },
+
+
 // ------------------------------------------
     //Hall Related API calls
     createHall: function(hallData) {

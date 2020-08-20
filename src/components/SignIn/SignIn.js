@@ -1,5 +1,3 @@
-//TODO: extract button into parent component, pass down props or execute a context provider if necessary.
-
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";

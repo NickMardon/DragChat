@@ -14,25 +14,25 @@ export default function userInfo(props) {
                 <Col span={4}><Button /></Col>
             </Row>
             <Row className= "row">
-                <Col span={8}>Id {props.id}</Col>
+                <Col span={8}>Id {props.user.id}</Col>
                 <Col span={12}></Col>
                 <Col span={4}><Button /></Col>
             </Row>
             <Row className= "row">
-                <Col span={8}>name {props.name} </Col>
+                <Col span={8}>name {props.user.name} </Col>
                 <Col span={12}></Col>
                 <Col span={4}><Button /></Col>
             </Row>
             <Row className= "row">
-                <Col span={8}>email {props.email} </Col>
+                <Col span={8}>email {props.user.email} </Col>
                 <Col span={12}></Col>
                 <Col span={4}><Button /></Col>
             </Row>
-            <Row className= "row">
+            {/* <Row className= "row">
                 <Col span={8}>password {props.password} </Col>
                 <Col span={12}></Col>
                 <Col span={4}><Button /></Col>
-            </Row>
+            </Row> */}
             </Card>
         </div>
     )
