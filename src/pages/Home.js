@@ -9,7 +9,7 @@ import Webcam from "../components/Webcam/Webcam";
 export default function Home(props) {
     
     
-    console.log(props)
+  console.log(props)
 
 
   const isLoggedIn = props.currentUser? true : false;

@@ -5,8 +5,7 @@ import Avatar from "../Avatar/avatar"
 import { Row, Col } from 'antd';
 
 export default function userInfo(props) {
-    return (
-        <div>
+    return (<div>
             <Card title="User information" style={{ width: "44%", margin: "2%", fontSize: "1.5em"}}>
             <Row className= "row" style={{margin: 10}} >
                 <Col span={4}>avatar</Col>
@@ -34,7 +33,7 @@ export default function userInfo(props) {
                 <Col span={4}><Button /></Col>
             </Row> */}
             </Card>
-        </div>
+            </div>
     )
 }
 
