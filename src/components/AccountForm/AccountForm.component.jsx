@@ -57,7 +57,6 @@ const DrawerForm = (props) => {
 
       API.saveUser(signupFormData).then(res=>{
         console.log("user successfully created");
-
         API.userLogin(signInObj).then(res=>{
           console.log("signed in")
           setSignupFormData({
@@ -74,27 +73,10 @@ const DrawerForm = (props) => {
 
         })
         .catch(err=>{
-          alert('account creation failed');
-
+          alert('account login redirect failed');
       });
     }
   }
-  //working version of signup, before signin integration
-  // const handleSignupSubmit = () =>{
-  //   if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
-  //     API.saveUser(signupFormData).then(res=>{
-  //       console.log("user successfully created")
-  //       setSignupFormData({
-  //       name:"",
-  //       email:"",
-  //       password: "",
-  //       description: ""})
-  //       }).catch(err=>{
-  //         alert('account creation failed');
-
-  //     });
-  //   }
-  // }
  
   const handleSignupFormChange = event => {
     const {name, value} = event.target;
