@@ -12,7 +12,7 @@ export default function Home(props) {
   return (
     <div>
       {/* <Jitsi /> */}
-      <Description isLoggedIn={isLoggedIn} currentUser={props.currentUser} />
+      <Description isLoggedIn={isLoggedIn} setCurrentUser={props.setCurrentUser} currentUser={props.currentUser} />
       <Webcam />
       {/* {isLoggedIn && <CreateHall />} */}
       {/* <URLCopyInput /> */}

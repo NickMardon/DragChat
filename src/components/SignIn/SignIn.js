@@ -54,8 +54,8 @@ const SignInDrawerForm = (props) => {
           //TODO:
           //TODO: TRACED STACK ERROR HERE -> says "props.setCurrentUser is not a function, checked and is being passed from above."
           //TODO:
-          // props.setCurrentUser(res.data.user); 
-          console.log(props.setCurrentUser)
+          props.setCurrentUser(res.data.user); 
+          // console.log(props.setCurrentUser)
           // the above log returns undefined.
 
 
