@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color:skyblue;
     padding: 10px;
 }
@@ -17,11 +17,19 @@ body {
             margin-left:45%;
         }
 
-}
-@media only screen and (max-width: 499px) and (min-width: 50px){
+/* } */
+/* @media only screen and (max-width: 499px) and (min-width: 50px){ */
 
 
-    #create {
-        margin-top: 10px;
-    }
+    /* #create {
+        margin-top: 400px;
+    } */
+/* } */
+
+#create {
+    width: 145px;
+    height: 34px;
+    background-color: #0b64a4;
 }
+
+

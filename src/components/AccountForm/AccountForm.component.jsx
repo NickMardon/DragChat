@@ -70,7 +70,6 @@ const DrawerForm = (props) => {
         .catch(err=>{
           alert('login failed');
         })
-
         })
         .catch(err=>{
           alert('account login redirect failed');
