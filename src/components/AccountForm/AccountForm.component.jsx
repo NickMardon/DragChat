@@ -50,12 +50,12 @@ const DrawerForm = () => {
         name:"",
         email:"",
         password: "",
-        description: ""}).catch(err=>{
-          alert('account creation failed')
-        });
+        description: ""})
 
         //TODO: is it here in the .then I would redirect to the 'user' page if I wanted to log them in on signup? or how to structure that without a huge rework.
 
+      }).catch(err=>{
+        alert('account creation failed')
       });
     }
   }

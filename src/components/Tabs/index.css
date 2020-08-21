@@ -13,11 +13,11 @@ body {
         width: 60%;
         height: 90%;
     }
-    #tinyColumn {
+    /* #tinyColumn {
         width: 100%;
         margin: 5px;
         margin-top: 10px;
-    }
+    } */
     
     #meet {
         position: absolute;
@@ -41,9 +41,9 @@ body {
             width: 100%;
             padding: 30%;
         }
-        #tinyColumn {
+        /* #tinyColumn {
             visibility: hidden;
-        }
+        } */
         #meet {
             position: absolute;
             top: 0;
@@ -73,7 +73,7 @@ body {
         right: 0;
 
     }
-    #tinyColumn {
+    /* #tinyColumn {
         margin-top: 400px;
-    }
+    } */
 }
