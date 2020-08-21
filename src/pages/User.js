@@ -1,21 +1,36 @@
 import React, {useState, useEffect} from 'react'
 import UserInfo from "../components/UserInfo/userInfo"
 import UserHalls from "../components/UserHalls/userHalls"
+import API from '../utils/api'
 
-const dummyUser = {}
 
 export default function User(props) {
+  
 
-    const [userInfo, setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState({});
 
-    //useeffect here TODO::::::
+    useEffect(() => {
+    props.currentUser?.id? (
+          API.getCurrentUserInfo(props.currentUser.id).then((res) => {
+                setUserInfo(res.data);
+              })
+    ) : setUserInfo({})
+    }, [props.currentUser]);
 
-    // readsessions comes in in the useeffect once we GET to this page instead of dependency array being empty set it to the props.currentuser (whatever I pass for current user so it updates on change from above.)
+
     return (
-        <div>
-            <UserInfo user={userInfo}/>
-            {/* <UserHalls /> */}
-            {/* pieceofstatethathasallmyhalls.map(hall => <UserHalls name=pieceofstate.name etc />)*/}
-        </div>
-    )
+      <div>
+      {userInfo?.name? 
+      <UserInfo user={userInfo} /> : 
+      <h1>please wait while we load your information (unless you are not logged in)</h1>}
+        
+
+        {/* //TODO::CONVERT THIS SPACE INTO HALL INFO RENDER  */}
+        {/* <UserHalls /> */}
+        {/* pieceofstatethathasallmyhalls.map(hall => <UserHalls name=pieceofstate.name etc />)*/}
+      </div>
+    );
+
+//this brace ends the conditional reroute, hook use in early return failed
+//   }
 }

@@ -18,19 +18,21 @@ import {
 import { PlusOutlined } from "@ant-design/icons";
 import API from "../../utils/api";
 
-// const { Option } = Select;
+import { useHistory } from "react-router-dom";
 
-const DrawerForm = () => {
+
+const DrawerForm = (props) => {
+
+  let history = useHistory();
+
   //These constants are for the drawer feature
   const [visible, setVisible] = useState(false);
 
-  //My final attempt to just bind state the normal way that joe showed us, incomplete at present
   const [signupFormData, setSignupFormData] = useState({
     name:"",
     email:"",
     password: "",
     description: ""
-
   })
 
   const showDrawer = () => {
@@ -43,19 +45,34 @@ const DrawerForm = () => {
   };
 
   const handleSignupSubmit = () =>{
+    //This was made to take the email and password from the signup form and use them to login after account creation
+    const signInObj = {email: signupFormData.email, password:signupFormData.password};
+    
     if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
+      //separating the signin and signup objects
+
+      //TODO: TEST SUBJECT
+      console.log({signInObj})
+      //TODO: TEST SUBJECT
+
+
       API.saveUser(signupFormData).then(res=>{
-        console.log("user successfully created")
-        setSignupFormData({
-        name:"",
-        email:"",
-        password: "",
-        description: ""})
-
-        //TODO: is it here in the .then I would redirect to the 'user' page if I wanted to log them in on signup? or how to structure that without a huge rework.
-
-      }).catch(err=>{
-        alert('account creation failed')
+        API.userLogin(signInObj).then(res=>{
+          console.log("signed in")
+          setSignupFormData({
+          name:"",
+          email:"",
+          password: "",
+          description: ""});
+          props.setCurrentUser(res.data.user);
+          history.push("/user")
+        })
+        .catch(err=>{
+          alert('login failed');
+        })
+        })
+        .catch(err=>{
+          alert('account login redirect failed');
       });
     }
   }
