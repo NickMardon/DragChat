@@ -33,7 +33,11 @@ const API = {
     },
 
     //all the halls that belong to the currently logged in user
-    getAllUserHalls: function(id) {
+    getAllUserHalls: function() {
+        return axios.get(`${urlPrefix}/api/halls/allhalls`, { withCredentials: true })
+    },
+    //get a single hall belonging to a user TODO:not in use
+    getThisUserHall: function(id) {
         return axios.get(`${urlPrefix}/api/halls/${id}/rooms`, { withCredentials: true })
     }
 // ------------------------------------------

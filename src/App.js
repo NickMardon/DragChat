@@ -27,8 +27,18 @@ function App() {
   useEffect(() => {
     API.getCurrentUser().then(res => {
       setCurrentUser(res.data.user);
+      //TODO: if a current user exists,
+      getUserHalls();
     })
   }, [])
+
+  const getUserHalls = () => {
+    API.getAllUserHalls().then(res => {
+      // console.log("console res.data log from getThisUserHalls", res.data)
+      setUserHalls(res.data);
+    }) 
+    // PUT api THAT GETS ALL HALLS BELONGING TO A USER HERE, then pass in ID conditionally based on if the user id exists.
+  }
 
   const logout = ()=>{
     API.logout().then(res=>{
@@ -47,7 +57,7 @@ function App() {
       <Home setCurrentUser={setCurrentUser} currentUser={currentUser}/>
     </Route>
     <Route exact path={"/user"}>
-      <User currentUser={currentUser}/>
+      <User userHalls={userHalls} currentUser={currentUser}/>
     </Route>
     <Route exact path={"/hall"}>
 
