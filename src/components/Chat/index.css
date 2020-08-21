@@ -8,3 +8,9 @@
 .chat {
     margin-top:10px;
 }
+@media (max-width: 999px){
+    .chat {
+        width: 100%;
+
+    }
+}

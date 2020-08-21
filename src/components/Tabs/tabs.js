@@ -9,7 +9,7 @@ function callback(key) {
 }
 const Demo = () => (
     <div className="tabs">
-    <Tabs id="tinyColumn" defaultActiveKey="1" onChange={callback}>
+    <Tabs defaultActiveKey="1" onChange={callback}>
       <TabPane tab="Hall 1" key="1">
         <Grid />
       </TabPane>

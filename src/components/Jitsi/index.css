@@ -13,14 +13,6 @@ body {
         width: 60%;
         height: 90%;
     }
-    #tinyColumn {
-        width:60%;
-        margin: 5px;
-        margin-top: 10px;
-    }
-    .row {
-        margin:10px;
-    }
     
     #meet {
         position: absolute;

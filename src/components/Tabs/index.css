@@ -1,5 +1,20 @@
-@media (max-width: 999px) {
+@media (max-width: 999px) and (min-width: 500px) {
 .tabs {
-    margin-top: 100%;
+    width: 100%;
+    margin-top: 380px;
+    margin-left: 15px;
 }
 }
+@media (min-width: 1000px) {
+    .tabs {
+        width: 400px;
+        margin-left: 15px;
+    }
+}
+@media (max-width: 499px){
+    .tabs {
+        width: 100%;
+        margin-top: 410px;
+        margin-left: 15px;
+    }
+    }
