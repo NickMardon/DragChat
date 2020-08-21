@@ -3,33 +3,19 @@ import { Card } from 'antd';
 import Button from "../Button/Button"
 
 export default function userHall(props) {
-    for (var i =0; i<props.length; i++){
-        return ( 
-            <div>
-                <Card title="User's Halls" style={{ width: "44%", margin: "2%" }}>
-                    <p>Hall name {props[i].name}</p><Button /><Button />
-                    <p>Number of rooms {props[i].hall_size}</p><Button /><Button />
-                    <p>password {props[i].password}</p><Button /><Button />
-                    <p>Hall theme {props[i].theme_id}</p><Button /><Button />
-                </Card>
-            </div>
-        )
-    }
+    console.log(props);
+    return (
+        
+    <div>
+        {props.props&&props.props.name?
+        (<Card title= {props.props.name} style={{ width: "44%", margin: "2%" }  }><Button /><Button />
+            <p>Hall name {props.props.name}</p>
+            <p>Number of rooms {props.props.hallSize}</p><Button /><Button />
+            <p>password {props.props.password}</p><Button /><Button />
+            <p>Hall theme {props.props.description}</p><Button /><Button />
+        </Card>):<h1>this is no bueno</h1>}
+    </div>
+    
+    )
 }
 
-userHall(
-[
-    {
-    name: "Mike's",
-    hall_size: 4,
-    password: "wordpass",
-    theme_id: "coding fun"
-    },
-    {
-    name: "Joe's",
-    hall_size: 6,
-    password: "wordyword",
-    theme_id: "Jedi programming"
-    }
-]
-)

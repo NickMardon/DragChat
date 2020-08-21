@@ -7,51 +7,11 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import Avatar from "../components/Avatar/avatar"
 import API from '../utils/api';
 import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
-
+import Chat from "../components/Chat/chat"
 import {useParams} from "react-router-dom"
 import userHall from '../components/UserHalls/userHalls';
 import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
-//dummy const to use for hallstate for now
-// the below object is the result of /api/halls/1/rooms, where 1 is being passed as an ID I want to have belong to a user
-// this array will be responsible for primary drag and drop function, as the DND area will be rendered for the rooms.
-// will also when retrieving this data and setting the state, need to apply to Main[1] a status of 'conn' and a  
-const dummyHallState = {
-    "id": 1,
-    "name": "my first study hall",
-    "password": "workkkkkkkkkkkkkkkk",
-    "description": "we love melodysheep round here",
-    "hallSize": 3,
-    "createdAt": "2020-08-19T05:38:07.000Z",
-    "updatedAt": "2020-08-19T05:38:07.000Z",
-    "UserId": 1,
-    "Main": [
-        {
-            "id": 1,
-            "name": "myfirststudyhall_test_0_1597815487276",
-            "password": "workkkkkkkkkkkkkkkk",
-            "createdAt": "2020-08-19T05:38:07.000Z",
-            "updatedAt": "2020-08-19T05:38:07.000Z",
-            "HallId": 1
-        },
-        {
-            "id": 2,
-            "name": "myfirststudyhall_test_1_1597815487277",
-            "password": "workkkkkkkkkkkkkkkk",
-            "createdAt": "2020-08-19T05:38:07.000Z",
-            "updatedAt": "2020-08-19T05:38:07.000Z",
-            "HallId": 1
-        },
-        {
-            "id": 3,
-            "name": "myfirststudyhall_test_2_1597815487277",
-            "password": "workkkkkkkkkkkkkkkk",
-            "createdAt": "2020-08-19T05:38:07.000Z",
-            "updatedAt": "2020-08-19T05:38:07.000Z",
-            "HallId": 1
-        }
-    ]
-}
 
 
 export default function Room(props) {
@@ -84,8 +44,8 @@ export default function Room(props) {
 
 
 
-
-            <Avatar currentUser={props.currentUser}/>
+            {/* <Avatar currentUser={props.currentUser}/> */}
+            <Chat />
         </div>
     )
 }
