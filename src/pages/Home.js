@@ -22,7 +22,7 @@ export default function Home(props) {
       {!isLoggedIn && <AccountForm setCurrentUser={props.setCurrentUser} />}
       {isLoggedIn && <CreateHall />}
       <Webcam />
-     
+
       {/* <URLCopyInput /> */}
     </div>
   );

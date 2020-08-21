@@ -7,7 +7,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import Avatar from "../components/Avatar/avatar"
 import API from '../utils/api';
 import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
-
+import Chat from "../components/Chat/chat"
 import {useParams} from "react-router-dom"
 import userHall from '../components/UserHalls/userHalls';
 
@@ -81,17 +81,18 @@ export default function Room(props) {
             <Rooms />
             </DndProvider> */}
 
-
+{/* 
             <div style={{backgroundColor: "#ad9f9e", width: '30vw'}}>
                 <h3>DUMMY HALL REPRESENTATION</h3>
                 <h6>{userHallState.name}</h6>
                 <p>{userHallState.description}</p>
-                {/* the below should be a button and not an atag, with an onclick that lives at this level */}
+                {// the below should be a button and not an atag, with an onclick that lives at this level }
                 {userHallState.Main.map(room => <p><strong><a href='#'>{room.name}</a></strong></p>)}
-            </div>
+            </div> */}
 
 
-            <Avatar currentUser={props.currentUser}/>
+            {/* <Avatar currentUser={props.currentUser}/> */}
+            <Chat />
         </div>
     )
 }

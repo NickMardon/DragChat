@@ -1,0 +1,10 @@
+@media (min-width: 1000px){
+    .chat {
+        width: 40%;
+        max-height: 600px;
+        overflow: scroll;
+    }
+}
+.chat {
+    margin-top:10px;
+}
