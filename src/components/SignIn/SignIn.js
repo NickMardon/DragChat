@@ -17,16 +17,18 @@ import { useHistory } from "react-router-dom";
 import API from "../../utils/api";
 import { PlusOutlined } from "@ant-design/icons";
 
-const SignInDrawerForm = (props) => {
 
+
+
+const SignInDrawerForm = (props) => {
   let history = useHistory();
 
   const [signInVisible, setSignInVisible] = useState(false);
 
   const [signInFormData, setSignInFormData] = useState({
-    email:"",
+    email: "",
     password: "",
-  })
+  });
 
   const showSignDrawer = () => {
     setSignInVisible(true);
@@ -34,34 +36,46 @@ const SignInDrawerForm = (props) => {
 
   const onClose = () => {
     setSignInVisible(false);
-    handleSignInSubmit()
+    handleSignInSubmit();
   };
 
+  const handleSignInSubmit = () => {
+    if (signInFormData.email !== "" && signInFormData.password !== "") {
+      API.userLogin(signInFormData)
+        .then((res) => {
+          console.log("signed in!");
+          setSignInFormData({
+            email: "",
+            password: "",
+          });
 
-  const handleSignInSubmit = () =>{
-    if (signInFormData.email!=="" && signInFormData.password!=="") {
-      API.userLogin(signInFormData).then(res=>{
-        console.log("signed in!")
-        setSignInFormData({
-        email:"",
-        password: ""})
-        props.setCurrentUser(res.data.user)
-        //The below line redirects us to the user page upon successful login.
-        history.push("/user");
-      }).catch(err=>{
-        alert('sign-in failed')
-      });
+
+
+          //TODO:
+          //TODO: TRACED STACK ERROR HERE -> says "props.setCurrentUser is not a function, checked and is being passed from above."
+          //TODO:
+          // props.setCurrentUser(res.data.user); 
+          console.log(props.setCurrentUser)
+          // the above log returns undefined.
+
+
+          //The below line redirects us to the user page upon successful login.
+          history.push("/user");
+        })
+        .catch((err) => {
+          console.log(err);
+          // alert('sign-in failed')
+        });
     }
-  }
- 
-  const handleSignInFormChange = event => {
-    const {name, value} = event.target;
+  };
+
+  const handleSignInFormChange = (event) => {
+    const { name, value } = event.target;
     setSignInFormData({
       ...signInFormData,
-      [name]:value
-    })
-  }
-
+      [name]: value,
+    });
+  };
 
   return (
     <>
@@ -75,11 +89,11 @@ const SignInDrawerForm = (props) => {
         onClose={onClose}
         visible={signInVisible}
         bodyStyle={{ paddingBottom: 80 }}
-        placement='left'
+        placement="left"
         footer={
           <div
             style={{
-              textAlign: "left"
+              textAlign: "left",
             }}
           >
             <Button onClick={onClose} style={{ marginRight: 8 }}>
@@ -93,20 +107,21 @@ const SignInDrawerForm = (props) => {
       >
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
-          <Col span={24}>
+            <Col span={24}>
               <Form.Item
                 name="email"
                 label="Email"
                 rules={[{ required: true, message: "Please input an email" }]}
               >
-                <Input 
-                name="email" 
-                value={signInFormData.email}
-                onChange={handleSignInFormChange} 
-                placeholder="Please enter an email" />
+                <Input
+                  name="email"
+                  value={signInFormData.email}
+                  onChange={handleSignInFormChange}
+                  placeholder="Please enter an email"
+                />
               </Form.Item>
             </Col>
-         </Row>
+          </Row>
           <Row gutter={16}>
             <Col span={24}>
               <Form.Item
@@ -114,11 +129,12 @@ const SignInDrawerForm = (props) => {
                 label="Password"
                 rules={[{ required: true, message: "Please input a password" }]}
               >
-                <Input.Password 
-                name="password" 
-                value={signInFormData.password} 
-                onChange={handleSignInFormChange}
-                placeholder="Please enter a password" />
+                <Input.Password
+                  name="password"
+                  value={signInFormData.password}
+                  onChange={handleSignInFormChange}
+                  placeholder="Please enter a password"
+                />
               </Form.Item>
             </Col>
           </Row>

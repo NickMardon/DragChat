@@ -8,7 +8,7 @@ export default function User(props) {
   
 
   const [userInfo, setUserInfo] = useState({});
-    
+
     useEffect(() => {
     props.currentUser?.id? (
           API.getCurrentUserInfo(props.currentUser.id).then((res) => {
@@ -20,7 +20,10 @@ export default function User(props) {
 
     return (
       <div>
-        <UserInfo user={userInfo} />
+      {userInfo?.name? 
+      <UserInfo user={userInfo} /> : 
+      <h1>please wait while we load your information (unless you are not logged in)</h1>}
+        
 
         {/* //TODO::CONVERT THIS SPACE INTO HALL INFO RENDER  */}
         {/* <UserHalls /> */}

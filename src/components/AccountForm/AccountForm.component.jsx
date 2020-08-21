@@ -45,6 +45,7 @@ const DrawerForm = (props) => {
   };
 
   const handleSignupSubmit = () =>{
+    //This was made to take the email and password from the signup form and use them to login after account creation
     const signInObj = {email: signupFormData.email, password:signupFormData.password};
     
     if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
@@ -56,7 +57,6 @@ const DrawerForm = (props) => {
 
 
       API.saveUser(signupFormData).then(res=>{
-        console.log("user successfully created");
         API.userLogin(signInObj).then(res=>{
           console.log("signed in")
           setSignupFormData({

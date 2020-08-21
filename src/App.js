@@ -23,13 +23,13 @@ function App() {
  
   const [userHalls, setUserHalls] = useState({})
 
+  const [isLoggedIn,] = useState(currentUser?.id? true : false, [currentUser])
+
   useEffect(() => {
     API.getCurrentUser().then(res => {
       setCurrentUser(res.data.user);
-      //TODO: if a current user exists,
-      // getUserHalls();
     })
-  }, [])
+  }, [isLoggedIn])
 
   useEffect(() => {
     currentUser?.id? (
@@ -63,9 +63,17 @@ function App() {
   <Router>
       <NavFrame logout={logout} currentUser={currentUser}/>
     <Switch>
+
+
+    {/* TODO: WORKIGN HERE< ADDED IN ISLOGGEDIN FROM TOP LEVEL */}
     <Route exact path={"/"}>
-      <Home setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+      <Home 
+      isLoggedIn={isLoggedIn} 
+      setCurrentUser={setCurrentUser} 
+      currentUser={currentUser}/>
     </Route>
+
+
     <Route exact path={"/user"}>
       <User userHalls={userHalls} currentUser={currentUser}/>
     </Route>
