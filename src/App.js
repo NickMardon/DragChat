@@ -13,48 +13,75 @@ import API from './utils/api';
 // //have to pass a backend to it, here is where we switch out for the combo one later
 // import { HTML5Backend } from "react-dnd-html5-backend";
 // import Rooms from './components/dnd/rooms/rooms'
-
+import { useHistory } from "react-router-dom";
 
 function App() {
 
-  //TODO: 
-  //TODO: THE STATES for signup and signin and their state changers need to live up here. do one at a time.
-  //TODO: 
-  //TODO: 
+  let history = useHistory();
+
   const [currentUser, setCurrentUser] = useState()
  
+  const [userHalls, setUserHalls] = useState({})
+
+  const [isLoggedIn,] = useState(currentUser?.id? true : false, [currentUser])
+
   useEffect(() => {
     API.getCurrentUser().then(res => {
       setCurrentUser(res.data.user);
     })
-  }, [])
+  }, [isLoggedIn])
+
+  useEffect(() => {
+    currentUser?.id? (
+          API.getAllUserHalls(currentUser.id).then((res) => {
+                setUserHalls(res.data);
+              })
+    ) : setUserHalls({})
+    }, [currentUser]);
+
+  // //TODO: running into the same error with async and await - having it depend on the wrong state?
+  // const getUserHalls = async () => {
+  //   const allUserHalls = await API.getAllUserHalls();
+  //   console.log("line 38 of appjs",allUserHalls) 
+  //   // API.getAllUserHalls().then(res => {
+  //   //   // console.log("console res.data log from getThisUserHalls", res.data)
+  //   //   await setUserHalls(res.data);
+  //   // }) 
+  //   // PUT api THAT GETS ALL HALLS BELONGING TO A USER HERE, then pass in ID conditionally based on if the user id exists.
+  // }
 
   const logout = ()=>{
     API.logout().then(res=>{
       setCurrentUser();
+      //redirecting home after logout.
+      history.push("/home");
     })
   }
+
 
   return  (
   <Router>
       <NavFrame logout={logout} currentUser={currentUser}/>
     <Switch>
+
+
+    {/* TODO: WORKIGN HERE< ADDED IN ISLOGGEDIN FROM TOP LEVEL */}
     <Route exact path={"/"}>
-      <Home setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+      <Home 
+      isLoggedIn={isLoggedIn} 
+      setCurrentUser={setCurrentUser} 
+      currentUser={currentUser}/>
     </Route>
+
+
     <Route exact path={"/user"}>
-      <User currentUser={currentUser}/>
+      <User userHalls={userHalls} currentUser={currentUser}/>
     </Route>
-    {/* <Route path={`/user/:id`}>
-      <Hall currentUser={currentUser}/>
-    </Route> */}
     <Route exact path={"/hall"}>
-      <Hall currentUser={currentUser}/>
+
+    {currentUser?.id ? <Hall currentUser={currentUser}/> : <h1>Loading (spinner)</h1>}
+      
     </Route>
-    {/* serious questions about how params with router works */}
-    {/* <Route path={`/hall/:id`}>
-      <Hall currentUser={currentUser}/>
-    </Route> */}
     </Switch>
   </Router>
   )

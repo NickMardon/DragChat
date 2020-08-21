@@ -10,6 +10,7 @@ import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
 
 import {useParams} from "react-router-dom"
 import userHall from '../components/UserHalls/userHalls';
+import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
 //dummy const to use for hallstate for now
 // the below object is the result of /api/halls/1/rooms, where 1 is being passed as an ID I want to have belong to a user
@@ -55,7 +56,7 @@ const dummyHallState = {
 
 export default function Room(props) {
 
-    const [userHallState, setUserHallState] = useState(dummyHallState)
+    const [userHalls, setUserHalls] = useState({})
 
     //TODO:TODO:TODO: a piece of jitsi state that lives at this level and is interacted with by DND or buttons, this state includes meeting info drawn from logged in user AND hall in question.
 
@@ -82,16 +83,20 @@ export default function Room(props) {
             </DndProvider> */}
 
 
-            <div style={{backgroundColor: "#ad9f9e", width: '30vw'}}>
-                <h3>DUMMY HALL REPRESENTATION</h3>
-                <h6>{userHallState.name}</h6>
-                <p>{userHallState.description}</p>
-                {/* the below should be a button and not an atag, with an onclick that lives at this level */}
-                {userHallState.Main.map(room => <p><strong><a href='#'>{room.name}</a></strong></p>)}
-            </div>
 
 
             <Avatar currentUser={props.currentUser}/>
         </div>
     )
 }
+
+
+
+// this piece of code maps a nonexistent object  now, commenting out and moving below
+// <div style={{backgroundColor: "#ad9f9e", width: '30vw'}}>
+// <h3>DUMMY HALL REPRESENTATION</h3>
+// <h6>{userHalls.name}</h6>
+// <p>{userHalls.description}</p>
+// {/* the below should be a button and not an atag, with an onclick that lives at this level */}
+// {userHalls.Main.map(room => <p><strong><a href='#'>{room.name}</a></strong></p>)}
+// </div>
