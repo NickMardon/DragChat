@@ -23,22 +23,32 @@ function App() {
  
   const [userHalls, setUserHalls] = useState({})
 
-
   useEffect(() => {
     API.getCurrentUser().then(res => {
       setCurrentUser(res.data.user);
       //TODO: if a current user exists,
-      getUserHalls();
+      // getUserHalls();
     })
   }, [])
 
-  const getUserHalls = () => {
-    API.getAllUserHalls().then(res => {
-      // console.log("console res.data log from getThisUserHalls", res.data)
-      setUserHalls(res.data);
-    }) 
-    // PUT api THAT GETS ALL HALLS BELONGING TO A USER HERE, then pass in ID conditionally based on if the user id exists.
-  }
+  useEffect(() => {
+    currentUser?.id? (
+          API.getAllUserHalls(currentUser.id).then((res) => {
+                setUserHalls(res.data);
+              })
+    ) : setUserHalls({})
+    }, [currentUser]);
+
+  // //TODO: running into the same error with async and await - having it depend on the wrong state?
+  // const getUserHalls = async () => {
+  //   const allUserHalls = await API.getAllUserHalls();
+  //   console.log("line 38 of appjs",allUserHalls) 
+  //   // API.getAllUserHalls().then(res => {
+  //   //   // console.log("console res.data log from getThisUserHalls", res.data)
+  //   //   await setUserHalls(res.data);
+  //   // }) 
+  //   // PUT api THAT GETS ALL HALLS BELONGING TO A USER HERE, then pass in ID conditionally based on if the user id exists.
+  // }
 
   const logout = ()=>{
     API.logout().then(res=>{
