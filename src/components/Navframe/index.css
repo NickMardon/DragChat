@@ -2,12 +2,12 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Plaster&display=swap");
 
-@media only screen and (max-width: 999px) and (min-width: 500px){
+/* @media only screen and (max-width: 999px) and (min-width: 500px){
 
     /* .navbar {
         visibility: hidden;
     } */
-}
+
 .navbar {
     font-size: 1.5em;
     padding-left: 10px;

@@ -6,7 +6,7 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import Avatar from "../components/Avatar/avatar"
 import API from '../utils/api';
-
+import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
 
 import {useParams} from "react-router-dom"
 import userHall from '../components/UserHalls/userHalls';
