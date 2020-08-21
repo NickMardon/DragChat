@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color:skyblue;
     padding: 10px;
 }
@@ -17,11 +17,11 @@ body {
         #tinyColumn {
             margin: 5px;
             /* margin-top: 100px; */
-            margin-left: 40%;
-        }
+            /* margin-left: 40%; */
+        /* }
 
-}
-@media only screen and (max-width: 499px) and (min-width: 50px){
+} */
+/* @media only screen and (max-width: 499px) and (min-width: 50px){
 
 
     #tinyColumn {
@@ -30,4 +30,11 @@ body {
         margin-left: 40%;
     }
     
-}
+} */ 
+
+#tinyColumn {
+    width: 145px;
+    height: 34px;
+    margin: 4px;
+    background-color: #0b64a4;
+ }
