@@ -14,12 +14,17 @@ import {
   Select,
 } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-
 import API from "../../utils/api";
+import { useHistory } from "react-router-dom";
 
+
+//needed for picking how many rooms to make
 const { Option } = Select;
 
 const CreateHall = (props) => {
+  //for redirecring 
+  let history = useHistory();
+  
   //These constants are for the drawer feature
   const [hallFormVisible, setHallFormVisible] = useState(false);
 
@@ -36,10 +41,15 @@ const CreateHall = (props) => {
   };
 
   const onHallFormClose = () => {
-    setHallFormVisible(false);
-    handleHallFormSubmit();
+    if (hallFormData.name!==""&&hallFormData.password!=="") {
+      setHallFormVisible(false);
+      handleHallFormSubmit();
+      history.push("/hall")
+    } else {
+      setHallFormVisible(false);
+    }
   };
-
+  
   const handleHallFormSubmit = () =>{
       API.createHall(hallFormData).then(res=>{
         console.log("Created your hall.");

@@ -24,15 +24,11 @@ function App() {
 
   const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
 
-  //TODO: WORKSPACE
-  //TODO: WORKSPACE
 
   const [currentHall, setCurrentHall] = useState()
 
   const [activeRoom, setActiveRoom ] = useState()
 
-  //TODO: WORKSPACE
-  //TODO: WORKSPACE
   
   // one for getting current user
   useEffect(() => {
@@ -41,11 +37,19 @@ function App() {
     });
   }, [isLoggedIn]);
 
-  //this useEffect manages the hall state coming in and sets the appropriate hooked states
+  //this useEffect fires the below getAllUserHalls function on load, which is dependant on currentUser
   useEffect(() => {
     getAllUserHalls();
-  }, [currentUser, currentHall]);
+  }, [currentUser]);
+  // TODO: calling currentHall forced a recursion and eventual server overload, 
 
+  useEffect(() => {
+    if (currentHall&&currentHall.Main[0].id){
+      setActiveRoom(currentHall.Main[0])
+    } else {
+      setActiveRoom({})
+    }
+  }, [currentHall])
 
   //TODO: WORKSPACE
   //TODO: WORKSPACE
@@ -70,11 +74,12 @@ function App() {
       : setUserHalls({});
   }
 
-  //TODO: WORKSPACE
+
+  //TODO: WORKSPACE END-------------COMMENTS----------------------
   //TODO:1. pass getHalls down into user page,
   //TODO:2. make a deletehall method, pass it into user page
   //TODO:3. 
-  //TODO: WORKSPACE
+  //TODO: WORKSPACE----------------------------------------------
 
 
   const logout = () => {
@@ -104,7 +109,7 @@ function App() {
 
         <Route exact path={"/hall"}>
           {currentUser?.id ? (
-            <Hall userHalls={userHalls} currentUser={currentUser} />
+            <Hall currentUser={currentUser} userHalls={userHalls} currentHall={currentHall} activeRoom={activeRoom}/>
           ) : (
             <h1>Loading (spinner)</h1>
           )}
