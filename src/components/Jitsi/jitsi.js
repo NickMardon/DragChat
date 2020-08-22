@@ -11,9 +11,13 @@ export default function Jitsi() {
   const [userFullName, setFullName] = useState(
     'Evan the mighty SNACKO'
   )
+
+  let api = null
+
   useEffect(()=> {
-    jitsiMeetFrame();
+      jitsiMeetFrame();
   })
+
   function jitsiMeetFrame() {
     const domain = "meet.jit.si";
         const options = {

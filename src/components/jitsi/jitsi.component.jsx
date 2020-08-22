@@ -11,13 +11,17 @@ export default function Jitsi() {
       const [userFullName, setFullName] = useState(
         'Evan the mighty SNACKO'
       )
-    
+
+      let api=null;
+
       useEffect(()=> {
         jitsiMeetFrame();
       })
 
-    
       function jitsiMeetFrame() {
+        
+        //TODO:if there is a room disconnect 
+        //then make me a new room using the props below?
         const domain = "meet.jit.si";
             const options = {
               roomName: roomName,

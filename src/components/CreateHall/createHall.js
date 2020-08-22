@@ -19,7 +19,7 @@ import API from "../../utils/api";
 
 const { Option } = Select;
 
-const CreateHall = () => {
+const CreateHall = (props) => {
   //These constants are for the drawer feature
   const [hallFormVisible, setHallFormVisible] = useState(false);
 
@@ -42,12 +42,14 @@ const CreateHall = () => {
 
   const handleHallFormSubmit = () =>{
       API.createHall(hallFormData).then(res=>{
-        console.log("Created your hall.")
+        console.log("Created your hall.");
         setHallFormData({
-        name:"",
-        password: "",
-        description: "",
-        hallSize: 1})
+          name:"",
+          password: "",
+          description: "",
+          hallSize: 1})
+          //taking the get all halls from above
+          props.getHalls();
       }).catch(err=>{
         alert('hall creation failed.')
       });

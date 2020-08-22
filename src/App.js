@@ -24,32 +24,58 @@ function App() {
 
   const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
 
+  //TODO: WORKSPACE
+  //TODO: WORKSPACE
+
+  const [currentHall, setCurrentHall] = useState()
+
+  const [activeRoom, setActiveRoom ] = useState()
+
+  //TODO: WORKSPACE
+  //TODO: WORKSPACE
+  
+  // one for getting current user
   useEffect(() => {
     API.getCurrentUser().then((res) => {
       setCurrentUser(res.data.user);
     });
   }, [isLoggedIn]);
 
+  //this useEffect manages the hall state coming in and sets the appropriate hooked states
   useEffect(() => {
+    getAllUserHalls();
+  }, [currentUser, currentHall]);
+
+
+  //TODO: WORKSPACE
+  //TODO: WORKSPACE
+  
+  const getAllUserHalls = () => {
     currentUser?.id? 
     API.getAllUserHalls(currentUser.id).then((res) => {
-
-
-        //THE FOLLOWING BLOCK FUNCTIONALLY ADDS A 'CURRENT' status of FALSE to the room list, may not need with "current" assignment in lower level. TODO: check.
-
+        //ADDS A 'CURRENT' status of FALSE to the room list except first one.
         const hallsCurrent = res.data.map(hall => {
           if (hall === res.data[0]) {
             hall.current = true
+
+            // this todo block sets the current hall to the first one in the list
+            setCurrentHall(hall)
+            setActiveRoom(hall.Main[0])
           } else {
             hall.current = false
           }
         })
-
-
         setUserHalls(res.data);
         })
       : setUserHalls({});
-  }, [currentUser]);
+  }
+
+  //TODO: WORKSPACE
+  //TODO:1. pass getHalls down into user page,
+  //TODO:2. make a deletehall method, pass it into user page
+  //TODO:3. 
+  //TODO: WORKSPACE
+
 
   const logout = () => {
     API.logout().then((res) => {
@@ -68,6 +94,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
+            getHalls={getAllUserHalls}
           />
         </Route>
 
