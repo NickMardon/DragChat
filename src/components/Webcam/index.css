@@ -2,7 +2,7 @@
     display: flex;
 }
 
-@media (min-width: 100px){
+/* @media (min-width: 100px){
     video {
         width: 50%;
         height: auto;
@@ -16,4 +16,9 @@
     margin-left:10%;
 }
 
+} */
+
+video {
+    width: 50%;
+    float: left;
 }
