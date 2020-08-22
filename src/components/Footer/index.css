@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
+.footerBox {
+    background-color: #0b64a4;
+    height: 50px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#footerText {
+    color: whitesmoke;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 18px;
+    padding: 8px;
+    margin-top: 3px;
+}
+

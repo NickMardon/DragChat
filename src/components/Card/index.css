@@ -1,0 +1,21 @@
+.card {
+    width: 50%;
+    height: max-content;
+    float: right;
+}
+
+.cardRow {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-bottom: 16px;
+    color: #0b64a4;
+}
+
+p {
+    font-size: 18px;
+    margin-left: 6px;
+}
+
