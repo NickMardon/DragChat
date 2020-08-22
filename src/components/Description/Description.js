@@ -16,7 +16,7 @@ export default function Description(props) {
             <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
       {!isLoggedIn && <SignIn setCurrentUser={props.setCurrentUser} />}
       {!isLoggedIn && <AccountForm setCurrentUser={props.setCurrentUser} />}
-      {isLoggedIn && <CreateHall />}
+      {isLoggedIn && <CreateHall getHalls={props.getHalls}/>}
       </div>
         </div>
     )

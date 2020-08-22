@@ -4,29 +4,33 @@ import './index.css';
 
 
 
-export default function Jitsi() {
-  const [roomName, setRoomName ]  = useState(
-    'evans-super-awesomely-secret-meeting-9238233h42938rhfuswefb32r9hj'
-  )
-  const [userFullName, setFullName] = useState(
-    'Evan the mighty SNACKO'
-  )
+export default function Jitsi(props) {
+
+  // TODO:still need to use password in meeting coming from backend.
+  // TODO:still need to use password in meeting coming from backend.
+  //TODO: mess with other configurations to pass into jitsi object.
+  // bcrypt the password, which requires dropping models
+
+  //NOTE:: IF RECONNECT DOUBLES BETWEEN TWO MEETINGS -> CONSIDER THIS LOGIC OPTION:: make div ID of meet empty, or try and call the api.connectionmethod(hangup) (something like that)
+
+
   useEffect(()=> {
-    jitsiMeetFrame();
-  })
-  function jitsiMeetFrame() {
+    if (props.activeRoom&&props.activeRoom.name) {
+      jitsiMeetFrame(props.activeRoom.name, props.currentUser.name, props.currentUser.email);
+    }
+  }, [props.activeRoom, props.currentUser])
+
+  function jitsiMeetFrame(name, email, displayName) {
     const domain = "meet.jit.si";
         const options = {
-          roomName: roomName,
+          roomName: name ,
           width: "100%",
           height: "100%",
           zIndex: 0,
           parentNode: document.querySelector("#meet"),
           userInfo: {
-          // can do DB retrieval of person's login info based on session id, look into Oauth
-          email: 'epacholski86@gmail.com',
-          // Oauth will be necessary here, and really tie some awesomeness in.
-          displayName: "Mike"
+          email: email,
+          displayName: displayName
           },
           configOverwrite: {
           prejoinPageEnabled: false
@@ -36,10 +40,15 @@ export default function Jitsi() {
         return api
   }
   return (
+
     <div>
+     {props.activeRoom?.name? (
+
       <div id="container">
         <div id="meet" ></div>
       </div>
+     ) : <h1>LOADING</h1>
+     }
     </div>
   );
 }

@@ -4,9 +4,9 @@ import { Switch } from "react-router-dom";
 import Hall from "./pages/Hall";
 import Home from "./pages/Home";
 import User from "./pages/User";
-import 'antd/dist/antd.css';
-import NavFrame from "./components/Navframe/NavFrame"
-import API from './utils/api';
+import "antd/dist/antd.css";
+import NavFrame from "./components/Navframe/NavFrame";
+import API from "./utils/api";
 
 // //need to import dnd provider to wrap anything that will possibly use drag and drop interface
 // import { DndProvider } from 'react-dnd';
@@ -16,76 +16,111 @@ import API from './utils/api';
 import { useHistory } from "react-router-dom";
 
 function App() {
-
   let history = useHistory();
 
-  const [currentUser, setCurrentUser] = useState()
- 
-  const [userHalls, setUserHalls] = useState({})
+  const [currentUser, setCurrentUser] = useState();
 
-  const [isLoggedIn,] = useState(currentUser?.id? true : false, [currentUser])
+  const [userHalls, setUserHalls] = useState({});
 
+  const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
+
+
+  const [currentHall, setCurrentHall] = useState()
+
+  const [activeRoom, setActiveRoom ] = useState()
+
+  
+  // one for getting current user
   useEffect(() => {
-    API.getCurrentUser().then(res => {
+    API.getCurrentUser().then((res) => {
       setCurrentUser(res.data.user);
-    })
-  }, [isLoggedIn])
+    });
+  }, [isLoggedIn]);
+
+  //this useEffect fires the below getAllUserHalls function on load, which is dependant on currentUser
+  useEffect(() => {
+    getAllUserHalls();
+  }, [currentUser]);
+  // TODO: calling currentHall forced a recursion and eventual server overload, 
 
   useEffect(() => {
-    currentUser?.id? (
-          API.getAllUserHalls(currentUser.id).then((res) => {
-                setUserHalls(res.data);
-              })
-    ) : setUserHalls({})
-    }, [currentUser]);
+    if (currentHall&&currentHall.Main[0].id){
+      setActiveRoom(currentHall.Main[0])
+    } else {
+      setActiveRoom({})
+    }
+  }, [currentHall])
 
-  // //TODO: running into the same error with async and await - having it depend on the wrong state?
-  // const getUserHalls = async () => {
-  //   const allUserHalls = await API.getAllUserHalls();
-  //   console.log("line 38 of appjs",allUserHalls) 
-  //   // API.getAllUserHalls().then(res => {
-  //   //   // console.log("console res.data log from getThisUserHalls", res.data)
-  //   //   await setUserHalls(res.data);
-  //   // }) 
-  //   // PUT api THAT GETS ALL HALLS BELONGING TO A USER HERE, then pass in ID conditionally based on if the user id exists.
-  // }
+  //TODO: WORKSPACE
+  //TODO: WORKSPACE
+  
+  const getAllUserHalls = () => {
+    currentUser?.id? 
+    API.getAllUserHalls(currentUser.id).then((res) => {
+        //ADDS A 'CURRENT' status of FALSE to the room list except first one.
+        const hallsCurrent = res.data.map(hall => {
+          if (hall === res.data[0]) {
+            hall.current = true
 
-  const logout = ()=>{
-    API.logout().then(res=>{
-      setCurrentUser();
-      //redirecting home after logout.
-      history.push("/home");
-    })
+            // this todo block sets the current hall to the first one in the list
+            setCurrentHall(hall)
+            setActiveRoom(hall.Main[0])
+          } else {
+            hall.current = false
+          }
+        })
+        setUserHalls(res.data);
+        })
+      : setUserHalls({});
   }
 
 
-  return  (
-  <Router>
-      <NavFrame logout={logout} currentUser={currentUser}/>
-    <Switch>
+  //TODO: WORKSPACE END-------------COMMENTS----------------------
+  //TODO:1. pass getHalls down into user page,
+  //TODO:2. make a deletehall method, pass it into user page
+  //TODO:3. 
+  //TODO: WORKSPACE----------------------------------------------
 
 
-    {/* TODO: WORKIGN HERE< ADDED IN ISLOGGEDIN FROM TOP LEVEL */}
-    <Route exact path={"/"}>
-      <Home 
-      isLoggedIn={isLoggedIn} 
-      setCurrentUser={setCurrentUser} 
-      currentUser={currentUser}/>
-    </Route>
+  const logout = () => {
+    API.logout().then((res) => {
+      setCurrentUser();
+      //redirecting home after logout.
+      history.push("/home");
+    });
+  };
 
+  return (
+    <Router>
+      <NavFrame logout={logout} currentUser={currentUser} />
+      <Switch>
+        <Route exact path={"/"}>
+          <Home
+            isLoggedIn={isLoggedIn}
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+            getHalls={getAllUserHalls}
+          />
+        </Route>
 
-    <Route exact path={"/user"}>
-      <User userHalls={userHalls} currentUser={currentUser}/>
-    </Route>
-    <Route exact path={"/hall"}>
+        <Route exact path={"/user"}>
+          <User userHalls={userHalls} currentUser={currentUser} />
+        </Route>
 
-    {currentUser?.id ? <Hall currentUser={currentUser}/> : <h1>Loading (spinner)</h1>}
-      
-    </Route>
-    </Switch>
-  </Router>
-  )
+        <Route exact path={"/hall"}>
+          {currentUser?.id ? (
+            <Hall currentUser={currentUser} userHalls={userHalls} currentHall={currentHall} activeRoom={activeRoom}/>
+          ) : (
+            <h1>Loading (spinner)</h1>
+          )}
+
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 export default App;
+
+
 
 
