@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: whitesmoke;
 }
 
 code {
@@ -25,8 +24,12 @@ code {
   float: left;
 }
 
-html,body{
+/* html,body{
   margin:0;
   padding:0 !important;
   background-color: whitesmoke !important;
+} */
+.col {
+  border: 3px solid navy;
+  margin: 5px;
 }

@@ -1,12 +1,21 @@
 .webcam {
     width: 100%;
     height: auto;
-    border: 40px solid salmon;
 }
 
-
-video {
-    width: 80%;
+@media (min-width: 100px){
+    video {
+        width: 50%;
+        height: auto;
+        margin-left:25%;
+        border: 10px groove rgb(192, 93, 1);
+    }
+}
+@media (max-width: 999px){
+    video
+    {width: 80%;
     height: auto;
-    margin: 20px 10%;
+    margin-left:10%;
+}
+
 }

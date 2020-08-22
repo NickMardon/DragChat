@@ -12,7 +12,6 @@ import API from '../utils/api';
 // import userHall from '../components/UserHalls/userHalls';
 // import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
-
 export default function Hall(props) {
 
    //setting the current hall to be in for passing into jitsi
@@ -31,7 +30,6 @@ export default function Hall(props) {
 
     return (
         <div> 
-
             <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser}/>
 
             <Tabs />
