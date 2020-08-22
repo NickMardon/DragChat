@@ -13,33 +13,27 @@ import API from '../utils/api';
 // import { faNetworkWired } from '@fortawesome/free-solid-svg-icons';
 
 
-//TODO:RENAME ROOM AFTER DONE WITH ITS FUNCTION.
 export default function Hall(props) {
 
    //setting the current hall to be in for passing into jitsi
-   const [currentHall, setCurrentHall] = useState({})
+//    const [currentHall, setCurrentHall] = useState({})
 
-   //TODO:
-   //TODO:GUT THIS FOLLOWING BLOCK AFTER FINISHING WITH STATE ABOVE. 
-   //TODO:
-   //TODO:
-   useEffect(()=> {
-    if (props.userHalls&&props.userHalls[0]) {
-        let thisHall = props.userHalls[0];
-        setCurrentHall(props.userHalls[0]) 
-    } 
-    else {
-        setCurrentHall({})}   
-    },
-    [props.userHalls]
-    )
-
-    //TODO: insert a second piece of state that cares about only the current hall. 
+//    useEffect(()=> {
+//     if (props.userHalls&&props.userHalls[0]) {
+//         let thisHall = props.userHalls[0];
+//         setCurrentHall(props.userHalls[0]) 
+//     } 
+//     else {
+//         setCurrentHall({})}   
+//     },
+//     [props.userHalls]
+//     )
 
     return (
         <div> 
 
             <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser}/>
+
             <Tabs />
             
             <Avatar currentUser={props.currentUser}/>

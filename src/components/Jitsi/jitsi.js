@@ -5,14 +5,14 @@ import './index.css';
 
 
 export default function Jitsi(props) {
-  // const [roomName, setRoomName ]  = useState(
-  //   'evans-super-awesomely-secret-meeting-9238233h42938rhfuswefb32r9hj'
-  // )
-  // const [userFullName, setFullName] = useState(
-  //   'Evan the mighty SNACKO'
-  // )
 
-  // TODO:still need the connect issue, maybe: let api = null
+  // TODO:still need to use password in meeting coming from backend.
+  // TODO:still need to use password in meeting coming from backend.
+  //TODO: mess with other configurations to pass into jitsi object.
+  // bcrypt the password, which requires dropping models
+
+  //NOTE:: IF RECONNECT DOUBLES BETWEEN TWO MEETINGS -> CONSIDER THIS LOGIC OPTION:: make div ID of meet empty, or try and call the api.connectionmethod(hangup) (something like that)
+
 
   useEffect(()=> {
     if (props.activeRoom&&props.activeRoom.name) {
@@ -21,8 +21,6 @@ export default function Jitsi(props) {
   }, [props.activeRoom, props.currentUser])
 
   function jitsiMeetFrame(name, email, displayName) {
-    //TODO: CURRENT WORK: TERNARY
-
     const domain = "meet.jit.si";
         const options = {
           roomName: name ,
@@ -31,9 +29,7 @@ export default function Jitsi(props) {
           zIndex: 0,
           parentNode: document.querySelector("#meet"),
           userInfo: {
-          // can do DB retrieval of person's login info based on session id, look into Oauth
           email: email,
-          // Oauth will be necessary here, and really tie some awesomeness in.
           displayName: displayName
           },
           configOverwrite: {
