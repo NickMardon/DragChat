@@ -1,17 +1,15 @@
 .webcam {
-    width: 100%;
-    height: auto;
+    display: flex;
 }
 
 @media (min-width: 100px){
     video {
         width: 50%;
         height: auto;
-        margin-left:25%;
-        border: 10px groove rgb(192, 93, 1);
-    }
-}
-@media (max-width: 999px){
+        margin-left:25%; 
+     }
+} 
+ @media (max-width: 999px){
     video
     {width: 80%;
     height: auto;

@@ -20,12 +20,6 @@ const WebcamCapture = () => {
           screenshotFormat="image/jpeg"
         />
         </div>
-        {/* <button onClick={capture}>Capture photo</button> */}
-        {/* {imgSrc && (
-          <img
-            src={imgSrc}
-          />
-        )} */}
       </>
     );
   };
