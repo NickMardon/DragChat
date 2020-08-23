@@ -1,38 +1,12 @@
-/* body {
-    background-color:skyblue;
-    padding: 10px;
-}
-    @media (min-width: 1000px){
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
 
-    #tinyColumn {
-        margin: 5px;
-        margin-left: 15%;
-        margin-right: 20%;
-        width: 240px;
-    }
-
-}
-@media only screen and (max-width: 999px) and (min-width: 500px){
-
-        #tinyColumn {
-            margin: 10px;
-            margin-left: 10%;
-        }
-
-} */
-/* @media only screen and (max-width: 499px) and (min-width: 50px){
-
-
-    #tinyColumn {
-        margin: 20px;
-        margin-left: 10%;
-    }
-    
-} */ 
-
-#tinyColumn {
-    width: 145px;
+#tinyColumn {    
+    font-weight: 500;
+    font-family: 'Titillium Web', sans-serif;
+    border-radius: 6px;
+    width: 155px;
     height: 34px;
     margin: 4px;
     background-color: #0b64a4;
+    text-align: center;
  }

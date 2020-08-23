@@ -2,6 +2,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Plaster&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Lobster&family=Righteous&display=swap");
+
 .navbar {
     font-size: 1.5em;
     padding-left: 10px;
@@ -12,7 +14,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    padding-top: 14px;
+    padding-top: 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -23,12 +25,13 @@
 }
 #home {
     margin-left: 15px;  
+    padding: 4px;
     text-decoration: none;
     color: whitesmoke;
-    font-family: 'Plaster', cursive;
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-size: 26px;
+    font-family: 'Galada', cursive;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 34px;
 
 }
 #user, #hall {
@@ -40,5 +43,6 @@
 }
 
 span {
+    font-family: 'Titillium Web', sans-serif;
     padding: 0 4px;
 }

@@ -23,13 +23,13 @@ export default function Home(props) {
       </Row>
       <Row>
         <Review 
-        review="This app is really good" reviewer="Mike Tyson"
+        review={<q>"I can't wait to use this for game night happy hour!"</q>} reviewer="Dr. Acula"
         />
         <Review
-           review="Hella tight app dude" reviewer="The Big Lebowski"
+           review={<q>"This app is really good"</q>} reviewer="The Big Lebowski"
         />
         <Review 
-           review="Videezy is the only video app for yeezy" reviewer="Kanye West"
+           review={<q>"This app is really good"</q>} reviewer="Kanye West"
         />
       </Row>
       <Footer />
