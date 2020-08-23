@@ -11,7 +11,7 @@ import { BrowserRouter as Router} from "react-router-dom";
 import "./index.css";
     
 
-function Navbar() {
+function Navbar(props) {
   return (
     <nav className="navbar">
       <div className="navbar-nav">
@@ -27,6 +27,11 @@ function Navbar() {
               id = "user"
             >
               <FontAwesomeIcon icon={faUser} />
+
+
+       
+          {props.currentUser?.name?<span>  {props.currentUser.name}</span>:<span></span>}
+
             </Link>
             <Link
               to="/hall"

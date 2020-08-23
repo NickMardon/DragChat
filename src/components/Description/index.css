@@ -13,11 +13,11 @@
 
 /* @media (min-width: 1000px){ */
     .jumbotron {
-        margin-top: 50px;
+        margin-top: 60px;
         background-color: #E1E1E1;
         height: 20%;
         width: 100vw;
-        padding-bottom: 16px;
+        padding-bottom: 40px;
         font-family: 'Titillium Web', sans-serif;
     }
     h4 {
@@ -49,9 +49,7 @@
         background-color: #E1E1E1;
         margin-top: 60px;
         height: 20%;
-        width: 80%;
-        margin-left: 10%;
-        padding-bottom: 16px;
+        padding-bottom: 26px;
     }
     h3 {
         padding: 10px;
