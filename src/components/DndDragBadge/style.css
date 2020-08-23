@@ -1,8 +1,5 @@
 .dragBadge {
-    background-color: #0B64A4
-}
-
-.avatarHolder {
-    border-radius: 50;
-    background-color: transparent;
+    background-color: #0B64A4;
+    margin: 0.5rem 1rem;
+    padding: -.5rem;
 }
