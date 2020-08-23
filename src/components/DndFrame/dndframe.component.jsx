@@ -16,28 +16,37 @@ export default function DndFrame(props) {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="dndFrame">
-        <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
-          <h6>I will be adropdown menu, with props.</h6>
-        </Row>
 
-        <Row gutter={[0, 16]} justify="space-around" align="middle">
-          <Col style={{ height: "100%", backgroundColor: "lightgray" }}>
+        {/* <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
+          <h6>I will be adropdown menu, with props.</h6>
+        </Row> */}
+
+        <Row gutter={[8, 8]} justify="space-around" align="middle">
+          <Col xs={{span: 9}} style={{backgroundColor: "lightgray" }}>
             <Divider orientation="middle">Current Room</Divider>
             <br></br>
-            {/* TODO: rendering the active room name as a placeholder */}
+            {/* TODO: PUT THE COPY SHARE LINK HERE */}
             {props.activeRoom && props.activeRoom.name
               ? props.activeRoom.name
               : "Name"}
           </Col>
 
-          <Col style={{ textAlign: "center" }}>
-            {props.currentHall && props.currentHall.Main[0]
-            ? props.currentHall.Main.map(room => <DndDropZone name={room.name} id={room.id}/>
-            ) : (
+          <Col xs={{span: 14}} style={{ textAlign: "center" }}>
+            <Row className="roomRow">
+              {props.currentHall && props.currentHall.Main[0] ? (
+                props.currentHall.Main.map((room) => (
+                  <DndDropZone name={room.name} id={room.id} />
+                ))
+              ) : (
                 <h1>???</h1>
-             )}
+              )}
+            </Row>
           </Col>
+
+
         </Row>
+
+
       </div>
     </DndProvider>
   );
