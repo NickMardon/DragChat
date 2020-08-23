@@ -76,9 +76,7 @@ function App() {
 
 
   //TODO: WORKSPACE END-------------COMMENTS----------------------
-  //TODO:1. pass getHalls down into user page,
   //TODO:2. make a deletehall method, pass it into user page
-  //TODO:3. 
   //TODO: WORKSPACE----------------------------------------------
 
 
@@ -109,7 +107,13 @@ function App() {
 
         <Route exact path={"/hall"}>
           {currentUser?.id ? (
-            <Hall currentUser={currentUser} userHalls={userHalls} currentHall={currentHall} activeRoom={activeRoom}/>
+            <Hall 
+            currentUser={currentUser} 
+            userHalls={userHalls} 
+            currentHall={currentHall} 
+            activeRoom={activeRoom}
+              
+            />
           ) : (
             <h1>Loading (spinner)</h1>
           )}

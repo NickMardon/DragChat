@@ -4,7 +4,7 @@ import "./style.css"
 
 export default function DndDropZone(props) {
   return (
-      <Col xs={{span: 8}}>
+      <Col xs={{span: 12}}>
 
      
     <div className="dropArea">

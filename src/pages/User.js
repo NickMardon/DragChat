@@ -18,16 +18,9 @@ export default function User(props) {
     ) : setUserInfo({})
     }, [props.currentUser]);
 
-    // useEffect(() => {
-    // props.currentUser?.id? (
-    //     setUserHall(props.userHalls)
-    // ) : setUserHall({})
-    // }, [props.currentUser]);
-
-    // let Halls = this.state.userHalls.map
 
     return (
-      <div className="backGround">
+      <div className="backGround" style={{marginTop: "6rem"}}>
         <Row>
           <Col s = {24} md ={12} lg={8} style={{width:"100%"}}>
             {userInfo?.name? 
