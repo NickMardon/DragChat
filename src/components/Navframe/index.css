@@ -38,3 +38,7 @@
     color: whitesmoke;
     padding-top: 6px;
 }
+
+span {
+    padding: 0 4px;
+}

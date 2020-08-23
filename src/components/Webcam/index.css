@@ -1,24 +1,12 @@
-.webcam {
-    display: flex;
-}
-
-/* @media (min-width: 100px){
-    video {
-        width: 50%;
-        height: auto;
-        margin-left:25%; 
-     }
-} 
- @media (max-width: 999px){
-    video
-    {width: 80%;
-    height: auto;
-    margin-left:10%;
-}
-
-} */
-
 video {
     width: 50%;
     float: left;
+} 
+ 
+ @media (max-width: 999px){
+    video
+    {width: 100%;
+    height: auto;
+    /* margin-left:10%; */
+}
 }
