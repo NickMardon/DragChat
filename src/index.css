@@ -29,6 +29,7 @@ html,body{
   margin:0;
   padding:0 !important;
   background-color: #F9F9F9 !important;
+  overflow-x: hidden;
 }
 .col {
   border: 3px solid navy;
