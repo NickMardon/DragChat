@@ -22,6 +22,7 @@ export default function Hall(props) {
           userHalls={props.userHalls}
           currentHall={props.currentHall}
           activeRoom={props.activeRoom}
+          setActiveRoom={props.setActiveRoom}
         />
       ) : (
         <h1>loading</h1>

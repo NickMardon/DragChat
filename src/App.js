@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     getAllUserHalls();
   }, [currentUser]);
-  // TODO: calling currentHall forced a recursion and eventual server overload, 
+  // TODO: find out why freshly added hall lags behind a bit.
 
   useEffect(() => {
     if (currentHall&&currentHall.Main[0].id){
@@ -51,7 +51,6 @@ function App() {
     }
   }, [currentHall])
 
-  //TODO: WORKSPACE
   //TODO: WORKSPACE
   
   const getAllUserHalls = () => {
@@ -112,6 +111,7 @@ function App() {
             userHalls={userHalls} 
             currentHall={currentHall} 
             activeRoom={activeRoom}
+            setActiveRoom={setActiveRoom}
               
             />
           ) : (
