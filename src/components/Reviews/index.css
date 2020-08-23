@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
 
-
-#create {
-    font-family: 'Titillium Web', sans-serif;
-    border-radius: 6px;
-    width: 155px;
-    height: 34px;
-    background-color: #0b64a4;
-    text-align: center;
-    font-weight: 500;
+.star {
+    color: gold;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
-
+.reviewCard {
+    font-family: 'Titillium Web', sans-serif;
+    height: 33vh;
+    padding: 35px;
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+}

@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
 
-#tinyColumn {
-    width: 145px;
+#tinyColumn {    
+    font-weight: 500;
+    font-family: 'Titillium Web', sans-serif;
+    border-radius: 6px;
+    width: 155px;
     height: 34px;
     margin: 4px;
+    background-color: #0b64a4;
+    text-align: center;
  }
