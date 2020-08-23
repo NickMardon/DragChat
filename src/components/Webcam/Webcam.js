@@ -1,6 +1,7 @@
 import React from "react";
 import Webcam from "react-webcam";
 import "./index.css";
+import { Col } from 'antd';
 
 const WebcamCapture = () => {
     const webcamRef = React.useRef(null);
@@ -12,21 +13,15 @@ const WebcamCapture = () => {
     }, [webcamRef, setImgSrc]);
   
     return (
-      <>
       <div className="webcam">
+          <Col s = {24} md ={12} lg={12} style={{width:"100%"}}>
         <Webcam
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
         />
+        </Col>
         </div>
-        {/* <button onClick={capture}>Capture photo</button> */}
-        {/* {imgSrc && (
-          <img
-            src={imgSrc}
-          />
-        )} */}
-      </>
     );
   };
 

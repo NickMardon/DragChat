@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
+
+.card {
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 36px;
+    background-color: #f4f4f8;
+
+}
+
+.cardRow {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    font-size: 22px;
+    color: #0b64a4;
+}
+
+p {
+    font-size: 22px;
+    padding: 10px;
+    margin: 10px 0 4px 6px;
+    color: black;
+}
+
+.ant-card-head-title {
+    font-weight: 600;
+    padding: 4px;
+    font-size: 26px;
+}
