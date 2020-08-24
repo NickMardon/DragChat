@@ -29,13 +29,13 @@ export default function User(props) {
     return (
       <div className="backGround">
         <Row>
-          <Col s = {24} md ={12} lg={8} style={{width:"100%"}}>
+          <Col s = {24} md ={24} lg={24} style={{width:"100%"}}>
             {userInfo?.name? 
             <UserInfo user={userInfo} /> : 
             <h1>please wait while we load your information (unless you are not logged in)</h1>}
           </Col>
             {props.userHalls&&props.userHalls[0]?
-            props.userHalls.map(halls => <Col s = {24} md ={12} lg={8} style={{width:"100%"}}><UserHalls props={halls}/></Col>):<h1>it's madness</h1>}
+            props.userHalls.map(halls => <Col s = {24} md ={12} lg={8} style={{width:"100%"}}><UserHalls props={halls}/></Col>):<span></span>}
       </Row>
     </div>
     );

@@ -14,6 +14,7 @@ import API from "./utils/api";
 // import { HTML5Backend } from "react-dnd-html5-backend";
 // import Rooms from './components/dnd/rooms/rooms'
 import { useHistory } from "react-router-dom";
+import { Row } from "antd";
 
 function App() {
   let history = useHistory();
@@ -92,7 +93,9 @@ function App() {
 
   return (
     <Router>
+      <Row>
       <NavFrame logout={logout} currentUser={currentUser} />
+      </Row>
       <Switch>
         <Route exact path={"/"}>
           <Home
