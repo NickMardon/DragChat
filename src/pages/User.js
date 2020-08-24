@@ -4,6 +4,7 @@ import UserHalls from "../components/UserHalls/userHalls"
 import API from '../utils/api'
 import "../index.css"
 import { Row, Col } from 'antd';
+import Footer from "../components/Footer/Footer";
 export default function User(props) {
   
 
@@ -37,6 +38,9 @@ export default function User(props) {
             {props.userHalls&&props.userHalls[0]?
             props.userHalls.map(halls => <Col s = {24} md ={12} lg={8} style={{width:"100%"}}><UserHalls props={halls}/></Col>):<span></span>}
       </Row>
+      <Row>
+        <Footer />
+        </Row>
     </div>
     );
 

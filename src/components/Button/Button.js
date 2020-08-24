@@ -5,7 +5,7 @@ import "./index.css";
 export default function Buttons() {
     return (
         <div>
-            <Button className="deleteBtn" onClick="createRoom()" type="text">
+            <Button className="deleteBtn" onClick="createRoom()" type="connect">
                 Delete
             </Button>
         </div>
