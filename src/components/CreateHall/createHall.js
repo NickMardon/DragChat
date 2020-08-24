@@ -101,10 +101,10 @@ const CreateHall = (props) => {
               textAlign: "right"
             }}
           >
-            <Button onClick={onHallFormClose} style={{ marginRight: 8 }}>
+            <Button onClick={onHallFormClose} style={{ marginRight: 8, width: '100px'}}>
               Cancel
             </Button>
-            <Button className="drawerBtnBlue" onClick={onHallFormClose} type="primary">
+            <Button className="drawerBtnBlue" onClick={onHallFormClose} style={{width: '100px'}} type="primary">
               Submit
             </Button>
           </div>

@@ -25,6 +25,7 @@
     .footerBox {
         height: 40px;
         position: sticky;
+        bottom:0;
     }
 
     #footerText {

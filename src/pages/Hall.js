@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Jitsi from "../components/Jitsi/jitsi";
-import Avatar from "../components/Avatar/avatar";
 import API from "../utils/api";
 // import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
 //DnD imports

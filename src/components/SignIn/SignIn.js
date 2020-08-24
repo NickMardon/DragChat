@@ -96,10 +96,10 @@ const SignInDrawerForm = (props) => {
               textAlign: "left",
             }}
           >
-            <Button onClick={onClose} style={{ marginRight: 8 }}>
+            <Button onClick={onClose} style={{ marginRight: 8, width: '100px'}}>
               Cancel
             </Button>
-            <Button className="drawerBtnBlue" onClick={onClose} type="primary">
+            <Button className="drawerBtnBlue" onClick={onClose} style={{ width: '100px'}} type="primary">
               Submit
             </Button>
           </div>
