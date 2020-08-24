@@ -10,7 +10,11 @@
     font-family: 'Titillium Web', sans-serif;
     height: 33vh;
     padding: 35px;
-    position: sticky;
-    bottom: 0;
     text-align: center;
+}
+
+@media only screen and (max-width: 999px) {
+    .reviewCard {
+        padding-bottom: 50px !important;
+    }
 }
