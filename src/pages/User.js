@@ -42,6 +42,4 @@ export default function User(props) {
     </div>
   );
 
-  //this brace ends the conditional reroute, hook use in early return failed
-  //   }
 }

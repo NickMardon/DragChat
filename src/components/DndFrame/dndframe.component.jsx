@@ -40,14 +40,14 @@ export default function DndFrame(props) {
     <DndProvider backend={HTML5Backend}>
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">
-          <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
+          {/* <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
             <h6>I will be adropdown menu, with props.</h6>
-          </Row>
+          </Row> */}
 
           <Row gutter={[8, 8]} justify="space-between">
             <Col
-              xs={{ span: 10 }}
-              style={{ height: "100%", backgroundColor: "lightgray" }}
+              xs={{ span: 24 }}
+              style={{ height: "100%", backgroundColor: "transparent" }}
             >
               <div style={{ height: "230px" }} className="currentRoomBox">
                 <Divider orientation="middle">Current Room</Divider>
@@ -56,7 +56,7 @@ export default function DndFrame(props) {
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
                   : "Loading"}
-
+                  <br></br>
                 {/* draggable badge component below. */}
                 <DndDragBadge
                   currentUser={props.currentUser}
@@ -67,7 +67,7 @@ export default function DndFrame(props) {
 
             {/* THIS BLOCK RENDERS THE DROP ZONES PER ROOM, SEE MAP */}
             <Col
-              xs={{ span: 14 }}
+              xs={{ span: 22 }}
               style={{ textAlign: "center", paddingRight: "0.5rem" }}
             >
               <Row gutter={[8, 16]} className="roomRow">

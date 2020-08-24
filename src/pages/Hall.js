@@ -10,11 +10,7 @@ export default function Hall(props) {
   return (
     <div>
       <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} />
-    
-    {/* <h1>{JSON.stringify(props.activeRoom)}  </h1>
-    <h1>{JSON.stringify(props.currentUser)}  </h1> */}
-
-    
+  
       {props.currentUser &&
       props.currentUser.name &&
       props.activeRoom &&
@@ -32,7 +28,3 @@ export default function Hall(props) {
     </div>
   );
 }
-
-// {/* <DndProvider backend={HTML5Backend}>
-// <Rooms />
-// </DndProvider> */}

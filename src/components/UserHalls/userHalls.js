@@ -12,12 +12,18 @@ export default function UserHalls(props) {
         history.push(`/hall/${props.props.id}`)
     }
 
+    const deleteBtnClick = () => {
+        console.log("hey this is the deleteBtnClick")
+        // TODO: make API CALL TO DELETE ROUTER where id=id, AND LOCATION.RELOAD
+        // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
+        // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
+    }
   return (
     <div className="col">
       {props.props && props.props.name ? (
         <Card
           title={props.props.name}
-          extra={<Button text="connect" onClick={connectBtnClick} />}
+          extra={<Button buttonType="connect" text="connect" onClick={connectBtnClick} />}
           style={{
             width: "96%",
             margin: "2%",
@@ -33,6 +39,9 @@ export default function UserHalls(props) {
           </Row>
           <Row>
             <p>Description: {props.props.description}</p>
+          </Row>
+          <Row justify="end">
+          <Button buttonType="delete" text="delete" onClick={deleteBtnClick} />
           </Row>
         </Card>
       ) : (
