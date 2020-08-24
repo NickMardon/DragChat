@@ -14,9 +14,6 @@ export const RoomContext = createContext({
   markAsConnected: null,
 });
 
-//TODO:
-//TODO:do I need to have the markasconnected constant live at the top level?
-//TODO:
 
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
@@ -56,7 +53,7 @@ export default function DndFrame(props) {
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
                   : "Loading"}
-                  <br></br>
+                <br></br>
                 {/* draggable badge component below. */}
                 <DndDragBadge
                   currentUser={props.currentUser}
