@@ -30,7 +30,7 @@ export default function DndDropZone(props) {
           <>
             <br></br>
             <br></br>
-            <span>{props.id}</span>
+            <span className="dropAreaId">{props.id}</span>
             <br></br>
             <br></br>
           </>

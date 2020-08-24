@@ -1,15 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
+
+.ant-divider-inner-text {
+    font-size: 30px;
+    font-weight: 600;
+}
+
 .dndFrame {
+    color: black;
+    font-family: 'Titillium Web', sans-serif;
     /* This is styling for the basic container that holds the menu change ad well as the DND. */
-    width: 38vw;
-
-
-    background-color: #c5c5d4;
-    border-radius: 10px;
+    width: auto;
+    /* background-color: #c5c5d4; */
+    border-radius: 6px;
     /* display:flex; */
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
     
 }
 
 .currentRoomBox {
     text-align: center;
+    font-size: 20px;
 }
