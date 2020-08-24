@@ -11,12 +11,14 @@ export default function Home(props) {
   return (
     <div>
       {/* <Jitsi /> */}
+      <Row>
       <Description 
       isLoggedIn={isLoggedIn} 
       setCurrentUser={props.setCurrentUser} 
       currentUser={props.currentUser} 
       getHalls={props.getHalls}
       />
+      </Row>
       <Row>
       <Webcam />
       <Card />
