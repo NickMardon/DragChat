@@ -34,22 +34,21 @@
     font-size: 34px;
 
 }
-#user, #hall {
+#user, .logout {
     float: right;
     margin: 0 18px;
     text-decoration: none;
     color: whitesmoke;
-    padding-top: 6px;
+    padding-top: 8px;
 }
 
 span {
     font-family: 'Titillium Web', sans-serif;
-    padding: 0 4px;
 }
 
 @media only screen and (max-width: 999px) {
 
-    span {
+    .cname {
     visibility: hidden;
     } 
 
