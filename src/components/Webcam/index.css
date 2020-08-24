@@ -4,9 +4,8 @@ video {
 } 
  
  @media (max-width: 999px){
-    video
-    {width: 100%;
+    video {
+    width: 100%;
     height: auto;
-    /* margin-left:10%; */
-}
+    }
 }

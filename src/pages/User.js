@@ -3,6 +3,7 @@ import UserInfo from "../components/UserInfo/userInfo";
 import UserHalls from "../components/UserHalls/userHalls";
 import API from "../utils/api";
 import "../index.css";
+import Footer from "../components/Footer/Footer";
 import { Row, Col } from "antd";
 export default function User(props) {
   const [userInfo, setUserInfo] = useState({});
@@ -17,7 +18,7 @@ export default function User(props) {
   }, [props.currentUser]);
 
   return (
-    <div className="backGround" style={{ marginTop: "6rem" }}>
+    <div className="backGround">
       <Row>
         <Col s={24} md={24} lg={24} style={{ width: "100%" }}>
           {userInfo?.name ? (
@@ -39,6 +40,9 @@ export default function User(props) {
           <span></span>
         )}
       </Row>
+      <Row>
+        <Footer />
+        </Row>
     </div>
   );
 
