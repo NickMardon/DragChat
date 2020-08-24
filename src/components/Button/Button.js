@@ -1,11 +1,12 @@
 import { Button } from 'antd';
-import React from 'react'
+import React from 'react';
+import "./index.css";
 
 export default function Buttons() {
     return (
         <div>
-            <Button onClick="createRoom()" type="text" danger>
-                Temp Button
+            <Button className="deleteBtn" onClick="createRoom()" type="text">
+                Delete
             </Button>
         </div>
     )

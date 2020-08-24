@@ -32,6 +32,9 @@ html,body{
   overflow-x: hidden;
 }
 .col {
-  border: 3px solid navy;
+  border: 3px solid #e1e1e1;
   margin: 5px;
+}
+.backGround {
+  margin-top: 64px;
 }

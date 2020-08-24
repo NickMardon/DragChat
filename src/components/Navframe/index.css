@@ -46,3 +46,18 @@ span {
     font-family: 'Titillium Web', sans-serif;
     padding: 0 4px;
 }
+
+@media only screen and (max-width: 999px) {
+
+    span {
+    visibility: hidden;
+    } 
+
+    .nav-item {
+        padding-top: 34px;
+    }
+
+    #user {
+        width: min-content;
+    }
+}
