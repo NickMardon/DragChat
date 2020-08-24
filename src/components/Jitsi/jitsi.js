@@ -5,16 +5,13 @@ import './index.css';
 
 
 export default function Jitsi(props) {
-
-  // TODO:still need to use password in meeting coming from backend.
-  // TODO:still need to use password in meeting coming from backend.
-  //TODO: mess with other configurations to pass into jitsi object.
-  // bcrypt the password, which requires dropping models
-
-  //NOTE:: IF RECONNECT DOUBLES BETWEEN TWO MEETINGS -> CONSIDER THIS LOGIC OPTION:: make div ID of meet empty, or try and call the api.connectionmethod(hangup) (something like that)
-
+  let api=null;
 
   useEffect(()=> {
+    if (api) {
+      api.executeCommand('hangup');
+      api.dispose();
+    }
     if (props.activeRoom&&props.activeRoom.name) {
       jitsiMeetFrame(props.activeRoom.name, props.currentUser.name, props.currentUser.email);
     }

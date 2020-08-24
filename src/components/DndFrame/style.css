@@ -1,0 +1,15 @@
+.dndFrame {
+    /* This is styling for the basic container that holds the menu change ad well as the DND. */
+    width: 38vw;
+
+
+    background-color: #c5c5d4;
+    border-radius: 10px;
+    /* display:flex; */
+    margin-top: 6rem;
+    
+}
+
+.currentRoomBox {
+    text-align: center;
+}

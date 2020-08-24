@@ -2,5 +2,5 @@
 
 //declaring item types, useful for complicated react dnd hooks.
 export const ItemTypes = {
-    CARD: 'card',
+    BADGE: 'badge',
 };

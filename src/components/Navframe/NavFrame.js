@@ -5,11 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { Layout } from 'antd/lib';
 // import { Menu, Button } from 'antd/lib';
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 // const { Header, Footer, Content } = Layout;
 // const { Header } = Menu;
 import "./index.css";
-    
 
 function Navbar(props) {
   return (
@@ -17,24 +16,19 @@ function Navbar(props) {
       <div className="navbar-nav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link
-              to="/"
-              id = "home"            >
+            <Link to="/" id="home">
               Videezy
-            </Link>            
-            <Link
-              to="/user"
-              id = "user"
-            >
+            </Link>
+            <Link to="/user" id="user">
               <FontAwesomeIcon icon={faUser} />
 
-          {props.currentUser?.name?<span className="navSpan">  {props.currentUser.name}</span>:<span></span>}
-
+              {props.currentUser?.name ? (
+                <span> {props.currentUser.name}</span>
+              ) : (
+                <span></span>
+              )}
             </Link>
-            <Link
-              to="/hall"
-              id = "hall"
-               >
+            <Link to="/hall" id="hall">
               <FontAwesomeIcon icon={faVideo} />
             </Link>
           </li>

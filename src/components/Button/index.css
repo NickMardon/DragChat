@@ -1,5 +1,10 @@
-.deleteBtn {
-    background-color: red;
+.connect {
+    background-color: rgb(0, 51, 146);
+    color: whitesmoke;
+    border-radius: 4px;
+}
+.delete {
+    background-color: rgb(172, 0, 0);
     color: whitesmoke;
     border-radius: 4px;
 }
