@@ -4,11 +4,9 @@ import { ItemTypes } from "../../utils/items";
 
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import './style.css'
+import "./style.css";
 
 export default function DndDragBadge(props) {
-
-
   const [{ isDragging }, drag] = useDrag({
     //item here is just an object, we can pass whatever, but a TYPE from the util type file is required. passing only user id currently.
     item: {
@@ -21,15 +19,13 @@ export default function DndDragBadge(props) {
     }),
   });
 
-
   return (
-      <Avatar
-        shape="square"
-        className={`dragBadge + ${isDragging ? 'dragging':''}`}
-        size={60}
-        icon={<UserOutlined />}
-        ref={drag}
-      ></Avatar>
-    
+    <Avatar
+      shape="square"
+      className={`dragBadge + ${isDragging ? "dragging" : ""}`}
+      size={60}
+      icon={<UserOutlined />}
+      ref={drag}
+    ></Avatar>
   );
 }

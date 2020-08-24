@@ -4,31 +4,27 @@ import { ItemTypes } from "../../utils/items";
 import { Col } from "antd";
 import "./style.css";
 
-
-
-import { RoomContext } from '../DndFrame/dndframe.component'
-
+import { RoomContext } from "../DndFrame/dndframe.component";
 
 export default function DndDropZone(props) {
-      const { markAsConnected } = useContext(RoomContext);
+  const { markAsConnected } = useContext(RoomContext);
 
-        const [{ isOver }, drop] = useDrop({
-          accept: ItemTypes.BADGE,
+  const [{ isOver }, drop] = useDrop({
+    accept: ItemTypes.BADGE,
 
-          drop: (item, monitor) => markAsConnected(props.id),
+    drop: (item, monitor) => markAsConnected(props.id),
 
-          collect: (monitor) => ({
-            isOver: !!monitor.isOver(),
-          }),
-        });
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  });
 
   return (
     <Col xs={{ span: 12 }}>
       <div
         className={`dropArea`}
-
         //  className={`dropArea + ${isOver ? 'isOver':''}`}
-        //  TODO: 
+        //  TODO:
         ref={drop}
       >
         {props.name && props.id ? (
@@ -43,12 +39,7 @@ export default function DndDropZone(props) {
           <span>???</span>
         )}
 
-
-
         {props.children}
-
-
-
       </div>
     </Col>
   );

@@ -36,9 +36,9 @@ const API = {
     getAllUserHalls: function() {
         return axios.get(`${urlPrefix}/api/halls/allhalls`, { withCredentials: true })
     },
-    //get a single hall belonging to a user TODO:not in use
-    getThisUserHall: function(id) {
-        return axios.get(`${urlPrefix}/api/halls/${id}/rooms`, { withCredentials: true })
+    //get a single hall by id
+    getHallById: function(id) {
+        return axios.get(`${urlPrefix}/api/halls/${id}`)
     }
 // ------------------------------------------
     //Room Related API calls

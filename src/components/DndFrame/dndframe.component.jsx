@@ -18,7 +18,6 @@ export const RoomContext = createContext({
 //TODO:do I need to have the markasconnected constant live at the top level?
 //TODO:
 
-
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
     //   console.log('hi')
@@ -31,18 +30,15 @@ export default function DndFrame(props) {
       const activeRoom = props.currentHall.Main.filter(
         (room, i) => room.id === id
       );
-    //   handling the disconnect, set it to nothing first 
+      //   handling the disconnect, set it to nothing first
       props.setActiveRoom({});
       props.setActiveRoom(activeRoom[0]);
-    } 
-    
+    }
   };
 
   return (
-
     <DndProvider backend={HTML5Backend}>
       <RoomContext.Provider value={{ markAsConnected }}>
-
         <div className="dndFrame">
           <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
             <h6>I will be adropdown menu, with props.</h6>
@@ -51,7 +47,7 @@ export default function DndFrame(props) {
           <Row gutter={[8, 8]} justify="space-between">
             <Col
               xs={{ span: 10 }}
-              style={{ height: '100%', backgroundColor: "lightgray" }}
+              style={{ height: "100%", backgroundColor: "lightgray" }}
             >
               <div style={{ height: "230px" }} className="currentRoomBox">
                 <Divider orientation="middle">Current Room</Divider>
@@ -59,7 +55,7 @@ export default function DndFrame(props) {
                 {/* TODO: PUT THE COPY SHARE LINK HERE */}
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
-                  : "Name"}
+                  : "Loading"}
 
                 {/* draggable badge component below. */}
                 <DndDragBadge
@@ -90,9 +86,7 @@ export default function DndFrame(props) {
             </Col>
           </Row>
         </div>
-
       </RoomContext.Provider>
     </DndProvider>
-
   );
 }

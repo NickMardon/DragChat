@@ -1,5 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState, useEffect, Component } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  useHistory,
+  useParams,
+} from "react-router-dom";
 import { Switch } from "react-router-dom";
 import Hall from "./pages/Hall";
 import Home from "./pages/Home";
@@ -13,7 +18,6 @@ import API from "./utils/api";
 // //have to pass a backend to it, here is where we switch out for the combo one later
 // import { HTML5Backend } from "react-dnd-html5-backend";
 // import Rooms from './components/dnd/rooms/rooms'
-import { useHistory } from "react-router-dom";
 
 function App() {
   let history = useHistory();
@@ -24,12 +28,10 @@ function App() {
 
   const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
 
+  // const [currentHall, setCurrentHall] = useState();
 
-  const [currentHall, setCurrentHall] = useState()
+  // const [activeRoom, setActiveRoom] = useState();
 
-  const [activeRoom, setActiveRoom ] = useState()
-
-  
   // one for getting current user
   useEffect(() => {
     API.getCurrentUser().then((res) => {
@@ -41,43 +43,58 @@ function App() {
   useEffect(() => {
     getAllUserHalls();
   }, [currentUser]);
-  // TODO: find out why freshly added hall lags behind a bit.
 
-  useEffect(() => {
-    if (currentHall&&currentHall.Main[0].id){
-      setActiveRoom(currentHall.Main[0])
-    } else {
-      setActiveRoom({})
-    }
-  }, [currentHall])
-
-  //TODO: WORKSPACE
-  
   const getAllUserHalls = () => {
-    currentUser?.id? 
-    API.getAllUserHalls(currentUser.id).then((res) => {
-        //ADDS A 'CURRENT' status of FALSE to the room list except first one.
-        const hallsCurrent = res.data.map(hall => {
-          if (hall === res.data[0]) {
-            hall.current = true
-
-            // this todo block sets the current hall to the first one in the list
-            setCurrentHall(hall)
-            setActiveRoom(hall.Main[0])
-          } else {
-            hall.current = false
-          }
-        })
-        setUserHalls(res.data);
+    currentUser?.id
+      ? API.getAllUserHalls(currentUser.id).then((res) => {
+          setUserHalls(res.data);
         })
       : setUserHalls({});
-  }
+  };
 
+
+
+
+
+
+
+
+  function HallLoader() {
+    const [currentHall, setCurrentHall] = useState();
+
+    const [activeRoom, setActiveRoom] = useState();
+
+    let { hallId } = useParams();
+
+    API.getHallById(hallId).then((res) => {
+      setCurrentHall(res.data);
+
+      if (currentHall && currentHall.Main[0].id) {
+        setActiveRoom(currentHall.Main[0]);
+      } else {
+        setActiveRoom({});
+      }
+    });
+    return (
+      <>
+        {currentHall? (
+          <Hall
+            currentUser={currentUser}
+            userHalls={[]}
+            currentHall={currentHall}
+            activeRoom={activeRoom}
+            setActiveRoom={setActiveRoom}
+          />
+        ) : (
+          <h1>loading</h1>
+        )}
+      </>
+    );
+  }
 
   //TODO: WORKSPACE END-------------COMMENTS----------------------
   //TODO:2. make a deletehall method, pass it into user page
   //TODO: WORKSPACE----------------------------------------------
-
 
   const logout = () => {
     API.logout().then((res) => {
@@ -104,20 +121,10 @@ function App() {
           <User userHalls={userHalls} currentUser={currentUser} />
         </Route>
 
-        <Route exact path={"/hall"}>
-          {currentUser?.id ? (
-            <Hall 
-            currentUser={currentUser} 
-            userHalls={userHalls} 
-            currentHall={currentHall} 
-            activeRoom={activeRoom}
-            setActiveRoom={setActiveRoom}
-              
-            />
-          ) : (
-            <h1>Loading (spinner)</h1>
-          )}
+        {/* PATH not exact path, to hall/:username/:id send window.location.href or. */}
 
+        <Route path={"/hall/:hallId"}>
+          <HallLoader />
         </Route>
       </Switch>
     </Router>
@@ -125,6 +132,9 @@ function App() {
 }
 export default App;
 
+// setCurrentHall(hall)
+// setActiveRoom(hall.Main[0])
 
+// probs dont need
 
-
+// this wanted to be the hall Component, but guttin them cats man. mee YOUCH
