@@ -28,8 +28,6 @@ function Navbar(props) {
             >
               <FontAwesomeIcon icon={faUser} />
 
-
-       
           {props.currentUser?.name?<span>  {props.currentUser.name}</span>:<span></span>}
 
             </Link>
