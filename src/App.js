@@ -11,6 +11,11 @@ import Home from "./pages/Home";
 import User from "./pages/User";
 import "antd/dist/antd.css";
 import NavFrame from "./components/Navframe/NavFrame";
+
+// import { DndProvider } from 'react-dnd';
+// import MultiBackend from 'react-dnd-multi-backend';
+// import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch'
+
 import API from "./utils/api";
 
 import { Row } from "antd";
@@ -86,11 +91,14 @@ function App() {
 
   const logout = () => {
     API.logout().then((res) => {
-      setCurrentUser();
+      setCurrentUser({});
+      //redirecting home after logout.
+      window.location.reload(true);
     });
   };
 
   return (
+    // <DndProvider backend={MultiBackend} options={HTML5toTouch}>
     <Router>
       <Row>
         <NavFrame logout={logout} currentUser={currentUser} isLoggedIn={isLoggedIn}/>
@@ -120,6 +128,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    // </DndProvider>
   );
 }
 export default App;

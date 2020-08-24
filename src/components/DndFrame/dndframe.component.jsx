@@ -11,7 +11,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from 'react-dnd-touch-backend';
 
-// responsive backend set
+// responsive backend set -- NOT WORKING;
 // import { DndProvider } from 'react-dnd-multi-backend';
 // import TouchBackend from 'react-dnd-touch-backend';
 // import HTML5toTouch from 'react-dnd-multi-backend';
@@ -20,9 +20,6 @@ export const RoomContext = createContext({
   markAsConnected: null,
 });
 
-//TODO:
-//TODO:do I need to have the markasconnected constant live at the top level?
-//TODO:
 
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
@@ -40,15 +37,8 @@ export default function DndFrame(props) {
       props.setActiveRoom(activeRoom[0]);
     }
   };
-
-
-
- 
-
-
   
   return (
-    // <DndProvider options={HTML5toTouch}>
     <DndProvider backend={window.innerWidth<600?TouchBackend :HTML5Backend}>
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">

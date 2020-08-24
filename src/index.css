@@ -39,3 +39,7 @@ html,body{
 .drawerBtnBlue {
   background-color: #0b64a4 !important;
 }
+
+li {
+  list-style: none;
+}

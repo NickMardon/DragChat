@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const URLCopyInput = ()=>{
 
     const [inputState, setInputState] = useState({
-        value: window.location.href,
+        value: `${window.location.href}`,
         copied: false,
       })
 
