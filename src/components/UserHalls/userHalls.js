@@ -5,6 +5,7 @@ import { Row, Col } from "antd";
 import "./index.css";
 import { useHistory } from "react-router-dom";
 import { faVideo } from "@fortawesome/free-solid-svg-icons";
+import API from "../../utils/api";
 
 export default function UserHalls(props) {
     let history = useHistory();
@@ -15,10 +16,10 @@ export default function UserHalls(props) {
 
     const deleteBtnClick = () => {
         console.log("hey this is the deleteBtnClick")
-        // TODO: make API CALL TO DELETE ROUTER where id=id, AND LOCATION.RELOAD
-        // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
-        // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
+        API.deleteHallById(props.props.id);
+        window.location.reload();
     }
+    
   return (
     <div className="col">
       {props.props && props.props.name ? (

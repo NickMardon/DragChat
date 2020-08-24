@@ -39,6 +39,11 @@ const API = {
     //get a single hall by id
     getHallById: function(id) {
         return axios.get(`${urlPrefix}/api/halls/${id}`)
+    },
+
+    // delete a single hall by id
+    deleteHallById: function(id) {
+        return axios.delete(`${urlPrefix}/api/halls/delete/${id}`)
     }
 // ------------------------------------------
     //Room Related API calls

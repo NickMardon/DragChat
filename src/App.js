@@ -87,14 +87,13 @@ function App() {
   const logout = () => {
     API.logout().then((res) => {
       setCurrentUser();
-      window.location.reload(true);
     });
   };
 
   return (
     <Router>
       <Row>
-        <NavFrame logout={logout} currentUser={currentUser} />
+        <NavFrame logout={logout} currentUser={currentUser} isLoggedIn={isLoggedIn}/>
       </Row>
       <Switch>
         <Route exact path={"/"}>

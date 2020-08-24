@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-
 function Navbar(props) {
-
   const logoutBtnClick = () => {
     props.logout();
+    window.location.reload(true);
   };
   return (
     <nav className="navbar">
@@ -27,15 +26,14 @@ function Navbar(props) {
                 <span></span>
               )}
             </Link>
-            <Link to="#" className="logout" onClick={logoutBtnClick}>
-              <span>Logout</span>
-            </Link>
+            {!props.currentUser?.name? (
+              <span></span>
+            ) : (
+              <Link to="#" className="logout" onClick={logoutBtnClick}>
+                <span>Logout</span>
+              </Link>
+            )}
           </li>
-          {/* <li className="nav-item">
-            <Button className="logout" onClick={logoutBtnClick} type="text">
-              Logout
-            </Button>
-          </li> */}
         </ul>
       </div>
     </nav>
