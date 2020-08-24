@@ -6,17 +6,15 @@ import "./style.css";
 
 
 
-import RoomContext from '../DndFrame/dndframe.component'
+import { RoomContext } from '../DndFrame/dndframe.component'
 
 
 export default function DndDropZone(props) {
-      console.log(RoomContext)
-
-      
-      // const { markAsConnected } = useContext(RoomContext);
+      const { markAsConnected } = useContext(RoomContext);
 
         const [{ isOver }, drop] = useDrop({
           accept: ItemTypes.BADGE,
+
           // drop: (item, monitor) => markAsConnected(props.id),
 
           collect: (monitor) => ({

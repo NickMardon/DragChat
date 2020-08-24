@@ -1,5 +1,7 @@
 import "./style.css";
+
 import React, { createContext } from "react";
+
 import { Row, Col, Divider } from "antd";
 import DndDropZone from "../DndDropZone/dropzone.component";
 import DndDragBadge from "../DndDragBadge/dnddragbadge.component";
@@ -13,11 +15,13 @@ export const RoomContext = createContext({
 });
 
 //TODO:
-//TODO:do I need to have this live at the top level as well, along with context? whole app?
+//TODO:do I need to have the markasconnected constant live at the top level?
 //TODO:
+
+
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
-    //   return ('hi')
+      console.log('hi')
 //     if (
 //       props.activeRoom &&
 //       props.activeRoom.id &&
