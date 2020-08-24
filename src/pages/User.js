@@ -32,7 +32,7 @@ export default function User(props) {
         </Col>
         {props.userHalls && props.userHalls[0] ? (
           props.userHalls.map((halls) => (
-            <Col s={24} md={12} lg={8} style={{ width: "100%" }}>
+            <Col s={24} md={12} lg={8} style={{ width: "100%" }} key={halls.id}>
               <UserHalls props={halls} />
             </Col>
           ))

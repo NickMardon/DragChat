@@ -24,7 +24,6 @@ export default function DndDropZone(props) {
       <div
         className={`dropArea`}
         //  className={`dropArea + ${isOver ? 'isOver':''}`}
-        //  TODO:
         ref={drop}
       >
         {props.name && props.id ? (
