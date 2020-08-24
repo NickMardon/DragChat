@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
 
 .userdashboard {
+    color: black;
     padding: 16px;
     font-family: 'Titillium Web', sans-serif;
     border: none !important;
 }
 
 .usertext {
-    color: black;
     font-size: 20px;
     margin-bottom: 14px;
 }
