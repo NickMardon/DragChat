@@ -28,9 +28,6 @@ function App() {
 
   const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
 
-  // const [currentHall, setCurrentHall] = useState();
-
-  // const [activeRoom, setActiveRoom] = useState();
 
   // one for getting current user
   useEffect(() => {
@@ -52,13 +49,6 @@ function App() {
       : setUserHalls({});
   };
 
-
-
-
-
-
-
-
   function HallLoader() {
     const [currentHall, setCurrentHall] = useState();
 
@@ -66,18 +56,23 @@ function App() {
 
     let { hallId } = useParams();
 
-    API.getHallById(hallId).then((res) => {
-      setCurrentHall(res.data);
-
-      if (currentHall && currentHall.Main[0].id) {
-        setActiveRoom(currentHall.Main[0]);
-      } else {
-        setActiveRoom({});
+    useEffect(() => {
+      if (currentUser&&userHalls&&!currentHall) {
+        API.getHallById(hallId).then((res) => {
+          const newActiveHall = res.data
+          setCurrentHall(newActiveHall);
+          if (newActiveHall?.Main?.[0]?.id) {
+            setActiveRoom(newActiveHall.Main[0]);
+          } else {
+            setActiveRoom({});
+          }
+        });
       }
-    });
+    }, [currentHall]);
+
     return (
       <>
-        {currentHall? (
+        {currentHall ? (
           <Hall
             currentUser={currentUser}
             userHalls={[]}
@@ -86,7 +81,12 @@ function App() {
             setActiveRoom={setActiveRoom}
           />
         ) : (
-          <h1>loading</h1>
+          <>
+          <h1>evan</h1>
+          <h1>evan</h1>
+          <h1>evan</h1>
+          <h1>{JSON.stringify(userHalls)}</h1>
+          </>
         )}
       </>
     );

@@ -9,10 +9,10 @@ import DnDFrame from "../components/DndFrame/dndframe.component";
 export default function Hall(props) {
   return (
     <div>
-      {/* <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} /> */}
+      <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} />
     
-    <h1>{JSON.stringify(props.activeRoom)}  </h1>
-    <h1>{JSON.stringify(props.currentUser)}  </h1>
+    {/* <h1>{JSON.stringify(props.activeRoom)}  </h1>
+    <h1>{JSON.stringify(props.currentUser)}  </h1> */}
 
     
       {props.currentUser &&
