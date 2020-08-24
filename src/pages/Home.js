@@ -30,12 +30,12 @@ export default function Home(props) {
           reviewer="Dr. Acula"
         />
         <Review
-          review={<q>"This app is really good"</q>}
-          reviewer="The Big Lebowski"
+          review={<q>"Teaching students online has never been easier than with Videezy"</q>}
+          reviewer="Charles Snarleston PhD"
         />
         <Review
-          review={<q>"This app is really good"</q>}
-          reviewer="Kanye West"
+          review={<q>"Working remotely is a breeze with Videezy"</q>}
+          reviewer="Brad Vandez CEO"
         />
       </Row>
       <Footer />
