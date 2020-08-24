@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'antd';
 import Button from "../Button/Button"
-import Avatar from "../Avatar/avatar"
+import Badge from "../Avatar/avatar"
 import { Row, Col } from 'antd';
 
 export default function userInfo(props) {
@@ -13,8 +13,10 @@ export default function userInfo(props) {
 
                 <Card title="User Information" extra={<Button />} style={{ width:"96%", margin: "2%", fontSize: "1.5em", opacity: ".8" }}>
                     <Row className="row" style={{ margin: 10 }} >
-                        <Col span={4}>Avatar</Col>
-                        <Col span={16}><Avatar /></Col>
+                        <Col span={6}>Avatar</Col>
+                        <Col span={16}>{props.user?.name?<Badge currentUser={props.user.name}/>:
+                        <Badge/>}</Col>
+        
 
                     </Row>
                     <Row className="row">
