@@ -1,28 +1,37 @@
 import React, { useContext } from "react";
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../../utils/items";
-// TODO: IMPORT DND CONTEXT AS EXPORTED FROM DNDFRAME
 import { Col } from "antd";
 import "./style.css";
 
+
+
+import RoomContext from '../DndFrame/dndframe.component'
+
+
 export default function DndDropZone(props) {
+      console.log(RoomContext)
 
-  //     const { markAsConnected } = useContext(RoomContext)
+      
+      // const { markAsConnected } = useContext(RoomContext);
 
-  //     const[{isOver}, drop] = useDrop({
-  //     accept: ItemTypes.BADGE,
-  //     drop: (item, monitor) => markAsConnected(item.id),
-  //     collect: monitor => ({
-  //         isOver: !!monitor.isOver()
-  //     })
-  // })
+        const [{ isOver }, drop] = useDrop({
+          accept: ItemTypes.BADGE,
+          // drop: (item, monitor) => markAsConnected(props.id),
+
+          collect: (monitor) => ({
+            isOver: !!monitor.isOver(),
+          }),
+        });
 
   return (
     <Col xs={{ span: 12 }}>
       <div
         className={`dropArea`}
-        // TODO: className={`dropArea + ${isOver ? 'isOver':''}`}
-        //  TODO:ref={drop}
+
+        //  className={`dropArea + ${isOver ? 'isOver':''}`}
+        //  TODO: 
+        ref={drop}
       >
         {props.name && props.id ? (
           <>

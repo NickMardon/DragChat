@@ -8,8 +8,6 @@ import './style.css'
 
 export default function DndDragBadge(props) {
 
-//CURRENT PROPS FROM ABOVE- currentUser={props.currentUser} activeRoom={props.activeRoom}
-
 
   const [{ isDragging }, drag] = useDrag({
     //item here is just an object, we can pass whatever, but a TYPE from the util type file is required. passing only user id currently.
