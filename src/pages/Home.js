@@ -20,7 +20,7 @@ export default function Home(props) {
           getHalls={props.getHalls}
         />
       </Row>
-      <Row gutter={[0, 8]}>
+      <Row>
         <Webcam />
         <Card />
       </Row>

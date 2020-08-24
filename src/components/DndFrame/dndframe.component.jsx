@@ -37,7 +37,6 @@ export default function DndFrame(props) {
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">
           <Row gutter={[0, 16]}>
-          <URLCopyInput />
           </Row>
 
           <Row gutter={[8, 8]} justify="space-between">
@@ -46,7 +45,8 @@ export default function DndFrame(props) {
               style={{ height: "100%", backgroundColor: "transparent" }}
             >
               <div style={{ height: "230px" }} className="currentRoomBox">
-                <Divider orientation="middle">Current Room</Divider>
+                <Divider className="dndTitle" orientation="middle">Current Room</Divider>
+                <URLCopyInput />
                 <br></br>
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
@@ -65,7 +65,7 @@ export default function DndFrame(props) {
               xs={{ span: 22 }}
               style={{ textAlign: "center", paddingRight: "0.5rem" }}
             >
-              <Row gutter={[8, 16]} className="roomRow">
+              <Row gutter={[8, 16]} style={{marginTop:"20px"}} className="roomRow">
                 {props.currentHall &&
                 props.currentHall.Main[0] &&
                 props.activeRoom.id ? (
