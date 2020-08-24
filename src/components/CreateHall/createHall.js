@@ -44,7 +44,7 @@ const CreateHall = (props) => {
     if (hallFormData.name!==""&&hallFormData.password!=="") {
       setHallFormVisible(false);
       handleHallFormSubmit();
-      history.push("/hall")
+      history.push("/user")
     } else {
       setHallFormVisible(false);
     }

@@ -42,7 +42,7 @@ const API = {
     },
     // deleting a single hall by id 
     deleteHallById: function(id) {
-        return axios.get(`${urlPrefix}/api/halls/delete/${id}`, { withCredentials: true })
+        return axios.delete(`${urlPrefix}/api/halls/delete/${id}`, { withCredentials: true })
     }
 // ------------------------------------------
     //Room Related API calls

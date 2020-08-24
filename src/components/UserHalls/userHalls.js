@@ -14,9 +14,9 @@ export default function UserHalls(props) {
     }
 
     const deleteBtnClick = () => {
+      API.deleteHallById(props.props.id).then(()=>{
         // console.log("hey this is the deleteBtnClick")
-        API.deleteHallById(props.props.id).then(()=>{
-          window.location.reload();
+        window.location.reload();
         })
         // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
     }

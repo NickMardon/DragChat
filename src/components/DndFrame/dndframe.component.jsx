@@ -1,7 +1,7 @@
 import "./style.css";
 
 import React, { createContext } from "react";
-
+import URLCopyInput from "../URLCopyInput/URLCopyInput"
 import { Row, Col, Divider } from "antd";
 import DndDropZone from "../DndDropZone/dropzone.component";
 import DndDragBadge from "../DndDragBadge/dnddragbadge.component";
@@ -17,7 +17,6 @@ export const RoomContext = createContext({
 
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
-    //   console.log('hi')
     if (
       props.activeRoom &&
       props.activeRoom.id &&
@@ -37,9 +36,9 @@ export default function DndFrame(props) {
     <DndProvider backend={HTML5Backend}>
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">
-          {/* <Row gutter={[0, 16]} style={{ backgroundColor: "lightblue" }}>
-            <h6>I will be adropdown menu, with props.</h6>
-          </Row> */}
+          <Row gutter={[0, 16]}>
+          <URLCopyInput />
+          </Row>
 
           <Row gutter={[8, 8]} justify="space-between">
             <Col
@@ -49,7 +48,6 @@ export default function DndFrame(props) {
               <div style={{ height: "230px" }} className="currentRoomBox">
                 <Divider orientation="middle">Current Room</Divider>
                 <br></br>
-                {/* TODO: PUT THE COPY SHARE LINK HERE */}
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
                   : "Loading"}

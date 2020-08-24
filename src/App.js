@@ -92,9 +92,9 @@ function App() {
 
   const logout = () => {
     API.logout().then((res) => {
-      setCurrentUser();
+      setCurrentUser({});
       //redirecting home after logout.
-      history.push("/home");
+      window.location.reload();
     });
   };
 
