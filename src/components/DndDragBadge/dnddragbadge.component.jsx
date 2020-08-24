@@ -26,7 +26,7 @@ export default function DndDragBadge(props) {
       <Avatar
         shape="square"
         className={`dragBadge + ${isDragging ? 'dragging':''}`}
-        size={70}
+        size={60}
         icon={<UserOutlined />}
         ref={drag}
       ></Avatar>

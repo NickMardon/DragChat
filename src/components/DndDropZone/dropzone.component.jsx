@@ -15,7 +15,7 @@ export default function DndDropZone(props) {
         const [{ isOver }, drop] = useDrop({
           accept: ItemTypes.BADGE,
 
-          // drop: (item, monitor) => markAsConnected(props.id),
+          drop: (item, monitor) => markAsConnected(props.id),
 
           collect: (monitor) => ({
             isOver: !!monitor.isOver(),

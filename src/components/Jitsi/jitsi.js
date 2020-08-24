@@ -12,9 +12,13 @@ export default function Jitsi(props) {
   // bcrypt the password, which requires dropping models
 
   //NOTE:: IF RECONNECT DOUBLES BETWEEN TWO MEETINGS -> CONSIDER THIS LOGIC OPTION:: make div ID of meet empty, or try and call the api.connectionmethod(hangup) (something like that)
-
+  let api=null;
 
   useEffect(()=> {
+    if (api) {
+      api.executeCommand('hangup');
+      api.dispose();
+    }
     if (props.activeRoom&&props.activeRoom.name) {
       jitsiMeetFrame(props.activeRoom.name, props.currentUser.name, props.currentUser.email);
     }

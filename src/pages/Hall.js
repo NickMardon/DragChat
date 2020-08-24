@@ -10,7 +10,7 @@ export default function Hall(props) {
   return (
     <div>
       <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} />
-
+        
       {/* <Avatar currentUser={props.currentUser}/> */}
 
       {props.currentUser &&

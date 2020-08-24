@@ -21,27 +21,21 @@ export const RoomContext = createContext({
 
 export default function DndFrame(props) {
   const markAsConnected = (id) => {
-      console.log('hi')
-//     if (
-//       props.activeRoom &&
-//       props.activeRoom.id &&
-//       props.currentHall &&
-//       props.currentHall.Main
-//     ) {
-//       const activeRoom = props.currentHall.Main.filter(
-//         (room, i) => room.id === id
-//       );
-//       props.setActiveRoom(activeRoom[0]);
-//     } 
+    //   console.log('hi')
+    if (
+      props.activeRoom &&
+      props.activeRoom.id &&
+      props.currentHall &&
+      props.currentHall.Main
+    ) {
+      const activeRoom = props.currentHall.Main.filter(
+        (room, i) => room.id === id
+      );
+    //   handling the disconnect, set it to nothing first 
+      props.setActiveRoom({});
+      props.setActiveRoom(activeRoom[0]);
+    } 
     
-//     // else {
-//     //   return null;
-//     // }
-
-//     // OR
-
-    // const activeRoom =props.currentHall.Main.filter((room, i) => room.id === id);
-    // props.setActiveRoom(activeRoom[0])
   };
 
   return (
@@ -57,10 +51,9 @@ export default function DndFrame(props) {
           <Row gutter={[8, 8]} justify="space-between">
             <Col
               xs={{ span: 10 }}
-              align="middle"
-              style={{ backgroundColor: "lightgray" }}
+              style={{ height: '100%', backgroundColor: "lightgray" }}
             >
-              <div style={{ height: "100%" }} className="currentRoomBox">
+              <div style={{ height: "230px" }} className="currentRoomBox">
                 <Divider orientation="middle">Current Room</Divider>
                 <br></br>
                 {/* TODO: PUT THE COPY SHARE LINK HERE */}
