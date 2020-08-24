@@ -1,12 +1,14 @@
 .connect {
-    background-color: rgb(0, 51, 146);
+    background-color: #28a745;
     color: whitesmoke;
     border-radius: 4px;
+    width: 105px;
 }
 .delete {
-    background-color: rgb(172, 0, 0);
+    background-color:red;
     color: whitesmoke;
     border-radius: 4px;
+    width: 105px;
 }
 
 button:hover {
