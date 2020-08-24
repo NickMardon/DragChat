@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { Row, Col } from "antd";
 import "./index.css";
 import { useHistory } from "react-router-dom";
+import { faVideo } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserHalls(props) {
     let history = useHistory();

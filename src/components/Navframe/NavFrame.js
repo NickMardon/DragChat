@@ -1,24 +1,15 @@
 import React from "react";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Layout } from 'antd/lib';
-// import { Menu, Button } from 'antd/lib';
 import { Link } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-// const { Header, Footer, Content } = Layout;
-// const { Header } = Menu;
 import "./index.css";
-import { useHistory } from "react-router-dom";
 
 
-  
-  
 function Navbar(props) {
- let history = useHistory(); 
-const logoutBtnClick = () => {
-  history.push(`${props.logout}`)
-}
+
+  const logoutBtnClick = () => {
+    props.logout();
+  };
   return (
     <nav className="navbar">
       <div className="navbar-nav">
@@ -36,10 +27,15 @@ const logoutBtnClick = () => {
                 <span></span>
               )}
             </Link>
-            <Link to="/hall" className="logout" onClick={logoutBtnClick}>
+            <Link to="#" className="logout" onClick={logoutBtnClick}>
               <span>Logout</span>
             </Link>
           </li>
+          {/* <li className="nav-item">
+            <Button className="logout" onClick={logoutBtnClick} type="text">
+              Logout
+            </Button>
+          </li> */}
         </ul>
       </div>
     </nav>
