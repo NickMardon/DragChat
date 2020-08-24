@@ -104,7 +104,7 @@ const CreateHall = (props) => {
             <Button onClick={onHallFormClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={onHallFormClose} type="primary">
+            <Button className="drawerBtnBlue" onClick={onHallFormClose} type="primary">
               Submit
             </Button>
           </div>
