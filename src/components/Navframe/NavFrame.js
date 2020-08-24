@@ -9,8 +9,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 // const { Header, Footer, Content } = Layout;
 // const { Header } = Menu;
 import "./index.css";
+import { useHistory } from "react-router-dom";
 
+
+  
+  
 function Navbar(props) {
+ let history = useHistory(); 
+const logoutBtnClick = () => {
+  history.push(`${props.logout}`)
+}
   return (
     <nav className="navbar">
       <div className="navbar-nav">
@@ -23,13 +31,13 @@ function Navbar(props) {
               <FontAwesomeIcon icon={faUser} />
 
               {props.currentUser?.name ? (
-                <span> {props.currentUser.name}</span>
+                <span className="cname"> {props.currentUser.name}</span>
               ) : (
                 <span></span>
               )}
             </Link>
-            <Link to="/hall" id="hall">
-              <FontAwesomeIcon icon={faVideo} />
+            <Link to="/hall" className="logout" onClick={logoutBtnClick}>
+              <span>Logout</span>
             </Link>
           </li>
         </ul>
