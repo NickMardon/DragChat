@@ -78,10 +78,8 @@ function App() {
           />
         ) : (
           <>
-          <h1>evan</h1>
-          <h1>evan</h1>
-          <h1>evan</h1>
-          <h1>{JSON.stringify(userHalls)}</h1>
+          <h1>loading...</h1>
+         
           </>
         )}
       </>
@@ -130,9 +128,3 @@ function App() {
 }
 export default App;
 
-// setCurrentHall(hall)
-// setActiveRoom(hall.Main[0])
-
-// probs dont need
-
-// this wanted to be the hall Component, but guttin them cats man. mee YOUCH
