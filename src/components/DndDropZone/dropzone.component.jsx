@@ -3,7 +3,7 @@ import { useDrop } from "react-dnd";
 import { ItemTypes } from "../../utils/items";
 import { Col } from "antd";
 import "./style.css";
-
+import RoomIcon from "./roomicon.png"
 import { RoomContext } from "../DndFrame/dndframe.component";
 
 export default function DndDropZone(props) {
@@ -28,10 +28,9 @@ export default function DndDropZone(props) {
       >
         {props.name && props.id ? (
           <>
+            <img src={RoomIcon}></img>
             <br></br>
-            <br></br>
-            <span className="dropAreaId">{props.id}</span>
-            <br></br>
+            <span className="dropAreaId">Room: {props.id}</span>
             <br></br>
           </>
         ) : (

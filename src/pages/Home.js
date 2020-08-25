@@ -5,6 +5,7 @@ import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import { Row, Col } from "antd";
 import Review from "../components/Reviews/Reviews";
+import "./home.css"
 export default function Home(props) {
   const [isLoggedIn] = useState(props.currentUser?.id ? true : false, [
     props.currentUser,
@@ -20,7 +21,7 @@ export default function Home(props) {
           getHalls={props.getHalls}
         />
       </Row>
-      <Row>
+      <Row className="homeWebcamRow">
         <Webcam />
         <Card />
       </Row>

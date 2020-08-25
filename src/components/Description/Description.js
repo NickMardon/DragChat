@@ -20,12 +20,12 @@ export default function Description(props) {
                 <h3 className="rotate">As seen on Manatee Tank !</h3>
             </div>
             <h2>Video Conferences Made Easy!</h2>
-            <h4>Sign in or create an account to get started!  Users can join and create halls to host multiple rooms of video conferences.  Use our intuitive drag and drop interface to change rooms within your hall and utilize our global chat to communicate with other users.</h4>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                 {!isLoggedIn && <SignIn setCurrentUser={props.setCurrentUser} />}
                 {!isLoggedIn && <AccountForm setCurrentUser={props.setCurrentUser} />}
                 {isLoggedIn && <CreateHall getHalls={props.getHalls} />}
             </div>
+            <h4>Sign in or create an account to get started!  Users can join and create halls to host multiple rooms of video conferences.  Use our intuitive drag and drop interface to change rooms within your hall and utilize our global chat to communicate with other users.</h4>
         </div>
     )
 }
