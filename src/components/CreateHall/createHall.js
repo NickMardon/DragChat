@@ -98,11 +98,7 @@ const CreateHall = (props) => {
               textAlign: "right"
             }}
           >
-<<<<<<< HEAD
             <Button onClick={onHallFormClose} style={{ marginRight: 8, width: '100px'}}>
-=======
-            <Button onClick={onHallFormClose} style={{ width: "108px !important", marginRight: 8 }}>
->>>>>>> dev
               Cancel
             </Button>
             <Button className="drawerBtnBlue" onClick={onHallFormClose} style={{width: '100px'}} type="primary">
@@ -166,7 +162,6 @@ const CreateHall = (props) => {
                   <Option value="3">3</Option>
                   <Option value="4">4</Option>
                   <Option value="5">5</Option>
-                  <Option value="6">6</Option>
                 </Select>
               </Form.Item>
             </Col>
