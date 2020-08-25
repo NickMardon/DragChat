@@ -1,6 +1,3 @@
-//TODO: turned this ugly thing from a class component on antdesign's docs to a functional component.
-// Am I just missing the part where I make a state array based on the form's inputs, link the value, and make an onchange?
-
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
@@ -14,12 +11,17 @@ import {
   Select,
 } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-
 import API from "../../utils/api";
+import { useHistory } from "react-router-dom";
 
+
+//needed for picking how many rooms to make
 const { Option } = Select;
 
-const CreateHall = () => {
+const CreateHall = (props) => {
+  //for redirecring 
+  let history = useHistory();
+  
   //These constants are for the drawer feature
   const [hallFormVisible, setHallFormVisible] = useState(false);
 
@@ -36,19 +38,28 @@ const CreateHall = () => {
   };
 
   const onHallFormClose = () => {
-    setHallFormVisible(false);
-    handleHallFormSubmit();
+    if (hallFormData.name!==""&&hallFormData.password!=="") {
+      setHallFormVisible(false);
+      handleHallFormSubmit();
+      window.location.reload();
+    } else {
+      setHallFormVisible(false);
+    }
   };
-
+  
   const handleHallFormSubmit = () =>{
       API.createHall(hallFormData).then(res=>{
-        console.log("Created your hall.")
+        console.log("Created your hall.");
+        setHallFormData({
+          name:"",
+          password: "",
+          description: "",
+          hallSize: 1})
+          //taking the get all halls from above
+          props.getHalls();
+      }).catch(err=>{
+        alert('hall creation failed.')
       });
-      setHallFormData({
-      name:"",
-      password: "",
-      description: "",
-      hallSize: 1});
   }
  
   const handleHallFormChange = event => {
@@ -87,10 +98,10 @@ const CreateHall = () => {
               textAlign: "right"
             }}
           >
-            <Button onClick={onHallFormClose} style={{ marginRight: 8 }}>
+            <Button onClick={onHallFormClose} style={{ width: "100px", marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={onHallFormClose} type="primary">
+            <Button className="drawerBtnBlue" onClick={onHallFormClose} style={{width: '100px'}} type="primary">
               Submit
             </Button>
           </div>
@@ -151,7 +162,6 @@ const CreateHall = () => {
                   <Option value="3">3</Option>
                   <Option value="4">4</Option>
                   <Option value="5">5</Option>
-                  <Option value="6">6</Option>
                 </Select>
               </Form.Item>
             </Col>
@@ -162,7 +172,7 @@ const CreateHall = () => {
               <Form.Item
                 name="description"
                 label="Hall description"
-                rules={[{ required: true, message: "Please enter hall name" }]}
+                rules={[{ required: false }]}
               >
                 {/* <Input value={hallFormData.name} name="hall name" onChange={handleHallFormChange}  /> */}
                 <Input.TextArea

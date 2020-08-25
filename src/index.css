@@ -1,11 +1,12 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: slateblue;
+  height: 1000px;
 }
 
 code {
@@ -23,4 +24,23 @@ code {
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
+}
+
+html,body{
+  margin:0;
+  padding:0 !important;
+  background-color: #F9F9F9 !important;
+  overflow-x: hidden;
+}
+.col {
+  border: 3px solid #e1e1e1;
+  margin: 5px;
+}
+
+.drawerBtnBlue {
+  background-color: #0b64a4 !important;
+}
+
+li {
+  list-style: none;
 }

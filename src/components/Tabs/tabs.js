@@ -1,14 +1,15 @@
 import { Tabs } from 'antd';
 import React from 'react';
 import Grid from "../Grid/Grid"
+import "./index.css"
 const { TabPane } = Tabs;
 
 function callback(key) {
   console.log(key);
 }
 const Demo = () => (
- 
-    <Tabs id="tinyColumn" defaultActiveKey="1" onChange={callback}>
+    <div className="tabs">
+    <Tabs defaultActiveKey="1" onChange={callback}>
       <TabPane tab="Hall 1" key="1">
         <Grid />
       </TabPane>
@@ -22,6 +23,7 @@ const Demo = () => (
         <Grid />
       </TabPane>
     </Tabs>
+    </div>
 );
 
 export default Demo

@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
+
+.userdashboard {
+    color: black;
+    padding: 16px;
+    font-family: 'Titillium Web', sans-serif;
+    border: none !important;
+}
+
+.usertext {
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+@media only screen and (max-width: 999px) {
+    .usertext {
+        margin-right: 46px;
+    }
+}
+
+.userPageAvatar {
+    background-color: #0B64A4;   
+}

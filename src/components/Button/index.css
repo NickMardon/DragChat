@@ -1,0 +1,16 @@
+.connect {
+    background-color: #0e59a0;
+    color: whitesmoke;
+    border-radius: 4px;
+    width: 105px;
+}
+.delete {
+    background-color:red;
+    color: whitesmoke;
+    border-radius: 4px;
+    width: 105px;
+}
+
+button:hover {
+    background-color: red;
+}

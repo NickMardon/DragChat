@@ -1,25 +1,12 @@
-body {
-    background-color:skyblue;
-    padding: 10px;
-}
     @media (min-width: 1000px){
     #container {
         position: absolute;
-        overflow: hidden;
-        top: 7.5%;
-        left: 39.5%;
+        top: 6.5%;
+        left: 49.5%;
         bottom: 0;
         right: 0;
-        width: 60%;
-        height: 90%;
-    }
-    #tinyColumn {
-        width:60%;
-        margin: 5px;
-        margin-top: 10px;
-    }
-    .row {
-        margin:10px;
+        width: 50%;
+        height: 75%; 
     }
     
     #meet {
@@ -28,8 +15,8 @@ body {
         left: 0;
         bottom: 0;
         right: 0;
-        margin-bottom: 5%;
-        border: 5px groove #fab387;
+        /* margin-bottom: 5%; */
+        border: 1px solid #e1e1e1;
         z-index: 0;
     }
 }
@@ -44,9 +31,6 @@ body {
             width: 100%;
             padding: 30%;
         }
-        #tinyColumn {
-            visibility: hidden;
-        }
         #meet {
             position: absolute;
             top: 0;
@@ -60,7 +44,7 @@ body {
     #container {
         position: absolute;
         overflow: hidden;
-        top: 12%;
+        top: 7%;
         left: 0;
         bottom: 0;
         right: 0;
@@ -75,8 +59,5 @@ body {
         bottom: 0;
         right: 0;
 
-    }
-    #tinyColumn {
-        margin-top: 400px;
     }
 }

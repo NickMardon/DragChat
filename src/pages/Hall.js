@@ -1,38 +1,37 @@
-import React, {useState, useEffect} from 'react';
-import Jitsi from "../components/Jitsi/jitsi"
-import Tabs from "../components/Tabs/tabs"
-import Rooms from '../components/dnd/rooms/rooms'
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import Avatar from "../components/Avatar/avatar"
-import API from '../utils/api';
+import React, { useState, useEffect } from "react";
+import Jitsi from "../components/Jitsi/jitsi";
+import API from "../utils/api";
+// import URLCopyInput from "../components/URLCopyInput/URLCopyInput";
+//DnD imports
+import DnDFrame from "../components/DndFrame/dndframe.component";
+import { Row, Col } from "antd";
+import Footer from "../components/Footer/Footer";
+import "../index.css";
 
-
-import {useParams} from "react-router-dom"
-
-
-export default function Room() {
-
-    // const [userHallState, setUserHallState] = useState({})
-    // let { id } = useParams();
-
-    // //TODO:TODO:TODO: useparams, here is this passable from the route itself?
-    // useEffect(()=>{
-    //     API.getAllUserHalls(id).then(res=>{
-    //         console.log(res.data);
-    //     })
-    // })
-
-
-    return (
-        <div>          
-            <Jitsi />
-            <Tabs />
-
-            {/* <DndProvider backend={HTML5Backend}>
-            <Rooms />
-            </DndProvider> */}
-            <Avatar />
-        </div>
-    )
+export default function Hall(props) {
+  return (
+    <div id="hall">
+        <Col s={24} md={24} lg={24} style={{ width: "100%" }}></Col>
+          {props.currentUser &&
+            props.currentUser.name &&
+            props.activeRoom &&
+            props.activeRoom.name ? (
+              <DnDFrame
+                currentUser={props.currentUser}
+                userHalls={props.userHalls}
+                currentHall={props.currentHall}
+                activeRoom={props.activeRoom}
+                setActiveRoom={props.setActiveRoom}
+              />
+            ) : (
+              <h1>loading</h1>
+            )}
+          <Col/>
+          <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} />
+        
+      <Row>
+        <Footer />
+      </Row>
+    </div>
+  );
 }

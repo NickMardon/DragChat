@@ -18,19 +18,21 @@ import {
 import { PlusOutlined } from "@ant-design/icons";
 import API from "../../utils/api";
 
-// const { Option } = Select;
+import { useHistory } from "react-router-dom";
 
-const DrawerForm = () => {
+
+const DrawerForm = (props) => {
+
+  let history = useHistory();
+
   //These constants are for the drawer feature
   const [visible, setVisible] = useState(false);
 
-  //My final attempt to just bind state the normal way that joe showed us, incomplete at present
   const [signupFormData, setSignupFormData] = useState({
     name:"",
     email:"",
     password: "",
     description: ""
-
   })
 
   const showDrawer = () => {
@@ -43,16 +45,35 @@ const DrawerForm = () => {
   };
 
   const handleSignupSubmit = () =>{
+    //This was made to take the email and password from the signup form and use them to login after account creation
+    const signInObj = {email: signupFormData.email, password:signupFormData.password};
+    
     if (signupFormData.name!=="" && signupFormData.email!=="" && signupFormData.password!=="") {
-      //TODO: make api call to frontend api here, post in backend to user. make sure user has name, email, password, description.
+      //separating the signin and signup objects
+
+      //TODO: TEST SUBJECT
+      console.log({signInObj})
+      //TODO: TEST SUBJECT
+
+
       API.saveUser(signupFormData).then(res=>{
-        console.log("user successfully created")
+        API.userLogin(signInObj).then(res=>{
+          console.log("signed in")
+          setSignupFormData({
+          name:"",
+          email:"",
+          password: "",
+          description: ""});
+          props.setCurrentUser(res.data.user);
+          history.push("/user")
+        })
+        .catch(err=>{
+          alert('login failed');
+        })
+        })
+        .catch(err=>{
+          alert('account login redirect failed');
       });
-      setSignupFormData({
-      name:"",
-      email:"",
-      password: "",
-      description: ""});
     }
   }
  
@@ -85,10 +106,10 @@ const DrawerForm = () => {
               textAlign: "right"
             }}
           >
-            <Button onClick={onClose} style={{ marginRight: 8 }}>
+            <Button onClick={onClose} style={{ marginRight: 8, width: '100px'}}>
               Cancel
             </Button>
-            <Button onClick={onClose} type="primary">
+            <Button className="drawerBtnBlue" onClick={onClose} style={{ width: '100px'}} type="primary">
               Submit
             </Button>
           </div>
