@@ -24,22 +24,11 @@
 }
 @media only screen and (min-width: 500px) and (max-width: 999px) {
     .footerBox {
-        background-color: #0b64a4;
-        text-align: center;
-        height: 40px;
-        position: fixed;
-        bottom:0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        Display:hidden;
     }
 
     #footerText {
-        z-index: 0;
-        font-size: 14px;
-        margin-bottom: 0;
-        padding-bottom: 0; 
-        color: whitesmoke;
+        Display:hidden;
     }
 }
 @media only screen and (min-width: 20px) and (max-width: 499px) {
@@ -48,7 +37,7 @@
         height: 50px;
         width: 100vw;
         position: fixed;
-        bottom: -8px;
+        bottom: 0;
     }
 
     .footerContainer {

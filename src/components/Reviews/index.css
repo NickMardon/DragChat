@@ -8,13 +8,12 @@
 
 .reviewCard {
     font-family: 'Titillium Web', sans-serif;
-    height: 33vh;
     padding: 35px;
     text-align: center;
     margin-bottom: 30px;
 }
 
-@media only screen and (max-width: 999px) {
+@media only screen and (max-width: 600px) {
     .reviewCard {
         height:100%;
     }

@@ -30,7 +30,6 @@ html,body{
   margin:0;
   padding:0 !important;
   background-color: #F9F9F9 !important;
-  overflow-x: hidden;
 }
 .col {
   border: 3px solid #e1e1e1;
@@ -43,4 +42,20 @@ html,body{
 
 li {
   list-style: none;
+}
+@media (min-width: 1000px){
+  .chat {
+      position: absolute;
+      margin-top: 20%;
+      width:100%;
+
+  }
+}
+
+@media (max-width: 999px){
+  .chat {
+    position: absolute;
+      width: 100%;
+      margin-top:120%;
+  }
 }

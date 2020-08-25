@@ -7,13 +7,13 @@
         bottom: 0;
         right: 0;
         width: 50%;
-        height: 50%;
+        height: 40%;
         
     }
  
     .dropArea {
         font-family: 'Titillium Web', sans-serif;
-        margin: 0 6%;
+        margin: 10% 6%;
         background-color: #d5d5d5;
         border-radius: 4px;
         width: 18em;
@@ -26,14 +26,14 @@
 }
 .dropAreaId {
        font-size: 22px;
-    font-weight: 500;
+        font-weight: 500;
 }
 @media only screen and (max-width: 499px) and (min-width: 50px){
     .dndFrame {
         position: absolute;
         top: 60%;
         left: 0;
-        bottom: 0;
+        bottom: 0%;
         right: 0;
         width: 100%;
         height: 60%;
@@ -41,7 +41,7 @@
     }
     .dropArea {
         font-family: 'Titillium Web', sans-serif;
-        margin: 5% 6%;
+        margin: 0 6%;
         background-color: #d5d5d5;
         border-radius: 4px;
         width: 9em;
@@ -49,6 +49,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left:27%;
+        margin-left:25%;
     }
 }

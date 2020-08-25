@@ -54,15 +54,23 @@
     } 
 
     .nav-item {
-<<<<<<< HEAD
-        padding-top: 30px;
-=======
         padding-top: 34px;
->>>>>>> dev
     }
 
     #user {
         width: min-content;
     }
-    
+    #user, .logout {
+        
+        margin: 0;
+        color: whitesmoke;
+        padding-top: 8px;
+    }
+    #home {
+        margin-left:-10px;
+    }
+    #user {
+        margin-left:20px;
+    }
+
 }
