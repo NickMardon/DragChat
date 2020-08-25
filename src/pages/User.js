@@ -28,8 +28,7 @@ export default function User(props) {
             </>
           ) : (
             <h1>
-              please wait while we load your information (unless you are not
-              logged in)
+              ...loading (or not logged in)
             </h1>
           )}
         </Col>

@@ -54,7 +54,11 @@
     } 
 
     .nav-item {
+<<<<<<< HEAD
         padding-top: 30px;
+=======
+        padding-top: 34px;
+>>>>>>> dev
     }
 
     #user {
