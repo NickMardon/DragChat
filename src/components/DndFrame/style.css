@@ -8,8 +8,7 @@
 .dndFrame {
     color: black;
     font-family: 'Titillium Web', sans-serif;
-    /* This is styling for the basic container that holds the menu change ad well as the DND. */
-    width: auto;
+    width: 100%;
     /* background-color: #c5c5d4; */
     border-radius: 6px;
     /* display:flex; */
@@ -20,4 +19,18 @@
 .currentRoomBox {
     text-align: center;
     font-size: 20px;
+}
+@media only screen and (max-width: 499px) and (min-width: 50px){
+    .dndFrame {
+        position: absolute;
+        top: 60%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+@media only screen and (max-width: 999px) and (min-width: 500px){
+    .dndFrame {
+        display: hidden;
+    }
 }

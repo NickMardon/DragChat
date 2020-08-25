@@ -1,12 +1,12 @@
     @media (min-width: 1000px){
     #container {
         position: absolute;
-        /* top: 7.5%;
-        left: 39.5%; */
+        top: 6.5%;
+        left: 49.5%;
         bottom: 0;
         right: 0;
-        width: 100%;
-        height: 100%; 
+        width: 50%;
+        height: 75%; 
     }
     
     #meet {
@@ -44,7 +44,7 @@
     #container {
         position: absolute;
         overflow: hidden;
-        top: 12%;
+        top: 7%;
         left: 0;
         bottom: 0;
         right: 0;
@@ -59,8 +59,5 @@
         bottom: 0;
         right: 0;
 
-    }
-    #tinyColumn {
-        margin-top: 400px;
     }
 }

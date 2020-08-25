@@ -1,35 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Titillium+Web&display=swap");
-.footerBox {
-    background-color: #0b64a4;
-    height: 50px;
-    width: 100vw;
-    position: fixed;
-    bottom: 0;
-}
-
-.footerContainer {
-    display: flex;
-    justify-content: center;
-}
-
-#footerText {
-    color: whitesmoke;
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 18px;
-    padding: 8px;
-    margin-top: 3px;
-}
-
-
-@media only screen and (max-width: 999px) {
+@media only screen and (min-width: 1000px)  {
     .footerBox {
-        height: 40px;
-        position: sticky;
+        background-color: #0b64a4;
+        height: 50px;
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+    }
+
+    .footerContainer {
+        display: flex;
+        justify-content: center;
     }
 
     #footerText {
+        color: whitesmoke;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 18px;
+        padding: 8px;
+        margin-top: 3px;
+    }
+
+}
+@media only screen and (min-width: 500px) and (max-width: 999px) {
+    .footerBox {
+        height: 40px;
+        position: fixed;
+        bottom:0;
+    }
+
+    #footerText {
+        z-index: 0;
         font-size: 14px;
         margin-bottom: 0;
-        padding-bottom: 0;
+        padding-bottom: 0; 
+        
+    }
+}
+@media only screen and (min-width: 20px) and (max-width: 499px) {
+    .footerBox {
+        background-color: #0b64a4;
+        height: 50px;
+        width: 100vw;
+        position: fixed;
+        bottom: -8px;
+    }
+
+    .footerContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    #footerText {
+        color: whitesmoke;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 18px;
+        padding: 8px;
+        margin-top: 3px;
     }
 }
