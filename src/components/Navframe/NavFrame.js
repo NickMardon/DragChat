@@ -26,7 +26,7 @@ function Navbar(props) {
                 <span></span>
               )}
             </Link>
-            {!props.currentUser?.name? (
+            {!!props.currentUser?.name? (
               <span></span>
             ) : (
               <Link to="#" className="logout" onClick={logoutBtnClick}>

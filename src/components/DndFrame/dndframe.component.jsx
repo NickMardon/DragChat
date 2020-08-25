@@ -43,11 +43,7 @@ export default function DndFrame(props) {
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">
           <Row gutter={[0, 16]}>
-           
-            <URLCopyInput />
-           
           </Row>
-
           <Row gutter={[8, 8]} justify="space-between">
             <Col
               xs={{ span: 24 }}
@@ -55,6 +51,7 @@ export default function DndFrame(props) {
             >
               <div style={{ height: "230px" }} className="currentRoomBox">
                 <Divider orientation="middle">Current Room</Divider>
+                <URLCopyInput />
                 <br></br>
                 {/* TODO: PUT THE COPY SHARE LINK HERE */}
                 {props.activeRoom && props.activeRoom.name
@@ -67,6 +64,7 @@ export default function DndFrame(props) {
                   activeRoom={props.activeRoom}
                 />
               </div>
+              <br></br>
             </Col>
 
             {/* THIS BLOCK RENDERS THE DROP ZONES PER ROOM, SEE MAP */}
