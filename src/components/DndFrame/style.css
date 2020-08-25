@@ -28,6 +28,9 @@
         bottom: 0;
         right: 0;
     }
+    .ant-col {
+        margin-bottom:50px;
+    }
 }
 @media only screen and (max-width: 999px) and (min-width: 500px){
     .dndFrame {

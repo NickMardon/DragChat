@@ -22,6 +22,7 @@
 }
 .navbar-nav {
     width: 100%;
+
 }
 #home {
     margin-left: 15px;  
@@ -59,4 +60,17 @@
     #user {
         width: min-content;
     }
+    #user, .logout {
+        
+        margin: 0;
+        color: whitesmoke;
+        padding-top: 8px;
+    }
+    #home {
+        margin-left:-10px;
+    }
+    #user {
+        margin-left:20px;
+    }
+
 }

@@ -1,16 +1,14 @@
-@media (min-width: 1000px){
+/* @media (min-width: 1000px){
     .chat {
-        width: 40%;
-        max-height: 600px;
+        position: absolute;
         overflow: scroll;
+        margin-top: 700px;
     }
 }
-.chat {
-    margin-top:10px;
-}
+
 @media (max-width: 999px){
     .chat {
         width: 100%;
 
     }
-}
+} */
