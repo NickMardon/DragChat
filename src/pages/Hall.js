@@ -7,6 +7,7 @@ import DnDFrame from "../components/DndFrame/dndframe.component";
 import { Row, Col } from "antd";
 import Footer from "../components/Footer/Footer";
 import "../index.css";
+// import Chat from "../components/Chat/chat"
 
 export default function Hall(props) {
   return (
@@ -28,7 +29,11 @@ export default function Hall(props) {
             )}
           <Col/>
           <Jitsi activeRoom={props.activeRoom} currentUser={props.currentUser} />
-        
+        {/* <div className="chat">
+          <Chat 
+          name ={props.currentUser.name}
+          hall ={props.userHalls.name}/>
+        </div> */}
       <Row>
         <Footer />
       </Row>
