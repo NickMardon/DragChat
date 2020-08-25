@@ -1,14 +1,20 @@
 import "./style.css";
 
-import React, { createContext } from "react";
+import React, { createContext, useEffect } from "react";
 import URLCopyInput from "../URLCopyInput/URLCopyInput"
 import { Row, Col, Divider } from "antd";
 import DndDropZone from "../DndDropZone/dropzone.component";
 import DndDragBadge from "../DndDragBadge/dnddragbadge.component";
 
-//TODO: set context.
+//original dnd provider set
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from 'react-dnd-touch-backend';
+
+// responsive backend set -- NOT WORKING;
+// import { DndProvider } from 'react-dnd-multi-backend';
+// import TouchBackend from 'react-dnd-touch-backend';
+// import HTML5toTouch from 'react-dnd-multi-backend';
 
 export const RoomContext = createContext({
   markAsConnected: null,
@@ -31,12 +37,15 @@ export default function DndFrame(props) {
       props.setActiveRoom(activeRoom[0]);
     }
   };
-
+  
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={window.innerWidth<600?TouchBackend :HTML5Backend}>
       <RoomContext.Provider value={{ markAsConnected }}>
         <div className="dndFrame">
           <Row gutter={[0, 16]}>
+           
+            <URLCopyInput />
+           
           </Row>
 
           <Row gutter={[8, 8]} justify="space-between">
@@ -45,13 +54,13 @@ export default function DndFrame(props) {
               style={{ height: "100%", backgroundColor: "transparent" }}
             >
               <div style={{ height: "230px" }} className="currentRoomBox">
-                <Divider className="dndTitle" orientation="middle">Current Room</Divider>
-                <URLCopyInput />
+                <Divider orientation="middle">Current Room</Divider>
                 <br></br>
+                {/* TODO: PUT THE COPY SHARE LINK HERE */}
                 {props.activeRoom && props.activeRoom.name
                   ? props.activeRoom.name
                   : "Loading"}
-                <br></br>
+                  <br></br>
                 {/* draggable badge component below. */}
                 <DndDragBadge
                   currentUser={props.currentUser}
@@ -65,7 +74,7 @@ export default function DndFrame(props) {
               xs={{ span: 22 }}
               style={{ textAlign: "center", paddingRight: "0.5rem" }}
             >
-              <Row gutter={[8, 16]} style={{marginTop:"20px"}} className="roomRow">
+              <Row gutter={[8, 16]} className="roomRow">
                 {props.currentHall &&
                 props.currentHall.Main[0] &&
                 props.activeRoom.id ? (
@@ -82,6 +91,6 @@ export default function DndFrame(props) {
           </Row>
         </div>
       </RoomContext.Provider>
-    </DndProvider>
+   </DndProvider>
   );
 }

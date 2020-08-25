@@ -29,7 +29,6 @@ function App() {
 
   const [isLoggedIn] = useState(currentUser?.id ? true : false, [currentUser]);
 
-
   // one for getting current user
   useEffect(() => {
     API.getCurrentUser().then((res) => {
@@ -58,9 +57,9 @@ function App() {
     let { hallId } = useParams();
 
     useEffect(() => {
-      if (currentUser&&userHalls&&!currentHall) {
+      if (currentUser && userHalls && !currentHall) {
         API.getHallById(hallId).then((res) => {
-          const newActiveHall = res.data
+          const newActiveHall = res.data;
           setCurrentHall(newActiveHall);
           if (newActiveHall?.Main?.[0]?.id) {
             setActiveRoom(newActiveHall.Main[0]);
@@ -83,8 +82,7 @@ function App() {
           />
         ) : (
           <>
-          <h1>loading...</h1>
-         
+            <h1>loading...</h1>
           </>
         )}
       </>
@@ -103,7 +101,7 @@ function App() {
     // <DndProvider backend={MultiBackend} options={HTML5toTouch}>
     <Router>
       <Row>
-      <NavFrame logout={logout} currentUser={currentUser} />
+        <NavFrame logout={logout} currentUser={currentUser} isLoggedIn={isLoggedIn}/>
       </Row>
       <Switch>
         <Route exact path={"/"}>
@@ -116,7 +114,11 @@ function App() {
         </Route>
 
         <Route exact path={"/user"}>
-          <User userHalls={userHalls} currentUser={currentUser} />
+          <User
+            userHalls={userHalls}
+            getHalls={getAllUserHalls}
+            currentUser={currentUser}
+          />
         </Route>
 
         {/* PATH not exact path, to hall/:username/:id send window.location.href or. */}
@@ -130,4 +132,3 @@ function App() {
   );
 }
 export default App;
-

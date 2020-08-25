@@ -4,6 +4,7 @@ import UserHalls from "../components/UserHalls/userHalls";
 import API from "../utils/api";
 import "../index.css";
 import Footer from "../components/Footer/Footer";
+import CreateHall from "../components/CreateHall/createHall";
 import { Row, Col } from "antd";
 export default function User(props) {
   const [userInfo, setUserInfo] = useState({});
@@ -22,7 +23,9 @@ export default function User(props) {
       <Row>
         <Col s={24} md={24} lg={24} style={{ width: "100%" }}>
           {userInfo?.name ? (
-            <UserInfo user={userInfo} />
+            <>
+            <UserInfo user={userInfo} getHalls={props.getHalls}/>
+            </>
           ) : (
             <h1>
               please wait while we load your information (unless you are not

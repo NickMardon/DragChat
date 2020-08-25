@@ -10,7 +10,7 @@ function Footer() {
                 </div>
             </footer>
         </div>
-    )
+  );
 }
 
 export default Footer;
