@@ -14,12 +14,11 @@ export default function UserHalls(props) {
     }
 
     const deleteBtnClick = () => {
-      API.deleteHallById(props.props.id).then(()=>{
-        // console.log("hey this is the deleteBtnClick")
+        console.log("hey this is the deleteBtnClick")
+        API.deleteHallById(props.props.id);
         window.location.reload();
-        })
-        // TODO: make API CALL TO DELETE ROUTER, AND LOCATION.RELOAD
     }
+    
   return (
     <div className="col">
       {props.props && props.props.name ? (
