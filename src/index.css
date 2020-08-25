@@ -6,7 +6,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 1000px;
 }
 
 code {
@@ -52,10 +51,10 @@ li {
   }
 }
 
-@media (max-width: 999px){
+/* @media (max-width: 999px){
   .chat {
     position: absolute;
       width: 100%;
       margin-top:120%;
   }
-}
+} */
