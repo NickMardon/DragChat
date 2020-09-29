@@ -21,3 +21,7 @@
 .userPageAvatar {
     background-color: #0B64A4;   
 }
+
+* {
+    box-sizing: border-box;
+}

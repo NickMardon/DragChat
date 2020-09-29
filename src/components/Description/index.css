@@ -15,15 +15,18 @@
 
     .jumbotron {
         margin-top: 35px;
-        height: 33vh;
+        height: 430px;
         width: 100vw;
         padding-bottom: 10px;
         font-family: 'Titillium Web', sans-serif;
         text-align: center;
+        /* background-image: url(./backgroundPhoto.jpeg);
+        background-size: cover;
+        background-position: center; */
     }
     h4 {
         padding: 30px;
-        margin: 0 15%;
+        margin: 0 10%;
         font-size: 20px;
     }
 
